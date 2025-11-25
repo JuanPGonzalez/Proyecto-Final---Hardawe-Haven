@@ -1,0 +1,250 @@
+
+//------------------Usuario-------------------------------
+###GetAll 
+GET http://localhost:3000/api/user/getAll
+Authorization: token eyJhbGciOiJIUzI1NiIsInR5cGUiOiJKV1QifQ.eyJpZCI6MTMsInRpcG9Vc3VhcmlvIjoiQWRtaW5pc3RyYWRvciIsImlhdCI6MTcyODY2NjMxMywiZXhwIjoxNzI5MjcxMTEzfQ.uxSCLFP-6xrBo8r12yfGWAucxoIKnPixFsx1Idqho5E
+
+
+###GetAll 
+GET http://localhost:3000/api/user/getAll
+Authorization: token eyJhbGciOiJIUzI1NiIsInR5cGUiOiJKV1QifQ.eyJpZCI6MTMsInRpcG9Vc3VhcmlvIjoiQWRtaW5pc3RyYWRvciIsImlhdCI6MTcyODYwMjMxOSwiZXhwIjoxNzI5MjA3MTE5fQ.nNYqov05Rc65pmrN9iI2sa27sF8DepYOOmzZBdoYCeg
+
+###GetOne
+GET http://localhost:3000/api/user/getOne/:id
+
+###Post 
+POST  http://localhost:3000/api/user/register
+Content-Type: application/json
+
+{
+    "name":"Pedro3", 
+    "password":"nacho55123",
+    "email":"com@gmail.com",
+    "tipoUsuario":"Administrador"
+}
+
+###
+POST  http://localhost:3000/api/user/login
+Content-Type: application/json
+
+{
+    "name":"Cliente", 
+    "password":"nacho55123"
+}
+
+###Delete
+DELETE  http://localhost:3000/api/user/deleteOne/:id
+
+###Put
+PUT   http://localhost:3000/api/user/update/1
+Content-Type: application/json
+
+{
+"newPassword":"nacho55", 
+"oldPassword":"pedriño", 
+"newUserName":"Ignacio Rodriguez",
+ "newEmail":"asus@gmail55.com",
+ "newUserType":"Cliente"
+}
+
+###PATCH
+PATCH http://localhost:3000/api/user/updateUserName/:id
+Content-Type: application/json
+
+{
+"newUserName":"", 
+"password":""
+}
+
+###PATCH
+PATCH http://localhost:3000/api/user/updatePassword/184
+Authorization: token eyJhbGciOiJIUzI1NiIsInR5cGUiOiJKV1QifQ.eyJ1c2VyIjp7ImlkIjoxODQsIm5hbWUiOiJDbGllbnRlIiwiZW1haWwiOiJjbGllbnRlQGdtYWlsLmNvbSIsInRpcG9Vc3VhcmlvIjoiQ2xpZW50ZSJ9LCJpYXQiOjE3NDE3MDk0MzcsImV4cCI6MTc0MjMxNDIzN30.jDKivm7n9WP48fI0QeP4NPxujP4imCGIXWI8800X5tc
+Content-Type: application/json
+
+{
+"newPassword":"nacho55123", 
+"oldPassword":"nacho12345"
+}
+
+
+
+
+//------------------Compra-------------------------------
+###GetAll 
+GET http://localhost:3000/api/compra/getAll
+Authorization: token eyJhbGciOiJIUzI1NiIsInR5cGUiOiJKV1QifQ.eyJpZCI6MTMsInRpcG9Vc3VhcmlvIjoiQWRtaW5pc3RyYWRvciIsImlhdCI6MTcyODYwMjMxOSwiZXhwIjoxNzI5MjA3MTE5fQ.nNYqov05Rc65pmrN9iI2sa27sF8DepYOOmzZBdoYCeg
+
+###GetOne
+GET http://localhost:3000/api/compra/getOne/:id
+
+###Post 
+POST  http://localhost:3000/api/compra/insert
+Content-Type: application/json
+
+{
+    "userId":"4"
+}
+###Delete
+DELETE  http://localhost:3000/api/compra/deleteOne/:id
+
+###Put
+PUT http://localhost:3000/api/compra/update/37
+Authorization: token eyJhbGciOiJIUzI1NiIsInR5cGUiOiJKV1QifQ.eyJpZCI6MTMsInRpcG9Vc3VhcmlvIjoiQWRtaW5pc3RyYWRvciIsImlhdCI6MTcyODY2NzAyMSwiZXhwIjoxNzI5MjcxODIxfQ.ESSk6SeXsdhJ1XQ3uhv-pMuorSpH_JYXnVKruKI8evs
+Content-Type: application/json
+
+{
+  "fechaCompra": "2024-04-04",
+  "fechaCancel": "",
+  "total": 200
+}
+
+
+###PATCH
+PATCH  http://localhost:3000/api/compra/facturate/:id
+Authorization: token
+###GET
+GET   http://localhost:3000/api/compra/facturateWeb/72
+Authorization: token eyJhbGciOiJIUzI1NiIsInR5cGUiOiJKV1QifQ.eyJ1c2VyIjp7Im5hbWUiOiJDbGllbnRlIiwiZW1haWwiOiJjbGllbnRlQGdtYWlsLmNvbSIsInRpcG9Vc3VhcmlvIjoiQ2xpZW50ZSIsImlkIjo0Nn0sImlhdCI6MTczODEwNjc3OSwiZXhwIjoxNzM4NzExNTc5fQ.ghYqMDogw7dm-qEjI2Oa_D9Yc8v_zDDdqOq8gKf9Xm8
+
+###PATCH
+PATCH   http://localhost:3000/api/compra/cancelPurchase/86
+Authorization: token eyJhbGciOiJIUzI1NiIsInR5cGUiOiJKV1QifQ.eyJ1c2VyIjp7ImlkIjoxODQsIm5hbWUiOiJDbGllbnRlIiwiZW1haWwiOiJhZG1pbkBnbWFpbC5jb20iLCJ0aXBvVXN1YXJpbyI6IkNsaWVudGUifSwiaWF0IjoxNzQwNzE1ODc5LCJleHAiOjE3NDEzMjA2Nzl9.F2cxLMC3gWETyjHFFmkFeeh6LWHSVolGU8xMnPUxtwc
+
+###GET
+GET   http://localhost:3000/api/compra/getMyPurchases/
+Authorization: token eyJhbGciOiJIUzI1NiIsInR5cGUiOiJKV1QifQ.eyJ1c2VyIjp7ImlkIjoxODQsIm5hbWUiOiJDbGllbnRlIiwiZW1haWwiOiJhZG1pbkBnbWFpbC5jb20iLCJ0aXBvVXN1YXJpbyI6IkNsaWVudGUifSwiaWF0IjoxNzQwNzQ0NTM4LCJleHAiOjE3NDEzNDkzMzh9.oqwkSeAeYY1dY0IaV_LWd4KconccHHyFCCs9kRmNUAQ
+
+//------------------Componente-------------------------------
+###GetAll 
+GET http://localhost:3000/api/componente/getAll
+Authorization: token eyJhbGciOiJIUzI1NiIsInR5cGUiOiJKV1QifQ.eyJpZCI6MTMsInRpcG9Vc3VhcmlvIjoiQWRtaW5pc3RyYWRvciIsImlhdCI6MTcyODYwMjMxOSwiZXhwIjoxNzI5MjA3MTE5fQ.nNYqov05Rc65pmrN9iI2sa27sF8DepYOOmzZBdoYCeg
+###GetOne
+GET http://localhost:3000/api/componente/getOne/:id
+
+###Post 
+POST  http://localhost:3000/api/componente/insert
+Content-Type: application/json
+
+{
+"name":"TOYIBA", 
+"description":"CAPUTACHA",
+"categoriaId":"3"
+}
+###Delete
+DELETE  http://localhost:3000/api/componente/deleteOne/4
+
+###Put
+PUT   http://localhost:3000/api/componente/update/2
+Content-Type: application/json
+
+{
+"newCompName":"Wegger 4444", 
+"newDescription":"Mouse hiper fast",
+"categoriaId":"2"
+}
+###PATCH
+PATCH   http://localhost:3000/api/componente/updateCompName/2
+Content-Type: application/json
+
+{
+"newCompName":"Hammilton Vega 78"
+}
+###PATCH
+PATCH   http://localhost:3000/api/componente/updateDescription/2
+Content-Type: application/json
+
+{
+"newDescription":"Keyboard with lights", 
+"oldDescription":"Mouse hiper fast"
+}
+
+
+//------------------Categoria-------------------------------
+###GetAll 
+GET http://localhost:3000/api/categoria/getAll
+
+
+###GetOne
+GET http://localhost:3000/api/categoria/getOne/:id
+
+###Post 
+POST  http://localhost:3000/api/categoria/insert
+Authorization: token eyJhbGciOiJIUzI1NiIsInR5cGUiOiJKV1QifQ.eyJpZCI6MTEsInRpcG9Vc3VhcmlvIjoiQWRtaW5pc3RyYWRvciIsImlhdCI6MTcyODU5ODIyMywiZXhwIjoxNzI5MjAzMDIzfQ.BvqHIDwMLMm0RiQrkn1ClsuO1bUxQ5lODi-lGNI--_c
+Content-Type: application/json
+
+{
+"descripcion":"P"
+}
+###Delete
+DELETE  http://localhost:3000/api/categoria/deleteOne/:id
+
+###Put
+PUT   http://localhost:3000/api/categoria/update/:id
+Content-Type: application/json
+
+{
+"descripcion":"Periferico Orvital"
+
+}
+
+
+
+//------------------Precio-------------------------------
+###GetAll 
+GET http://localhost:3000/api/precio/getAll
+
+###GetOne
+GET http://localhost:3000/api/precio/getOne/:id
+
+###Post 
+POST  http://localhost:3000/api/precio/insert
+Content-Type: application/json
+
+{
+"fechaDesde":"20240502",
+"componenteId":"11",
+"valor":"10"
+}
+###Delete
+DELETE  http://localhost:3000/api/precio/deleteOne/:id
+
+###Put
+PUT   http://localhost:3000/api/precio/update/:id
+Content-Type: application/json
+
+{
+"fechaDesde":"20240502",
+"componenteId":"11",
+"valor":"72000"
+}
+
+
+//------------------LineaCompra-------------------------------
+###GetAll 
+GET http://localhost:3000/api/lineaCompra/getAll
+
+###GetOne
+GET http://localhost:3000/api/lineaCompra/getOne/:id
+
+###Post 
+POST  http://localhost:3000/api/lineaCompra/insert
+Content-Type: application/json
+
+{
+  "compraId": "1",
+  "cantidad": "2",
+  "componenteId": "1"
+}
+###Delete
+DELETE  http://localhost:3000/api/lineaCompra/deleteOne/:id
+
+###Put
+PUT   http://localhost:3000/api/lineaCompra/update/:id
+Content-Type: application/json
+
+{
+"compraId":"2", 
+"cantidad":"20", 
+"subTotal":"200",
+"componenteId":"6"
+}
