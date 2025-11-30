@@ -9,6 +9,7 @@ import lineaCompraRouter from "../routers/lineCompraRouter.js";
 import compraRouter from "../routers/compraRouter.js";
 import compRouter from "../routers/componenteRouter.js";
 import cors from 'cors';
+import dashboardRouter from "../routers/dashboardRouter.js";
 
 const HarwareHavenexpressApp = express();
 
@@ -25,12 +26,19 @@ HarwareHavenexpressApp.use((req, res, next) => {
   })
 
 //Routers del Negocio-------------------------------
+
+//Entidades------------------------------------------
 HarwareHavenexpressApp.use('/api/user', userRouter);
 HarwareHavenexpressApp.use('/api/compra', compraRouter);
 HarwareHavenexpressApp.use('/api/lineaCompra', lineaCompraRouter);
 HarwareHavenexpressApp.use('/api/precio', precioRouter);
 HarwareHavenexpressApp.use('/api/categoria', categoriaRouter);
 HarwareHavenexpressApp.use('/api/componente', compRouter);
+
+//Dashboard-----------------------------------------------
+HarwareHavenexpressApp.use('/dashBoard', dashboardRouter);
+
+
 
 //Routers del Servidor-------------------------------
 HarwareHavenexpressApp.get('/health', (req, res) => { res.status(200).json({ status: 'OK' });});

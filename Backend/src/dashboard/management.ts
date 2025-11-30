@@ -1,7 +1,7 @@
 /*
 TotalResvenue + TotalResvenueLM
 NewOrders + NewOrdersLM
-Customers
+Customers 
 ActiveProducts
 SalesMonthIN: (Number+ Value) + SalesLMIN: (Number+ Value)
 BestCustomer(3): 1{Nombre + email + TotalIn}n
@@ -17,14 +17,17 @@ BSProducts: 1{Name + TotalSaleAmount}n
 ------------------------------------------------
 SPCustomers: 1{UserName + TotalSales}n
 -----------------------------------------------
-Payments: {CashAmount+ CardAmount+ EPAmount}
+Payments: {CashAmount+ CardAmount+ EPAmount} 
 -----------------------------------------------
 AnalysisBusiness:{ActiveUsers+ UsesMeM+ ApplicationPMin+ TimeR+ LatProm+ BurdenProm,
 retentioRate+ AverageST+Conversions+ CriticalErrorsMens
 */
+
 import { orm } from '../shared/db/orm.js';
-export async function obtenerDashboard() {
+
+export async function getDataDashboard() {
     try {
+
         //////////////////////////////////////////////
         // TOTAL REVENUE (MES ACTUAL)
         //////////////////////////////////////////////
@@ -36,6 +39,8 @@ export async function obtenerDashboard() {
         `;
         const totalRevenueResult = await orm.em.execute(totalRevenueSQL, []);
         const TotalResvenue = totalRevenueResult[0].total || 0;
+
+
         //////////////////////////////////////////////
         // TOTAL REVENUE LAST MONTH
         //////////////////////////////////////////////
@@ -55,6 +60,8 @@ export async function obtenerDashboard() {
         `;
         const totalRevenueLMResult = await orm.em.execute(totalRevenueLMSQL, [TotalResvenue]);
         const TotalResvenueLM = totalRevenueLMResult[0].total || 0;
+
+
         //////////////////////////////////////////////
         // NEW ORDERS TODAY
         //////////////////////////////////////////////
@@ -65,6 +72,8 @@ export async function obtenerDashboard() {
         `;
         const newOrdersResult = await orm.em.execute(newOrdersSQL, []);
         const NewOrders = newOrdersResult[0].total || 0;
+
+
         //////////////////////////////////////////////
         // NEW ORDERS LAST MONTH (same day)
         //////////////////////////////////////////////
@@ -75,18 +84,24 @@ export async function obtenerDashboard() {
         `;
         const newOrdersLMResult = await orm.em.execute(newOrdersLMSQL, []);
         const NewOrdersLM = newOrdersLMResult[0].total || 0;
+
+
         //////////////////////////////////////////////
         // CUSTOMERS (count users)
         //////////////////////////////////////////////
         const customersSQL = `SELECT COUNT(*) AS count FROM user;`;
         const customersResult = await orm.em.execute(customersSQL, []);
         const Customers = customersResult[0].count;
+
+
         //////////////////////////////////////////////
         // ACTIVE PRODUCTS
         //////////////////////////////////////////////
         const activeProductsSQL = `SELECT COUNT(*) AS count FROM componente;`;
         const activeProductsResult = await orm.em.execute(activeProductsSQL, []);
         const ActiveProducts = activeProductsResult[0].count;
+
+
         //////////////////////////////////////////////
         // SALES MONTH IN (12 MESES)
         //////////////////////////////////////////////
@@ -117,6 +132,8 @@ export async function obtenerDashboard() {
             ORDER BY m.month;
         `;
         const SalesMonthIN = await orm.em.execute(salesMonthINSQL, []);
+
+
         //////////////////////////////////////////////
         // SALES LAST MONTH IN (12 MESES)
         //////////////////////////////////////////////
@@ -146,6 +163,8 @@ export async function obtenerDashboard() {
             ORDER BY m.month;
         `;
         const SalesLMIN = await orm.em.execute(salesLM_INSQL, []);
+
+
         //////////////////////////////////////////////
         // BEST CUSTOMERS (Top 3)
         //////////////////////////////////////////////
@@ -158,6 +177,8 @@ export async function obtenerDashboard() {
             LIMIT 3;
         `;
         const BestCustomers = await orm.em.execute(bestCustomersSQL, []);
+
+
         //////////////////////////////////////////////
         // TOP PRODUCTS (Top 10)
         //////////////////////////////////////////////
@@ -175,6 +196,8 @@ export async function obtenerDashboard() {
             LIMIT 10;
         `;
         const TopProducts = await orm.em.execute(topProductsSQL, []);
+
+
         //////////////////////////////////////////////
         // SALES MONTH DETAIL 1{Month+Amount}12
         //////////////////////////////////////////////
@@ -198,6 +221,8 @@ export async function obtenerDashboard() {
     ORDER BY d.day;
         `;
         const SalesMonth = await orm.em.execute(salesMonthSQL, []);
+
+
         //////////////////////////////////////////////
         // ORDERS LTY (last 12 months)
         //////////////////////////////////////////////
@@ -223,6 +248,8 @@ export async function obtenerDashboard() {
 
         `;
         const OrdersLTY = await orm.em.execute(ordersLTYSQL, []);
+
+
         //////////////////////////////////////////////
         // BEST SELLING PRODUCTS
         //////////////////////////////////////////////
@@ -236,6 +263,8 @@ export async function obtenerDashboard() {
             ORDER BY TotalSaleAmount DESC;
         `;
         const BSProducts = await orm.em.execute(bsProductsSQL, []);
+
+
         //////////////////////////////////////////////
         // SALES PER CUSTOMER
         //////////////////////////////////////////////
@@ -249,6 +278,8 @@ export async function obtenerDashboard() {
             ORDER BY TotalSales DESC;
         `;
         const SPCustomers = await orm.em.execute(spCustomerSQL, []);
+
+
         //////////////////////////////////////////////
         // PAYMENTS (Cash, Card, Electronic)
         //////////////////////////////////////////////
@@ -256,6 +287,8 @@ export async function obtenerDashboard() {
            SELECT count(*) AS cash FROM hardware_haven.compra;
         `;
         const Payments = (await orm.em.execute(paymentsSQL, []))[0];
+
+
         //////////////////////////////////////////////
         // FINAL RESPONSE
         //////////////////////////////////////////////
@@ -276,10 +309,9 @@ export async function obtenerDashboard() {
             SPCustomers,
             Payments
         };
-    }
-    catch (error) {
+
+    } catch (error) {
         console.error(error);
         throw new Error("Hubo un error obteniendo dashboard");
     }
 }
-//# sourceMappingURL=pruebas.js.map

@@ -7,7 +7,7 @@ Authorization: token eyJhbGciOiJIUzI1NiIsInR5cGUiOiJKV1QifQ.eyJpZCI6MTMsInRpcG9V
 
 ###GetAll 
 GET http://localhost:3000/api/user/getAll
-Authorization: token eyJhbGciOiJIUzI1NiIsInR5cGUiOiJKV1QifQ.eyJpZCI6MTMsInRpcG9Vc3VhcmlvIjoiQWRtaW5pc3RyYWRvciIsImlhdCI6MTcyODYwMjMxOSwiZXhwIjoxNzI5MjA3MTE5fQ.nNYqov05Rc65pmrN9iI2sa27sF8DepYOOmzZBdoYCeg
+Authorization: token eyJhbGciOiJIUzI1NiIsInR5cGUiOiJKV1QifQ.eyJ1c2VyIjp7ImlkIjoxODksIm5hbWUiOiJBZG1pbmlzdHJhZG9yIiwiZW1haWwiOiJhZG1pbkBnbWFpbC5jb20iLCJ0aXBvVXN1YXJpbyI6IkFkbWluaXN0cmFkb3IifSwiaWF0IjoxNzY0NTMzNDgzLCJleHAiOjE3NjUxMzgyODN9.6IiG-xd3BMepjqB2xWOhmZL-f05-al3Ul7Y8KOyf0Y4
 
 ###GetOne
 GET http://localhost:3000/api/user/getOne/:id
@@ -28,7 +28,7 @@ POST  http://localhost:3000/api/user/login
 Content-Type: application/json
 
 {
-    "name":"Cliente", 
+    "name":"Administrador", 
     "password":"nacho55123"
 }
 
@@ -248,3 +248,11 @@ Content-Type: application/json
 "subTotal":"200",
 "componenteId":"6"
 }
+//------------------DashBoard-------------------------------
+###Get
+GET   http://localhost:3000/dashBoard/getAll
+Authorization: token eyJhbGciOiJIUzI1NiIsInR5cGUiOiJKV1QifQ.eyJ1c2VyIjp7ImlkIjoxODksIm5hbWUiOiJBZG1pbmlzdHJhZG9yIiwiZW1haWwiOiJhZG1pbkBnbWFpbC5jb20iLCJ0aXBvVXN1YXJpbyI6IkFkbWluaXN0cmFkb3IifSwiaWF0IjoxNzY0NTMzNDgzLCJleHAiOjE3NjUxMzgyODN9.6IiG-xd3BMepjqB2xWOhmZL-f05-al3Ul7Y8KOyf0Y4
+
+
+
+
