@@ -1,80 +1,53 @@
-@keyframes buttonColorChange {
-  0% { color:  rgb(61, 1, 85); border-color:  rgb(61, 1, 85);  }
-  25% { color: yellow; border-color: yellow; }
-  50% { color: green; border-color: green; }
-  75% { color: rgb(0, 195, 255); border-color: rgb(0, 195, 255); }
-  100% { color: red; border-color: red; }
-}
-
 .floating-button {
   position: fixed;
-  bottom: 5px; /* Alineado más cerca del fondo */
+  bottom: 20px;
   z-index: 1050;
-  width: 28px;
-  height: 28px;
+  width: 50px;
+  height: 50px;
   border-radius: 50%;
-  border: 2px solid rgb(13, 110, 253); /* Borde visible, sin fondo */
-  background-color: transparent; /* Fondo transparente */
-  color: rgb(13, 110, 253); /* Color del texto e ícono (mismo que el borde) */
-  font-size: 20px;
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  background: rgba(15, 23, 42, 0.8);
+  backdrop-filter: blur(8px);
+  color: #60a5fa;
+  font-size: 24px;
   display: flex;
   align-items: center;
   justify-content: center;
-  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
   cursor: pointer;
-  transition: background-color 0.3s, transform 0.2s;
-  animation: buttonColorChange 20s infinite; /* Aplica la animación */
+  transition: all 0.3s ease;
 }
 
 .floating-button:hover {
-  transform: scale(1.05);
+  transform: translateY(-2px);
+  background: rgba(30, 41, 59, 0.9);
+  color: #fff;
+  box-shadow: 0 6px 16px rgba(96, 165, 250, 0.3);
+  border-color: rgba(96, 165, 250, 0.3);
 }
 
-
-.chat-floating-button{
-  right: 38px;
+.chat-floating-button {
+  right: 80px;
 }
-.ask-floating-button{
-  right: 7px;
+
+.ask-floating-button {
+  right: 20px;
 }
 
 /* Media Queries para pantallas pequeñas */
 @media (max-width: 768px) {
   .floating-button {
-    width: 50px;
-    height: 50px;
-    font-size: 24px;
-    bottom: 4vh; /* Más espacio en la parte inferior */
-    right: 4vw; /* Más espacio en la parte derecha */
-  }
-  .chat-floating-button{
-    right: 35px;
-    bottom: 205px;
-  }
-  .ask-floating-button{
-    right: 35px;
-    bottom: 140px;
+    width: 45px;
+    height: 45px;
+    font-size: 20px;
+    bottom: 20px;
   }
 
-}
+  .chat-floating-button {
+    right: 70px;
+  }
 
-/* Media Queries para pantallas muy pequeñas (móviles) */
-@media (max-width: 480px) {
-  .floating-button {
-    width: 50px;
-    height: 50px;
-    font-size: 24px;
-    bottom: 4vh; /* Más espacio en la parte inferior */
-    right: 4vw; /* Más espacio en la parte derecha */
-  }
-  .chat-floating-button{
-    right: 35px;
-    bottom: 205px;
-  }
-  .ask-floating-button{
-    right: 35px;
-    bottom: 140px;
+  .ask-floating-button {
+    right: 15px;
   }
 }
-
-

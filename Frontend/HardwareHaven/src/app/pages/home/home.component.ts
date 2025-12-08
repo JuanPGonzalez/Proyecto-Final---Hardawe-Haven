@@ -28,6 +28,8 @@ export class HomeComponent implements OnInit {
   private intervalId: any;
   public errorServer: boolean = false;
   public emailOffers:string = '';
+  public showWelcomeMessage: boolean = true;
+
   constructor(
     private serverUser: UserService,
     private router: Router,
@@ -49,7 +51,7 @@ export class HomeComponent implements OnInit {
 
 
 
-    this.startCarousel(5000);
+    this.startCarousel(2500);
   }
 
   async someFunction() {
@@ -158,6 +160,11 @@ export class HomeComponent implements OnInit {
             this.errorServer = true;
         }
     });}
+
+  hideWelcomeMessage() {
+    this.showWelcomeMessage = false;
+  }
+
 
 
   }

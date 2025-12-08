@@ -1,8 +1,7 @@
 <router-outlet></router-outlet>
 
-
-
 <button
+  *ngIf="showFloatingIcons"
   class="floating-button chat-floating-button"
   (click)="goToChatBot()"
   title="Chat Bot"
@@ -10,13 +9,11 @@
   💬
 </button>
 
-
 <button
+  *ngIf="showFloatingIcons"
   class="floating-button ask-floating-button"
   (click)="gotoHelp()"
   title="Ayuda"
 >
   ?
 </button>
-
-

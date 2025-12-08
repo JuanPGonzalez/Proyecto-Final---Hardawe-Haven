@@ -1,33 +1,71 @@
-<div class="ayuda-div text-light m-3">
-    <button class="btn btn-primary" (click)="gotoHome()">Volver</button>
-    <h1>Centro de Ayuda - Hardware Haven</h1>
+<div class="ayuda-container">
+  <div class="header-section">
+    <button class="back-btn" (click)="gotoHome()">
+      <i class="fas fa-arrow-left"></i> Volver
+    </button>
+    <h1>Centro de Ayuda</h1>
+  </div>
 
+  <section>
+    <h2>Preguntas Frecuentes</h2>
+    <div class="faq-grid">
+      <div class="faq-card">
+        <h3>¿Cómo puedo realizar un pedido?</h3>
+        <p>
+          Selecciona los productos que deseas, agrégalos al carrito y sigue los
+          pasos en la página de compra. Podrás generar tu factura y recibirla
+          por email.
+        </p>
+      </div>
 
-    <h2>Preguntas Frecuentes (FAQ)</h2>
-    <ul>
-        <li><strong>¿Cómo puedo realizar un pedido?</strong>
-            <p>Para realizar un pedido, selecciona los productos que deseas, agrégalos al carrito. Sigue los
-            pasos en la página de compra.<br> Una vez realizada la misma tambien podras generar la factura correspondiente, incluso enviartela a tu email.</p>
-        </li>
-        <li><strong>¿Cuáles son las opciones de envío?</strong>
-            <p>Ofrecemos varias opciones de envío, incluyendo envío estándar, express, y recogida en tienda. Contactanos en ese caso</p>
-        </li>
-        <li><strong>¿Cómo puedo rastrear mi pedido?</strong>
-            <p>Una vez que tu pedido sea enviado, recibirás un correo electrónico con un número de seguimiento.</p>
-        </li>
-        <li><strong>¿Puedo devolver un producto?</strong>
-            <p>Sí, puedes devolver los productos dentro de los primeros 30 días si cumplen con nuestra política de devoluciones.</p>
-        </li>
-    </ul>
+      <div class="faq-card">
+        <h3>¿Cuáles son las opciones de envío?</h3>
+        <p>
+          Ofrecemos envío estándar, express y recogida en tienda. Contáctanos
+          para coordinar la mejor opción para ti.
+        </p>
+      </div>
 
-    <h2>Documentacion</h2>
-    <a href="https://github.com/jcaldani/DSW-2024-Hardware-Haven/blob/main/Documentation/Hardware%20Haven.pdf" target="_blank">Documentación oficial</a>
+      <div class="faq-card">
+        <h3>¿Cómo puedo rastrear mi pedido?</h3>
+        <p>
+          Una vez enviado tu pedido, recibirás un correo electrónico automático
+          con el número de seguimiento en tiempo real.
+        </p>
+      </div>
 
-    <h2>Soporte</h2>
-    <p>Si no encuentras la respuesta que buscas, puedes contactarnos directamente:</p>
+      <div class="faq-card">
+        <h3>¿Puedo devolver un producto?</h3>
+        <p>
+          Sí, aceptamos devoluciones dentro de los primeros 30 días, siempre que
+          el producto cumpla con nuestra política de devoluciones.
+        </p>
+      </div>
+    </div>
+  </section>
 
-    <a href="mailto:ignacio.rodriguez.sistemas@gmail.com" class="custom-button">Contactar Soporte</a>
+  <section>
+    <h2>Recursos y Soporte</h2>
+    <div class="links-section">
+      <a
+        href="https://github.com/jcaldani/DSW-2024-Hardware-Haven/blob/main/Documentation/Hardware%20Haven.pdf"
+        target="_blank"
+        class="action-link"
+      >
+        <i class="fas fa-file-alt"></i> Documentación Oficial
+      </a>
 
-    <h2 class="mt-2">Repositorio de Código</h2>
-    <p>Puedes ver el código fuente de nuestro proyecto en nuestro <a href="https://github.com/Xraidth/HardwareHaven" target="_blank">GitHub</a>.</p>
+      <a href="mailto:ignacio.rodriguez.sistemas@gmail.com" class="action-link">
+        <i class="fas fa-envelope"></i> Contactar Soporte
+      </a>
+
+      <a
+        href="https://github.com/Xraidth/HardwareHaven"
+        target="_blank"
+        class="action-link"
+      >
+        <i class="fab fa-github"></i> Repositorio GitHub
+      </a>
+    </div>
+  </section>
 </div>
