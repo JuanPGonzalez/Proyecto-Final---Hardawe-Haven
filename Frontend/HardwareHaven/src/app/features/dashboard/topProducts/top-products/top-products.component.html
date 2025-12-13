@@ -1,38 +1,40 @@
-<div class="top-products-board">
-  <div class="m-3">
-    <h4 class="title-barchart">Top Products</h4>
-    <p>Best selling products this month</p>
+<div class="card shadow-sm top-products-board">
+  <div class="card-header text-dark">
+    <h4 class="mb-0 title-barchart">Top Products</h4>
+    <p class="mb-0 opacity-75">Best selling products this month</p>
   </div>
 
-  <div class="table-custom-container">
-  <table>
-    <thead>
-        <tr>
-            <th>Product ID</th>
-            <th>Name</th>
-            <th>Category</th>
-            <th>Price</th>
-            <th>Sales</th>
-        </tr>
-    </thead>
-    <tbody>
-        <tr>
-            <td>001</td>
-            <td>Product A</td>
-            <td>Electronics</td>
-            <td>$199.99</td>
-            <td class="up">120 ▲</td>
+  <div class="card-body p-0">
+    <div class="table-responsive" style="max-height: 320px;">
 
-        </tr>
-        <tr>
-            <td>002</td>
-            <td>Product B</td>
-            <td>Home</td>
-            <td>$89.99</td>
-            <td class="down">45 ▼</td>
-        </tr>
-    </tbody>
-</table>
-</div>
+      <ng-container *ngIf="TopProducts?.length > 0; else noDataTemplate">
 
+        <table class="table table-sm table-striped table-hover mb-0">
+          <thead class="table-dark sticky-top">
+            <tr>
+              <th *ngFor="let column of columns" class="text-nowrap text-uppercase fw-bold" scope="col">
+                {{ column }}
+              </th>
+            </tr>
+          </thead>
+
+          <tbody>
+            <tr *ngFor="let product of TopProducts">
+              <td *ngFor="let column of columnsLw" class="text-nowrap text-truncate">
+                {{ product[column] }}
+              </td>
+            </tr>
+          </tbody>
+        </table>
+
+      </ng-container>
+
+      <ng-template #noDataTemplate>
+        <div class="text-center p-4 bg-light">
+          <p class="mb-0 text-muted fst-italic">There are no products available at the moment.</p>
+        </div>
+      </ng-template>
+
+    </div>
+  </div>
 </div>

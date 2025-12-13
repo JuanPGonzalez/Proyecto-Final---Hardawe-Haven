@@ -29,7 +29,7 @@ export async function getDataDashboard() {
         // TOTAL REVENUE (MES ACTUAL)
         //////////////////////////////////////////////
         const totalRevenueSQL = `
-            SELECT SUM(total) AS total
+            SELECT round(SUM(total),2) AS total
             FROM compra
             WHERE YEAR(fecha_compra) = YEAR(CURDATE())
             AND MONTH(fecha_compra) = MONTH(CURDATE());
@@ -59,12 +59,12 @@ export async function getDataDashboard() {
         // NEW ORDERS TODAY
         //////////////////////////////////////////////
         const newOrdersSQL = `
-            SELECT SUM(total) AS total
+            SELECT count(*) AS amount
             FROM compra
             WHERE DATE(fecha_compra) = CURDATE();
         `;
         const newOrdersResult = await orm.em.execute(newOrdersSQL, []);
-        const NewOrders = newOrdersResult[0].total || 0;
+        const NewOrders = newOrdersResult[0].amount || 0;
         //////////////////////////////////////////////
         // NEW ORDERS LAST MONTH (same day)
         //////////////////////////////////////////////

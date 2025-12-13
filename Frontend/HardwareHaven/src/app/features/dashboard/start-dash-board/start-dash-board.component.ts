@@ -1,7 +1,7 @@
 import { TopProductsComponent } from './../topProducts/top-products/top-products.component';
 import { BarChartComponent } from './../charts/bar-chart/bar-chart/bar-chart.component';
 import { DashboardCardComponent } from './../dashboard-card/dashboard-card.component';
-import { Component } from '@angular/core';
+import { Component, Input, OnChanges, SimpleChanges } from '@angular/core';
 import { RecentSalesBoardComponent } from '../recent-sales-board/recent-sales-board.component';
 
 @Component({
@@ -11,6 +11,16 @@ import { RecentSalesBoardComponent } from '../recent-sales-board/recent-sales-bo
   templateUrl: './start-dash-board.component.html',
   styleUrl: './start-dash-board.component.css'
 })
-export class StartDashBoardComponent {
+export class StartDashBoardComponent  {
+
+
+  @Input() startData: any;
+  @Input() BestCustomers:any;
+  @Input() SalesMonthIn:any;
+ @Input() TopProducts:any;
+
+
+
+
 
 }
