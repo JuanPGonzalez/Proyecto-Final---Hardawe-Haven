@@ -124,7 +124,7 @@ this.startData = {
       }
     };
 
-
+//------------------------------------------------------------------------------
  this.SalesMonthIn= [
     { name: 'Jan', value: 1000 },
     { name: 'Feb', value: 2500 },
@@ -157,8 +157,8 @@ const series = sales.length > 0
       name: item.day?.toString() || '-',
       value: item.total ?? 0
     }))
-  : Array.from({ length: 31 }, (_, i) => ({
-      name: (i + 1).toString().padStart(2, '0'), // "01", "02", ...
+  : Array.from({ length: sales?.length || 0 }, (_, i) => ({
+      name: (i + 1).toString().padStart(2, '0'),
       value: 0
     }));
 this.timelineData = [
@@ -168,31 +168,27 @@ this.timelineData = [
   }
 ];
 
+//------------------------------------------------
+  const salesor = this.dash?.OrdersLTY ?? [];
+const seriesor = sales.length > 0
+  ? salesor.map((item: { day: any, amount: number }) => ({
+      name: item.day?.toString() || '-',
+      value: item.amount ?? 0
+    }))
+  : Array.from({ length: salesor?.length || 0 }, (_, i) => ({
+      name: (i + 1).toString().padStart(2, '0'),
+      value: 0
+    }));
+this.timelineData2 = [
+  {
+    name: 'Sales about this month',
+    series: seriesor
+  }
+];
 
+//----------------------------------------------------------------------
 
-
-
-
-  this.timelineData2 = [
-    {
-      "name": "Compras de este mes",
-      "series": [
-        { "name": "1", "value": 90 },
-        { "name": "2", "value": 75 },
-        { "name": "3", "value": 82 },
-        { "name": "4", "value": 60 },
-        { "name": "5", "value": 95 },
-        { "name": "6", "value": 88 },
-        { "name": "7", "value": 72 },
-        { "name": "8", "value": 99 },
-        { "name": "9", "value": 65 },
-        { "name": "10", "value": 80 },
-
-      ]
-    }
-  ];
-
- this.productData = [
+ const defaultproductData = [
     { name: 'Procesadores', value: 250 },
     { name: 'Fuentes de Poder', value: 200 },
     { name: 'Memorias RAM', value: 180 },
@@ -200,11 +196,21 @@ this.timelineData = [
     { name: 'Tarjetas Gráficas', value: 120 },
   ];
 
+this.productData = (this.dash?.BSProducts?.length)
+  ? this.dash.BSProducts.map((c: any) => ({
+      name: c.name,
+      value: c.TotalSaleAmount
+    }))
+  : defaultproductData;
+
+
+  
+
    this.BestCustomers = (this.dash.BestCustomers)||[
   {name: 'Usuario1', email: 'Usuario1@gmail.com', totalIn: '4933798.000'},
   {name: 'Usuario2', email: 'Usuario2@gmail.com', totalIn: '400.000'}
   ];
-//////////////////////////////////////////////////////////////////////////////////////////////////////
+//------------------------------------------------------------------------------------------
  const defaultClientes = [
   { name: "Username 1", value: 90 },
   { name: "Username 2", value: 75 },
@@ -221,7 +227,7 @@ this.clienteData = (this.dash?.SPCustomers?.length)
     }))
   : defaultClientes;
 
-
+//---------------------------------------
 
 
 
@@ -234,25 +240,27 @@ this.payData = [
   ];
 
 
-
-  this.analysisData = [
-    { name: "Usuarios Activos", value: 1200 },
-    { name: "Memoria Usada (MB)", value: 2048 },
-    { name: "Solicitudes por Minuto", value: 450 },
-    { name: "Tiempo de Respuesta del Servidor (ms)", value: 230 },
-    { name: "Latencia Promedio (ms)", value: 120 },
-    { name: "Carga Promedio del CPU (%)", value: 65 },
-    { name: "Tasa de Retención (%)", value: 78 },
-    { name: "Tiempo Promedio de Sesión (min)", value: 15 },
-    { name: "Conversiones (%)", value: 12 },
-    { name: "Errores Críticos Mensuales", value: 5 }
+//-----------------------------------------------------------------------------
+this.analysisData = [
+  { name: "Conexión Activa", value: navigator.onLine ? 1 : 0 },
+  { name: "Tiempo de Carga de la Página (ms)", value: performance.timing.loadEventEnd - performance.timing.navigationStart },
+  { name: "Tiempo hasta Primer Paint (ms)", value: performance.getEntriesByType("paint").find(p => p.name === "first-paint")?.startTime || 0 },
+  { name: "Número de Elementos en DOM", value: document.getElementsByTagName("*").length },
+  { name: "Número de Imágenes Cargadas", value: document.images.length },
+  { name: "Número de Scripts en la Página", value: document.scripts.length },
+  { name: "Tamaño de Cookies (bytes)", value: document.cookie.length },
+  { name: "Número de Enlaces en la Página", value: document.links.length },
+  { name: "Número de Formularios en la Página", value: document.forms.length },
+  { name: "Número de Botones en la Página", value: document.getElementsByTagName("button").length }
 ];
 
 this.dataPieAnalysis = [
-  { name: "Usuarios Activos", value: 1200 },
-  { name: "Memoria Usada (MB)", value: 2048 },
-  { name: "Solicitudes por Minuto", value: 450 },
+  { name: "Número de Elementos en DOM", value: document.getElementsByTagName("*").length },
+  { name: "Número de Imágenes Cargadas", value: document.images.length },
+  { name: "Número de Scripts en la Página", value: document.scripts.length }
 ];
+
+
 
 
 
