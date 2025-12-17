@@ -107,7 +107,7 @@
         <app-bar-lateral-chart *ngIf="currentView === 'customers' && currentDetail === 'view'" [Data]="clienteData" [tittle]="'Customers'" [detail]="'They always prefer us'"></app-bar-lateral-chart>
         <app-bar-lateral-chart *ngIf="currentView === 'payments' && currentDetail === 'view'" [Data]="payData" [tittle]="'Payments'" [detail]="'Pay methods'"></app-bar-lateral-chart>
         <app-bar-lateral-chart *ngIf="currentView === 'analysis' && currentDetail === 'view'" [Data]="analysisData" [tittle]="'Analysis'" [detail]="'About our business'"></app-bar-lateral-chart>
-        <app-pie-chart *ngIf="currentView === 'analysis' && currentDetail === 'view'"  [Data]="dataPieAnalysis " [tittle]="'Best user'" [detail]="'About our business'"></app-pie-chart>
+        <app-pie-chart *ngIf="currentView === 'analysis' && currentDetail === 'view'"  [Data]="dataPieAnalysis " [tittle]="'Average Customer Gender Distribution'" [detail]="'About our Users'"></app-pie-chart>
       </div>
 
 

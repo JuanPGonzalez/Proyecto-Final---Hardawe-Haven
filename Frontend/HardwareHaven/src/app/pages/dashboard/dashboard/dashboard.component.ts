@@ -227,7 +227,7 @@ this.clienteData = (this.dash?.SPCustomers?.length)
     }))
   : defaultClientes;
 
-//---------------------------------------
+//------------------------------
 
 
 
@@ -242,23 +242,38 @@ this.payData = [
 
 //-----------------------------------------------------------------------------
 this.analysisData = [
-  { name: "Conexión Activa", value: navigator.onLine ? 1 : 0 },
-  { name: "Tiempo de Carga de la Página (ms)", value: performance.timing.loadEventEnd - performance.timing.navigationStart },
-  { name: "Tiempo hasta Primer Paint (ms)", value: performance.getEntriesByType("paint").find(p => p.name === "first-paint")?.startTime || 0 },
-  { name: "Número de Elementos en DOM", value: document.getElementsByTagName("*").length },
-  { name: "Número de Imágenes Cargadas", value: document.images.length },
-  { name: "Número de Scripts en la Página", value: document.scripts.length },
-  { name: "Tamaño de Cookies (bytes)", value: document.cookie.length },
-  { name: "Número de Enlaces en la Página", value: document.links.length },
-  { name: "Número de Formularios en la Página", value: document.forms.length },
-  { name: "Número de Botones en la Página", value: document.getElementsByTagName("button").length }
+  {name:"avgAge", value: `${this.dash.avgAge|| 0}`},
+  {name:"avgCancelTime", value: `${this.dash.avgCancelTime|| 0}`},
+  {name:"totalLosedCancel", value: `${this.dash.totalLosedCancel|| 0}`},
+  {name:"avgSalesPerDay", value: `${this.dash.v|| 0}`},
+  {name:"totalProductsSaled", value: `${this.dash.totalProductsSaled|| 0}`}
 ];
+
+
+
+
 
 this.dataPieAnalysis = [
   { name: "Número de Elementos en DOM", value: document.getElementsByTagName("*").length },
   { name: "Número de Imágenes Cargadas", value: document.images.length },
   { name: "Número de Scripts en la Página", value: document.scripts.length }
 ];
+
+
+
+const defaultdataPieAnalysis = [
+  { name: "Número de Elementos en DOM", value: document.getElementsByTagName("*").length },
+  { name: "Número de Imágenes Cargadas", value: document.images.length },
+  { name: "Número de Scripts en la Página", value: document.scripts.length }
+];
+
+this.dataPieAnalysis = this.dash?.avgSex
+  ? [
+      { name: "Male", value: this.dash.avgSex.malePercentage },
+      { name: "Female", value: this.dash.avgSex.femalePercentage }
+    ]
+  : defaultdataPieAnalysis;
+
 
 
 

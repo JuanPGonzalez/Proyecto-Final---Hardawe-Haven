@@ -257,6 +257,107 @@ export async function getDataDashboard() {
         `;
         const Payments = (await orm.em.execute(paymentsSQL, []))[0];
         //////////////////////////////////////////////
+        // Dinero perdido por cancelaciones
+        //////////////////////////////////////////////
+        const cancelSQL = `
+    SELECT ROUND(SUM(total), 2) AS totalLosedCancel
+    FROM hardware_haven.compra
+    WHERE fecha_cancel IS NOT NULL;
+`;
+        const totalCancelResult = await orm.em.execute(cancelSQL, []);
+        const totalLosedCancel = Number(totalCancelResult[0].totalLosedCancel) || 0;
+        //////////////////////////////////////////////
+        // Cantidad de ventas por categoría
+        //////////////////////////////////////////////
+        const ventasCategoriaSQL = `
+    SELECT ca.descripcion, COUNT(c.id) AS totalCompras
+    FROM categoria ca
+    LEFT JOIN componente co ON co.categoria_id = ca.id
+    LEFT JOIN linea_compra lc ON lc.componente_id = co.id
+    LEFT JOIN compra c ON c.id = lc.compra_id
+    GROUP BY ca.descripcion
+    ORDER BY totalCompras DESC;
+`;
+        const salesPerCategory = await orm.em.execute(ventasCategoriaSQL, []);
+        //////////////////////////////////////////////
+        // Promedio de ventas por día
+        //////////////////////////////////////////////
+        const promedioVentasSQL = `
+    SELECT ROUND(AVG(daily_total), 0) AS promedioVentasPorDia
+    FROM (
+        SELECT DATE(fecha_compra) AS fecha, count(*) AS daily_total
+        FROM hardware_haven.compra
+        GROUP BY DATE(fecha_compra)
+    ) AS sub;
+`;
+        const avgSalesPerDayResult = await orm.em.execute(promedioVentasSQL, []);
+        const avgSalesPerDay = Number(avgSalesPerDayResult[0].promedioVentasPorDia) || 0;
+        //////////////////////////////////////////////
+        // Total de ventas por tipo de usuario
+        //////////////////////////////////////////////
+        const ventasTipoUsuarioSQL = `
+    SELECT u.tipo_usuario AS typeUser, COUNT(*) AS totalAmount
+    FROM hardware_haven.user u
+    LEFT JOIN compra c ON c.user_id = u.id
+    WHERE fecha_compra IS NOT NULL
+    GROUP BY u.tipo_usuario;
+`;
+        const salesPerTypeUser = await orm.em.execute(ventasTipoUsuarioSQL, []);
+        //////////////////////////////////////////////
+        // Cantidad de productos vendidos
+        //////////////////////////////////////////////
+        const totalProductosSQL = `
+    SELECT SUM(cantidad) AS totalProductAmount
+    FROM hardware_haven.linea_compra;
+`;
+        const totalProductsSaledResult = await orm.em.execute(totalProductosSQL, []);
+        const totalProductsSaled = Number(totalProductsSaledResult[0].totalProductAmount) || 0;
+        //////////////////////////////////////////////
+        // Tiempo promedio de cancelación
+        //////////////////////////////////////////////
+        const tiempoPromedioCancelSQL = `
+    SELECT ROUND(AVG(TIMESTAMPDIFF(DAY, fecha_compra, fecha_cancel)), 2) AS avgCancelTimeInDays
+    FROM hardware_haven.compra
+    WHERE fecha_cancel IS NOT NULL;
+`;
+        const avgCancelTimeResult = await orm.em.execute(tiempoPromedioCancelSQL, []);
+        const avgCancelTime = Number(avgCancelTimeResult[0].avgCancelTimeInDays) || 0;
+        //////////////////////////////////////////////
+        // Sexo promedio de los clientes
+        //////////////////////////////////////////////
+        const sexoPromedioSQL = `
+    SELECT 
+       ROUND((maleCount * 100) / (maleCount + femaleCount), 2) AS malePercentage,
+       ROUND((femaleCount * 100) / (maleCount + femaleCount), 2) AS femalePercentage
+    FROM
+        (SELECT COUNT(*) AS maleCount FROM hardware_haven.user WHERE sexo = 'M') AS m
+    CROSS JOIN
+        (SELECT COUNT(*) AS femaleCount FROM hardware_haven.user WHERE sexo = 'F') AS f;
+`;
+        const avgSexResult = await orm.em.execute(sexoPromedioSQL, []);
+        const avgSex = {
+            malePercentage: Number(avgSexResult[0].malePercentage) || 0,
+            femalePercentage: Number(avgSexResult[0].femalePercentage) || 0
+        };
+        //////////////////////////////////////////////
+        // Cantidad de usuarios por tipo
+        //////////////////////////////////////////////
+        const usuariosPorTipoSQL = `
+    SELECT tipo_usuario AS typeUsers, COUNT(*) AS amountUsers
+    FROM hardware_haven.user
+    GROUP BY tipo_usuario;
+`;
+        const usersPerType = await orm.em.execute(usuariosPorTipoSQL, []);
+        //////////////////////////////////////////////
+        // Edad promedio de los clientes
+        //////////////////////////////////////////////
+        const edadPromedioSQL = `
+    SELECT ROUND(AVG(TIMESTAMPDIFF(YEAR, fecha_nac, NOW())), 0) AS avgAge
+    FROM hardware_haven.user;
+`;
+        const avgAgeResult = await orm.em.execute(edadPromedioSQL, []);
+        const avgAge = Number(avgAgeResult[0].avgAge) || 0;
+        //////////////////////////////////////////////
         // FINAL RESPONSE
         //////////////////////////////////////////////
         return {
@@ -274,7 +375,16 @@ export async function getDataDashboard() {
             OrdersLTY,
             BSProducts,
             SPCustomers,
-            Payments
+            Payments,
+            totalLosedCancel,
+            salesPerCategory,
+            avgSalesPerDay,
+            salesPerTypeUser,
+            totalProductsSaled,
+            avgCancelTime,
+            avgSex,
+            usersPerType,
+            avgAge
         };
     }
     catch (error) {
