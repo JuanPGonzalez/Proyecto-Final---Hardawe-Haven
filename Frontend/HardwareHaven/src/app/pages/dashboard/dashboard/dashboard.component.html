@@ -106,8 +106,17 @@
         <app-bar-lateral-chart *ngIf="currentView === 'products' && currentDetail === 'view'" [Data]="productData" [tittle]="'Products'" [detail]="'Best-selling products'" ></app-bar-lateral-chart>
         <app-bar-lateral-chart *ngIf="currentView === 'customers' && currentDetail === 'view'" [Data]="clienteData" [tittle]="'Customers'" [detail]="'They always prefer us'"></app-bar-lateral-chart>
         <app-bar-lateral-chart *ngIf="currentView === 'payments' && currentDetail === 'view'" [Data]="payData" [tittle]="'Payments'" [detail]="'Pay methods'"></app-bar-lateral-chart>
-        <app-bar-lateral-chart *ngIf="currentView === 'analysis' && currentDetail === 'view'" [Data]="analysisData" [tittle]="'Analysis'" [detail]="'About our business'"></app-bar-lateral-chart>
-        <app-pie-chart *ngIf="currentView === 'analysis' && currentDetail === 'view'"  [Data]="dataPieAnalysis " [tittle]="'Average Customer Gender Distribution'" [detail]="'About our Users'"></app-pie-chart>
+        <div *ngIf="currentView === 'analysis' && currentDetail === 'view'">
+  <app-bar-lateral-chart [Data]="analysisData" [tittle]="'Analysis'" [detail]="'About our business'"></app-bar-lateral-chart>
+  
+  <app-pie-chart [Data]="dataPieAnalysis" [tittle]="'Average Customer Gender Distribution'" [detail]="'About our Users'"></app-pie-chart>
+  
+  <app-bar-lateral-chart [Data]="categoryData" [tittle]="'Sales by Category'" [detail]="'Total sales per product category'"></app-bar-lateral-chart>
+  
+  <app-pie-chart [Data]="typeUserPieData" [tittle]="'User Type Distribution'" [detail]="'Sales by user type'"></app-pie-chart>
+  
+  <app-bar-lateral-chart [Data]="usersPerTypeData" [tittle]="'Users by Type'" [detail]="'Total users per type'"></app-bar-lateral-chart>
+</div>
       </div>
 
 

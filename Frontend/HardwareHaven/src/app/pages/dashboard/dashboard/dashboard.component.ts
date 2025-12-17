@@ -98,6 +98,10 @@ public analysisData: any;
 public dataPieAnalysis: any;
 public SalesMonthIn:any;
 public TopProducts:any;
+public categoryData:any;
+public typeUserPieData:any;
+public usersPerTypeData:any;
+
 
 private updateDashboardValues(): void {
 
@@ -275,7 +279,26 @@ this.dataPieAnalysis = this.dash?.avgSex
   : defaultdataPieAnalysis;
 
 
+this.categoryData = this.dash.salesPerCategory.map((c: { descripcion: string; totalCompras: number }) => ({
+  name: c.descripcion,
+  value: c.totalCompras
+}));
 
+// ------------------------------
+// Pie chart: ventas por tipo de usuario
+// ------------------------------
+this.typeUserPieData = this.dash.salesPerTypeUser.map((u: { typeUser: string; totalAmount: number }) => ({
+  name: u.typeUser,
+  value: u.totalAmount
+}));
+
+// ------------------------------
+// Barra lateral: cantidad de usuarios por tipo
+// ------------------------------
+this.usersPerTypeData = this.dash.usersPerType.map((u: { typeUsers: string; amountUsers: number }) => ({
+  name: u.typeUsers,
+  value: u.amountUsers
+}));
 
 
 
