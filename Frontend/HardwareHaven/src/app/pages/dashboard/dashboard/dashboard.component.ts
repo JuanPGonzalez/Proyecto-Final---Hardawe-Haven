@@ -249,7 +249,7 @@ this.analysisData = [
   {name:"avgAge", value: `${this.dash.avgAge|| 0}`},
   {name:"avgCancelTime", value: `${this.dash.avgCancelTime|| 0}`},
   {name:"totalLosedCancel", value: `${this.dash.totalLosedCancel|| 0}`},
-  {name:"avgSalesPerDay", value: `${this.dash.v|| 0}`},
+  {name:"avgSalesPerDay", value: `${this.dash.avgSalesPerDay|| 0}`},
   {name:"totalProductsSaled", value: `${this.dash.totalProductsSaled|| 0}`}
 ];
 
