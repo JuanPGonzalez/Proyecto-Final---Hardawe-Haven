@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, Input } from '@angular/core';
 import { Color, colorSets, NgxChartsModule, ScaleType } from '@swimlane/ngx-charts';
 
 @Component({
@@ -10,21 +10,7 @@ import { Color, colorSets, NgxChartsModule, ScaleType } from '@swimlane/ngx-char
 })
 export class BarChartComponent {
   view: [number, number] = [620, 300]; // Tamaño del gráfico
-
-  data = [
-    { name: 'Jan', value: 2000 },
-    { name: 'Feb', value: 2500 },
-    { name: 'Mar', value: 3000 },
-    { name: 'Apr', value: 2800 },
-    { name: 'May', value: 3200 },
-    { name: 'Jun', value: 3500 },
-    { name: 'Jul', value: 3700 },
-    { name: 'Aug', value: 3400 },
-    { name: 'Sep', value: 4000 },
-    { name: 'Oct', value: 4200 },
-    { name: 'Nov', value: 4500 },
-    { name: 'Dec', value: 4800 },
-  ];
+  @Input() data: any;
 
   // Opciones
   showXAxis = true;

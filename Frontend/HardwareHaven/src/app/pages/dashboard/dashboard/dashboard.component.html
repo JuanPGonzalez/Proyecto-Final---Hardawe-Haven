@@ -26,12 +26,10 @@
 
         <div class="user-info d-flex align-items-center">
 
-          <!--svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="bell-icon-btn">
-            <path d="M6 8a6 6 0 0 1 12 0c0 7 3 9 3 9H3s3-2 3-9"></path>
-            <path d="M10.3 21a1.94 1.94 0 0 0 3.4 0"></path>
-          </svg-->
 
-        <app-user-nav [usuario]="usuario"></app-user-nav>
+
+       <app-user-nav [usuario]="usuario"></app-user-nav>
+
 
 
 
@@ -72,7 +70,7 @@
       <div class="d-flex justify-content-between">
         <h2 class="title-dashboard">Dashboard</h2>
         <div class="flex items-center gap-2 m-3">
-          <button class="custom-btn-dowload">
+          <button class="custom-btn-dowload" (click)="downloadReport()">
             <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="m-2">
             <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4">
             </path>
@@ -102,14 +100,23 @@
       </div>
 
       <div>
-        <app-start-dash-board *ngIf="currentView === 'start' && currentDetail === 'view'"></app-start-dash-board>
+        <app-start-dash-board *ngIf="currentView === 'start' && currentDetail === 'view'" [startData]="startData" [BestCustomers]="BestCustomers" [SalesMonthIn]="SalesMonthIn" [TopProducts]="TopProducts"></app-start-dash-board>
         <app-time-chart *ngIf="currentView === 'start' && currentDetail === 'analysis'" [timelineData]="timelineData" [tittle]="'Sales'" [detail]="'Our Sales'"></app-time-chart>
         <app-time-chart *ngIf="currentView === 'orders' && currentDetail === 'view'" [timelineData]="timelineData2" [tittle]="'Orders'" [detail]="'what they have asked us'"></app-time-chart>
         <app-bar-lateral-chart *ngIf="currentView === 'products' && currentDetail === 'view'" [Data]="productData" [tittle]="'Products'" [detail]="'Best-selling products'" ></app-bar-lateral-chart>
         <app-bar-lateral-chart *ngIf="currentView === 'customers' && currentDetail === 'view'" [Data]="clienteData" [tittle]="'Customers'" [detail]="'They always prefer us'"></app-bar-lateral-chart>
         <app-bar-lateral-chart *ngIf="currentView === 'payments' && currentDetail === 'view'" [Data]="payData" [tittle]="'Payments'" [detail]="'Pay methods'"></app-bar-lateral-chart>
-        <app-bar-lateral-chart *ngIf="currentView === 'analysis' && currentDetail === 'view'" [Data]="analysisData" [tittle]="'Analysis'" [detail]="'About our business'"></app-bar-lateral-chart>
-        <app-pie-chart *ngIf="currentView === 'analysis' && currentDetail === 'view'"  [Data]="dataPieAnalysis " [tittle]="'Best user'" [detail]="'About our business'"></app-pie-chart>
+        <div *ngIf="currentView === 'analysis' && currentDetail === 'view'">
+  <app-bar-lateral-chart [Data]="analysisData" [tittle]="'Analysis'" [detail]="'About our business'"></app-bar-lateral-chart>
+  
+  <app-pie-chart [Data]="dataPieAnalysis" [tittle]="'Average Customer Gender Distribution'" [detail]="'About our Users'"></app-pie-chart>
+  
+  <app-bar-lateral-chart [Data]="categoryData" [tittle]="'Sales by Category'" [detail]="'Total sales per product category'"></app-bar-lateral-chart>
+  
+  <app-pie-chart [Data]="typeUserPieData" [tittle]="'User Type Distribution'" [detail]="'Sales by user type'"></app-pie-chart>
+  
+  <app-bar-lateral-chart [Data]="usersPerTypeData" [tittle]="'Users by Type'" [detail]="'Total users per type'"></app-bar-lateral-chart>
+</div>
       </div>
 
 
