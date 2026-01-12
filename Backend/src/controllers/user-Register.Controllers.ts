@@ -1,6 +1,6 @@
 import { Request, Response } from 'express';
 import { UserRepository } from "../repository/userRepository.js";
-import { User } from '../model/user.entity.js';
+import { User } from '../Model/user.entity.js';
 import { jwtConstructor } from '../shared/db/jwt.js';
 
 const userRepo = new UserRepository();
