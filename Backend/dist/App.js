@@ -7,6 +7,12 @@ const bootstrap = async () => {
     const custom_port = Number(process.env.PORT);
     httpHarwareHavenServer.listen(custom_port, () => {
         console.log(`Harware Haven Server is listening on port: ${custom_port}`);
+        // Start the dynamic pricing scheduler
+        import('./pricing/scheduler.js').then(({ startPricingScheduler }) => {
+            startPricingScheduler();
+        }).catch(err => {
+            console.error('Failed to start pricing scheduler:', err);
+        });
     });
 };
 bootstrap();
