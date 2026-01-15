@@ -1,80 +1,204 @@
+/* shop-car-card.component.css */
 
+/* --- 1. Forzar color blanco en los iconos --- */
+.bi,
+.bi::before {
+  color: white !important;
+  -webkit-text-fill-color: white !important;
+  display: inline-block !important;
+  /* Evita que el icono colapse */
+}
+
+/* --- 2. Estilo de la fila (Tarjeta) --- */
+/* --- 2. Estilo de la fila (Tarjeta) --- */
+.carrito-line {
+  background: rgba(255, 255, 255, 0.03);
+  border: 1px solid var(--glass-border);
+  border-radius: 12px;
+  margin-bottom: 1rem;
+  padding: 1rem;
+  transition: all 0.2s ease;
+}
+
+.carrito-line:hover {
+  background: rgba(255, 255, 255, 0.06);
+}
+
+/* --- 3. Ajuste de la lista para convivir con Bootstrap --- */
 .table-list {
-    display: flex;
-    justify-content: space-evenly;
-    align-items: center;
-    padding: 0;
-    margin-left: 25px;
-    list-style: none;
-    width: 100%;
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  width: 100%;
+  /* No usamos display:flex aquí porque Bootstrap ya usa .row */
+}
+
+.table-list li {
+  color: var(--text-color);
+  font-size: 0.95rem;
+  display: flex;
+  align-items: center;
+}
+
+/* Centrado específico para columnas de precio, cantidad y acciones */
+.table-list li.text-center,
+.table-list li:nth-child(4),
+.table-list li:nth-child(5) {
+  justify-content: center;
 }
 
 .truncate {
-    white-space: nowrap;
-    overflow: hidden;
-    text-overflow: ellipsis;
-    width: 120px;
-    max-width: 120px;
-    text-align: start;
-
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  max-width: 100%;
+  padding: 0 10px;
 }
 
+/* --- 4. SELECTOR DE CANTIDAD (Corrección de botones invisibles) --- */
 .quantity-selector {
-    display: flex;
-    align-items: center;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: rgba(255, 255, 255, 0.05);
+  border-radius: 8px;
+  border: 1px solid var(--glass-border);
+  padding: 2px;
+  width: auto;
+  /* Dejar que crezca según contenido */
 }
 
 .quantity-selector .btn {
-    width: 40px;
-    height: 40px;
+  /* FUERZA BRUTA: Tamaño fijo que no se puede encoger */
+  width: 32px !important;
+  min-width: 32px !important;
+  height: 32px !important;
+  padding: 0 !important;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border: none;
+  background: transparent;
+  color: white !important;
+  cursor: pointer;
+  flex-shrink: 0;
+  /* PROHIBIDO ENCOGER */
+}
+
+.quantity-selector .btn:hover {
+  background: rgba(255, 255, 255, 0.1);
+  border-radius: 4px;
 }
 
 .quantity-selector .form-control {
-    width: 60px;
-    text-align: center;
+  width: 45px !important;
+  /* Un poco más ancho */
+  text-align: center;
+  background: transparent;
+  border: none;
+  color: white !important;
+  /* Texto blanco forzado */
+  padding: 0;
+  font-weight: 600;
+  margin: 0;
 }
 
+/* Quitar flechas del input number */
+.quantity-selector .form-control:focus {
+  outline: none;
+  box-shadow: none;
+}
 
+.quantity-selector .form-control::-webkit-outer-spin-button,
+.quantity-selector .form-control::-webkit-inner-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+}
 
-@media (max-width: 768px){
+/* --- 5. BOTÓN ELIMINAR (Corrección de botón aplastado) --- */
+.btn-x {
+  /* FUERZA BRUTA: Tamaño fijo */
+  width: 40px !important;
+  min-width: 40px !important;
+  height: 40px !important;
 
+  border-radius: 50%;
+  padding: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  background: rgba(239, 68, 68, 0.15);
+  color: white !important;
+  border: 1px solid rgba(239, 68, 68, 0.3);
+  transition: all 0.2s ease;
+  cursor: pointer;
+
+  flex-shrink: 0;
+  /* CRUCIAL: Esto evita que se convierta en una línea roja */
+}
+
+.btn-x:hover {
+  background: #ef4444;
+  color: white;
+  transform: scale(1.05);
+  border-color: #ef4444;
+}
+
+/* --- 6. Responsive --- */
+@media (max-width: 768px) {
+  .carrito-line {
+    padding: 1rem;
+    position: relative;
+  }
+
+  /* En móvil a veces Bootstrap cambia el display, aseguramos flex */
   .table-list {
     display: flex;
-    flex-direction: column;
-    justify-content: space-evenly;
-    align-items: start;
-    padding: 0;
-    margin-left: 0px;
-    list-style: none;
+    flex-wrap: wrap;
+  }
+
+  .card-mov-titulo {
+    font-size: 1.1rem;
+    font-weight: 700;
+    color: var(--primary-color);
+    margin-bottom: 0.5rem;
+    text-align: left !important;
+    justify-content: flex-start !important;
     width: 100%;
-    position: relative;
+    white-space: normal;
+    /* Allow wrapping */
+  }
 
-}
+  .precio-mov {
+    font-weight: bold;
+    color: #fff;
+    text-align: left !important;
+    justify-content: flex-start !important;
+    margin-bottom: 0.5rem;
+    width: 100%;
+    display: flex;
+    align-items: center;
+  }
 
-.truncate {
+  /* Alinear selectores a la izquierda en móvil */
+  .amount-mobile {
+    justify-content: flex-start !important;
+    width: 100%;
+    margin-bottom: 0.5rem;
+    display: flex;
+    align-items: center;
+  }
 
-  margin: 10px;
-}
-
-.carrito-line{
-border-radius: 10px;
-}
-.btn-x {
-  position: absolute;
-  top: 10px; /* Ajusta la distancia desde la parte superior */
-  right: 10px; /* Ajusta la distancia desde la parte derecha */
-  cursor: pointer; /* Aparece el cursor de mano */
-}
-.amount-mobile{
-  margin: 10px;
-}
-
-.card-mov-titulo{
-  font-size: 22px;
-  font-weight: bold;
-}
-.precio-mov{
-  margin: 10px;
-}
-
+  /* Botón eliminar flotante en móvil */
+  .btn-x {
+    position: absolute;
+    top: 15px;
+    right: 15px;
+    width: 35px !important;
+    /* Ligeramente más pequeño en móvil */
+    min-width: 35px !important;
+    height: 35px !important;
+  }
 }

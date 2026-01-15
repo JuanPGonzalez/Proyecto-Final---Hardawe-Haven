@@ -1,118 +1,44 @@
 @import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@400&display=swap');
-.font-Montserrat{
-    font-family: 'Montserrat', sans-serif;
+
+:host {
+  display: block;
+  min-height: 100vh;
 }
 
-.title-product{
-  color: #bbb9b9;
-}
 .font-Montserrat {
-    font-family: 'Montserrat', sans-serif;
+  font-family: 'Montserrat', sans-serif;
 }
 
+.title-product {
+  font-weight: 700;
+  background: var(--text-gradient);
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+  width: fit-content;
+  margin: 0 auto;
+}
 
 header {
-    background-color: #01060F;
+  background-color: rgba(1, 6, 15, 0.8);
+  backdrop-filter: var(--glass-blur);
+  border-bottom: 1px solid var(--glass-border);
+  position: sticky;
+  top: 0;
+  z-index: 1000;
 }
 
 .bg-body-tertiary {
-    background-color: transparent !important;
+  background-color: transparent !important;
 }
 
-
-
-  .title_home{
-    width: 200px;
+.title_home {
+  width: 200px;
+  filter: drop-shadow(0 0 8px rgba(96, 165, 250, 0.5));
 }
 
 .carrito-cant {
-    background-color: rgb(2, 6, 66);
-    width: 26px;
-    height: 26px;
-    border-radius: 50%;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    color: white;
-}
-
-
-.custom-menu{
-   display: flex;
-   justify-content: space-between;
-   align-items: center;
-   width: 75%;
-   margin-right: 50px;
-}
-
-
-
-
-
-.custom-menu-fixed{
-  position: fixed;
-  align-items: center;
-  justify-content: space-between;
-  bottom: 35px;
-  right: 10px;
-  display: flex;
-  width: 400px;
-}
-
-
-
-.floating-button-purchase {
-
-  width: 240px;
-  height: 65px;
-  padding: 0 20px;
-  border: none;
-  border-radius: 10px;
-  background-color: #0d6efd;
-  color: white;
-  font-size: 17px;
-  font-weight: 500;
-  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  box-shadow: 0 6px 12px rgba(0, 0, 0, 0.15);
-  transition: all 0.2s ease-in-out;
-  cursor: pointer;
-}
-
-.floating-button-purchase:hover {
-  background-color: #0b5ed7;
-  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
-  transform: translateY(-2px);
-}
-
-.floating-button-purchase:active {
-  transform: translateY(1px);
-  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-}
-
-
-.floating-button-shopcar {
-
-
-  display: flex;
-  align-items: center;
-  justify-content: center;
-
-
-  width: 75px;
-  height: 75px;
-  border-radius: 100%;
-  background-color: #007bff;
-  color: white;
-  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
-  border: none;
-  cursor: pointer;
-}
-
-.carrito-shopcar {
-  background-color: rgb(9, 101, 124);
+  background-color: var(--primary-color);
   width: 26px;
   height: 26px;
   border-radius: 50%;
@@ -120,68 +46,192 @@ header {
   justify-content: center;
   align-items: center;
   color: white;
+  font-size: 0.8rem;
+  font-weight: bold;
 }
 
-.floating-button-trash{
+/* Sidebar Styles */
+.glass-card {
+  background: var(--glass-bg);
+  backdrop-filter: var(--glass-blur);
+  border: 1px solid var(--glass-border);
+  border-radius: 16px;
+  box-shadow: var(--glass-shadow);
+}
 
+/* Fix dropdown option color */
+select option {
+  color: black;
+  background: white;
+}
 
+.custom-menu-fixed {
+  position: fixed;
+  align-items: center;
+  justify-content: space-between;
+  top: 100px;
+  /* Position below header */
+  right: 20px;
+  display: flex;
+  width: 400px;
+  /* Increased to fit trash button */
+  background: var(--glass-bg);
+  backdrop-filter: var(--glass-blur);
+  padding: 10px 20px;
+  border-radius: 50px;
+  border: 1px solid var(--glass-border);
+  box-shadow: var(--glass-shadow);
+  z-index: 900;
+  /* Lower z-index than navbar/modals */
+  transition: all 0.3s ease;
+  gap: 10px;
+}
+
+/* Disabled State */
+.custom-menu-fixed.disabled {
+  opacity: 0.6;
+  pointer-events: none;
+  filter: grayscale(0.8);
+}
+
+.floating-button-trash {
+  width: 45px;
+  height: 45px;
+  border-radius: 50%;
+  border: none;
+  background: linear-gradient(135deg, #ef4444 0%, #dc2626 100%);
+  color: white;
   display: flex;
   align-items: center;
   justify-content: center;
+  font-size: 1.2rem;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  box-shadow: 0 4px 10px rgba(220, 38, 38, 0.3);
+}
 
+.trash-icon {
+  width: 24px;
+  height: 24px;
+  object-fit: contain;
+  filter: brightness(0) invert(1);
+  /* Forces the image to be white */
+}
 
-  width: 60px;
-  height: 60px;
-  border-radius: 100%;
-  background-color: #ff0800;
-  color: white;
-  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+.floating-button-trash:hover {
+  transform: translateY(-2px);
+  background: linear-gradient(135deg, #dc2626 0%, #b91c1c 100%);
+  box-shadow: 0 6px 15px rgba(220, 38, 38, 0.4);
+}
+
+.floating-button-purchase {
+  width: 240px;
+  height: 45px;
+  padding: 0 20px;
   border: none;
+  border-radius: 25px;
+  background: var(--primary-gradient);
+  color: white;
+  font-size: 16px;
+  font-weight: 600;
+  font-family: 'Inter', sans-serif;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-shadow: 0 4px 12px rgba(99, 102, 241, 0.3);
+  transition: all 0.2s ease-in-out;
   cursor: pointer;
 }
 
+.floating-button-purchase:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 6px 16px rgba(99, 102, 241, 0.5);
+}
 
-@media (max-width: 768px){
-  .custom-menu{
-    margin-top: 160px;
-    margin-right: 0;
-    flex-direction: column;
-    width: 100%;
+.floating-button-purchase:active {
+  transform: translateY(1px);
+  box-shadow: 0 2px 4px rgba(99, 102, 241, 0.2);
+}
 
-    gap:5px;
-  }
+.floating-button-purchase:disabled {
+  background: #cbd5e1;
+  cursor: not-allowed;
+  box-shadow: none;
+  transform: none;
+}
 
+.carrito-shopcar {
+  background-color: var(--secondary-color);
+  width: 26px;
+  height: 26px;
+  border-radius: 50%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  color: white;
+  font-weight: bold;
+  font-size: 0.8rem;
+  position: absolute;
+  top: -5px;
+  right: -5px;
+}
+
+.item-menu-fixed {
+  cursor: pointer;
+  transition: transform 0.2s;
+}
+
+.item-menu-fixed:hover {
+  transform: scale(1.1);
+}
+
+/* Removed floating-button-trash styles */
+
+@media (max-width: 768px) {
   .navbar-collapse {
-    display: flex !important;
-    flex-direction: column-reverse !important;
-    justify-content: center !important;
-  }
-  .navbar-toggler {
-    display: none !important;
-  }
-
-  .container-fluid {
-    display: flex;
-    justify-content: center;
+    background: var(--glass-bg);
+    backdrop-filter: var(--glass-blur);
+    border-radius: 0 0 16px 16px;
+    border: 1px solid var(--glass-border);
+    border-top: none;
+    padding: 1rem;
+    margin-top: 10px;
   }
 
-  header{
+  header {
+    position: sticky;
     width: 100%;
-    position:fixed;
-    z-index: 10;
+    z-index: 1000;
+    background: rgba(1, 6, 15, 0.95);
+  }
+
+  .custom-menu-fixed {
+    width: 95%;
+    left: 2.5%;
+    bottom: 20px;
+    justify-content: space-between;
+    padding: 10px 15px;
   }
 
   .floating-button-purchase {
-    width: 50%;
+    width: auto;
+    flex-grow: 1;
+    margin: 0 15px;
+    font-size: 0.9rem;
   }
-  .custom-menu-fixed{
-    width: 100%;
-    justify-content: space-evenly;
-  }
-
-
-
-
 }
 
+.text-muted {
+  color: white !important;
+}
 
+/* Fix for carousel card hover clipping */
+#productsCarousel .carousel-inner {
+  padding: 20px 5px;
+  /* Adds space for the card to move up without being cut off */
+  margin: -20px -5px;
+  /* Counteracts the padding layout shift if necessary, but careful */
+  /* Actually, simpler is just padding, let's stick to padding and width correction if needed */
+  width: calc(100% + 10px);
+  margin-left: -5px;
+}

@@ -1,62 +1,76 @@
-<div class="bg-black">
-    <header>
+<div>
+  <header>
+    <nav class="navbar navbar-expand-lg">
+      <div class="container-fluid">
+        <a class="navbar-brand" href="productList">
+          <img
+            src="assets/images/title_home.png"
+            class="img-fluid title_home"
+            alt="Hardware Haven"
+          />
+        </a>
 
-      <nav class="navbar navbar-expand-lg bg-body-tertiary">
-        <div class="container-fluid">
-            <a class="navbar-brand font-Montserrat text-light" href="productList">
-                <img src="assets/images/title_home.png" class="img-fluid title_home" alt="...">
-            </a>
-            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-                <span class="navbar-toggler-icon"></span>
-            </button>
-            <div class="collapse navbar-collapse" id="navbarSupportedContent">
-              <div class="d-flex justify-content-center w-100">
-              <div class="w-50">
+        <button
+          class="navbar-toggler"
+          type="button"
+          data-bs-toggle="collapse"
+          data-bs-target="#navbarSupportedContent"
+        >
+          <span class="navbar-toggler-icon"></span>
+        </button>
+        <!-- Added Toggler -->
 
-               </div>
-              </div>
-
-              <div class="me-1">
-                <Button (click)="pasarAListaProductos()" class="btn btn-primary"> Volver </Button>
-              </div>
-
-
-              <div class="d-flex justify-content-center align-items-center" *ngIf="!mostrarResumen" (click)="pasarAListaProductos()">
-              <img src="assets\images\Carrito.png" width="25" height="25" alt="" title="" class="img-small">
-              <span class="ms-1 text-light">
-              <p class="carrito-cant">{{carrito.length}}</p>
-              </span>
-              </div>
-
-
-
-                <div>
-                    <app-user-nav [usuario]="usuario"></app-user-nav>
-                </div>
-                <div>
-
-                </div>
-
-            </div>
-        </div>
-    </nav>
-
-    </header>
-    <main class="custom-main">
-      <h1 class="text-center title-product mb-4 mt-3">
-          {{ mostrarResumen ? 'Resumen de Compra' : 'Carrito de Compra' }}
-      </h1>
-
-      <div class="carrito-flex">
-          <app-shop-car *ngIf="!mostrarResumen"></app-shop-car>
-          <app-summary-purchase *ngIf="mostrarResumen"></app-summary-purchase>
-      </div>
-
-      <div class="w-100 d-flex justify-content-center align-items-center">
-          <div class="custom-botom-banner">
-              <button *ngIf="!mostrarResumen && mostrarBoton" class="btn-custom-compra btn btn-primary" (click)="realizarCompra()">Confirmar</button>
+        <div
+          class="collapse navbar-collapse justify-content-end"
+          id="navbarSupportedContent"
+        >
+          <div class="d-flex align-items-center gap-3">
+            <app-user-nav [usuario]="usuario"></app-user-nav>
           </div>
+        </div>
       </div>
-  </main>
+    </nav>
+  </header>
 
+  <div class="container mt-4 d-flex justify-content-start">
+    <button
+      (click)="pasarAListaProductos()"
+      class="btn btn-primary-gradient d-flex align-items-center gap-2"
+      [style.width]="'fit-content'"
+    >
+      <i class="bi bi-arrow-left"></i> Seguir Comprando
+    </button>
+  </div>
+
+  <main class="custom-main container py-4">
+    <div class="text-center mb-5">
+      <h1 class="title-product">
+        {{ mostrarResumen ? "Resumen de Compra" : "Tu Carrito" }}
+      </h1>
+      <p class="text-muted" *ngIf="!mostrarResumen">
+        Revisa tus productos antes de confirmar
+      </p>
+    </div>
+
+    <div class="row justify-content-center">
+      <div class="col-12 col-xl-10">
+        <div class="carrito-flex">
+          <app-shop-car *ngIf="!mostrarResumen" class="w-100"></app-shop-car>
+          <app-summary-purchase
+            *ngIf="mostrarResumen"
+            class="w-100"
+          ></app-summary-purchase>
+        </div>
+      </div>
+    </div>
+
+    <div
+      class="d-flex justify-content-end mt-4 px-4"
+      *ngIf="!mostrarResumen && mostrarBoton"
+    >
+      <button class="btn btn-custom-compra" (click)="realizarCompra()">
+        Proceed to Checkout <i class="bi bi-arrow-right ms-2"></i>
+      </button>
+    </div>
+  </main>
 </div>

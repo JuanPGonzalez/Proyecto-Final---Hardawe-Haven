@@ -17,6 +17,7 @@ import { getMaxPrice } from '../../../../shared/functions/functions';
 export class CardComponent implements OnInit {
 
   @Input() product: any;
+  @Input() showActions: boolean = true;
   @Output() productSelected = new EventEmitter<any>();
   @Output() productUnSelected = new EventEmitter<any>();
 
@@ -46,7 +47,6 @@ export class CardComponent implements OnInit {
 
   selectButtonAdd(){
     this.selectProduct();
-    this.toastService.showToastSusses("Añadido");
   }
 
   selectProduct() {

@@ -1,91 +1,95 @@
+/* user-nav.component.css */
 .user-nav {
-    width: 225px;
-    height: 100%;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    font-size: 22px;
-    color: white;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 8px 16px;
+  background: rgba(255, 255, 255, 0.1);
+  backdrop-filter: blur(8px);
+  border: 1px solid var(--glass-border);
+  border-radius: 40px;
+  color: var(--text-color);
+  font-weight: 500;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  min-width: 140px;
+}
+
+.user-nav:hover {
+  background: rgba(255, 255, 255, 0.2);
+  transform: translateY(-1px);
+}
+
+.dropdown {
+  position: relative;
+  display: inline-block;
+}
+
+.dropdown-menu {
+  position: absolute;
+  top: 110%;
+  right: 0;
+  left: auto;
+  /* Align to right if needed, or default left */
+  background: var(--glass-bg);
+  backdrop-filter: var(--glass-blur);
+  border: 1px solid var(--glass-border);
+  border-radius: 12px;
+  box-shadow: var(--glass-shadow);
+  display: none;
+  z-index: 1000;
+  min-width: 200px;
+  padding: 0.5rem;
+  overflow: hidden;
+  animation: slideDown 0.3s ease-out;
+}
+
+.dropdown-menu.show {
+  display: block;
+}
+
+.dropdown-item {
+  padding: 10px 16px;
+  color: var(--text-color);
+  text-decoration: none;
+  display: block;
+  border-radius: 8px;
+  transition: background-color 0.2s;
+}
+
+.dropdown-item:hover {
+  background-color: rgba(255, 255, 255, 0.1);
+  color: #fff;
+}
+
+@keyframes slideDown {
+  from {
+    opacity: 0;
+    transform: translateY(-10px);
   }
 
-  .dropdown {
-    position: relative;
-    display: inline-block;
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@media (max-width: 768px) {
+  .dropdown-menu {
+    position: fixed;
+    top: auto;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    width: 100%;
+    border-radius: 20px 20px 0 0;
+    background: #1e1b4b;
+    /* Solid color for better contrast on mobile bottom sheet style */
+    border-top: 1px solid var(--glass-border);
   }
 
   .user-nav {
-    padding: 10px 15px;
-    margin: 5px;
-    background-color: #000000;
-    color: white;
-    border-radius: 40px;
-    cursor: pointer;
-    transition: background-color 0.3s;
-    width: 150px; /* Ajusta este valor al largo deseado */
-    text-align: center;
+    font-size: 0.9rem;
+    padding: 6px 12px;
+  }
 }
-
-
-
-  .user-nav:hover {
-    background-color: #0056b3; /* Color al pasar el ratón */
-  }
-
-  .dropdown-menu {
-    position: absolute;
-    top: 100%; /* Alinea el menú con el botón */
-    left: 0;
-    background-color: white; /* Color de fondo del menú */
-    border: 1px solid #ccc; /* Bordes del menú */
-    border-radius: 4px; /* Bordes redondeados del menú */
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Sombra */
-    display: none; /* Oculto por defecto */
-    z-index: 1000; /* Asegúrate de que esté por encima de otros elementos */
-  }
-
-  .dropdown-menu.show {
-    display: block; /* Muestra el menú cuando está activo */
-  }
-
-  .dropdown-item {
-    padding: 10px 15px; /* Espaciado del ítem */
-    color: #333; /* Color del texto */
-    text-decoration: none; /* Sin subrayado */
-    display: block; /* Asegúrate de que ocupe todo el ancho */
-    transition: background-color 0.3s; /* Transición suave */
-  }
-
-  .dropdown-item:hover {
-    background-color: #f1f1f1; /* Color al pasar el ratón sobre los ítems */
-  }
-
-
-
-  @media (max-width: 768px){
-
-
-
-
-     .dropdown-menu {
-      font-size: 22px;
-      position: absolute;
-      width: 120%;
-    }
-
-    .dropdown-menu.show {
-      display: block; /* Muestra el menú cuando está activo */
-    }
-
-    .dropdown-item {
-      padding: 10px 15px; /* Espaciado del ítem */
-      color: #333; /* Color del texto */
-      text-decoration: none; /* Sin subrayado */
-      display: block; /* Asegúrate de que ocupe todo el ancho */
-      transition: background-color 0.3s; /* Transición suave */
-    }
-
-    .dropdown-item:hover {
-      background-color: #f1f1f1; /* Color al pasar el ratón sobre los ítems */
-    }
-
-  }

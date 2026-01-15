@@ -1,55 +1,109 @@
-<div class="bg-black">
-    <header>
-        
-      <nav class="navbar navbar-expand-lg bg-body-tertiary">
-        <div class="container-fluid">
-            <a class="navbar-brand font-Montserrat text-light" href="productList">
-                <img src="assets/images/title_home.png" class="img-fluid title_home" alt="...">
-            </a>
-            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-                <span class="navbar-toggler-icon"></span>
-            </button>
-            <div class="collapse navbar-collapse" id="navbarSupportedContent">
-              <div class="d-flex justify-content-center w-100">
-              <div class="w-50">
-              
-               </div>
-              </div>
-                <div class="ms-auto ">
-                    <app-user-nav [usuario]="usuario"></app-user-nav>
-                </div>
-                <div>
-                  
-                </div>
-
-            </div>
+<div>
+  <header>
+    <nav class="navbar navbar-expand-lg">
+      <div class="container-fluid">
+        <a class="navbar-brand" href="productList">
+          <img
+            src="assets/images/title_home.png"
+            class="img-fluid title_home"
+            alt="Hardware Haven"
+          />
+        </a>
+        <button
+          class="navbar-toggler"
+          type="button"
+          data-bs-toggle="collapse"
+          data-bs-target="#navbarSupportedContent"
+        >
+          <span class="navbar-toggler-icon"></span>
+        </button>
+        <div
+          class="collapse navbar-collapse justify-content-end"
+          id="navbarSupportedContent"
+        >
+          <div class="d-flex align-items-center">
+            <app-user-nav [usuario]="usuario"></app-user-nav>
+          </div>
         </div>
+      </div>
     </nav>
-    
-    </header>
-    <main>
-        <h1 class="text-center title-envio mb-4 mt-3">Envio</h1>
-        <div class="custom-contenedor d-flex flex-column justify-content-center align-items-center">
-            <form class="w-50">
-                <div class="mb-3">
-                    <label for="direccion" class="form-label">Dirección</label>
-                    <input type="text" class="form-control" id="direccion" placeholder="Calle Falsa 123">
-                </div>
-                <div class="mb-3">
-                    <label for="ciudad" class="form-label">Ciudad</label>
-                    <input type="text" class="form-control" id="ciudad" placeholder="Rosario">
-                </div>
-                <div class="mb-3">
-                    <label for="codigo-postal" class="form-label">Código Postal</label>
-                    <input type="text" class="form-control" id="codigo-postal" placeholder="2000">
-                </div>
-                <div class="mb-3">
-                    <label for="telefono" class="form-label">Teléfono</label>
-                    <input type="text" class="form-control" id="telefono" placeholder="123456789">
-                </div>
-                <button type="submit" class="btn btn-primary w-100 mt-2">Confirmar Envío</button>
-            </form>
+  </header>
+
+  <main class="container py-5">
+    <h1 class="text-center title-envio mb-5">Detalles de Envío</h1>
+
+    <div class="custom-contenedor">
+      <form class="w-100 p-2">
+        <div class="row g-3">
+          <div class="col-12">
+            <label for="direccion" class="form-label">Dirección</label>
+            <div class="input-group">
+              <span
+                class="input-group-text bg-transparent border-end-0 border-secondary"
+                style="
+                  border-color: var(--glass-border) !important;
+                  color: var(--text-muted);
+                "
+              >
+                <i class="bi bi-geo-alt"></i>
+              </span>
+              <input
+                type="text"
+                class="form-control border-start-0 ps-0"
+                id="direccion"
+                placeholder="Calle Falsa 123"
+              />
+            </div>
+          </div>
+
+          <div class="col-md-6">
+            <label for="ciudad" class="form-label">Ciudad</label>
+            <input
+              type="text"
+              class="form-control"
+              id="ciudad"
+              placeholder="Rosario"
+            />
+          </div>
+
+          <div class="col-md-6">
+            <label for="codigo-postal" class="form-label">Código Postal</label>
+            <input
+              type="text"
+              class="form-control"
+              id="codigo-postal"
+              placeholder="2000"
+            />
+          </div>
+
+          <div class="col-12">
+            <label for="telefono" class="form-label">Teléfono</label>
+            <div class="input-group">
+              <span
+                class="input-group-text bg-transparent border-end-0 border-secondary"
+                style="
+                  border-color: var(--glass-border) !important;
+                  color: var(--text-muted);
+                "
+              >
+                <i class="bi bi-telephone"></i>
+              </span>
+              <input
+                type="tel"
+                class="form-control border-start-0 ps-0"
+                id="telefono"
+                placeholder="123456789"
+              />
+            </div>
+          </div>
+
+          <div class="col-12 mt-4 d-flex justify-content-center">
+            <button type="submit" class="btn btn-primary px-5">
+              Confirmar Envío <i class="bi bi-check2 ms-2"></i>
+            </button>
+          </div>
         </div>
-    </main>
-    
+      </form>
+    </div>
+  </main>
 </div>
