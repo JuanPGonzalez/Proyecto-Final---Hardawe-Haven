@@ -1,71 +1,103 @@
-<div class="ayuda-container">
-  <div class="header-section">
-    <button class="back-btn" (click)="gotoHome()">
-      <i class="fas fa-arrow-left"></i> Volver
-    </button>
-    <h1>Centro de Ayuda</h1>
+<div class="ayuda-wrapper">
+  <button class="volver-btn" (click)="gotoHome()">
+    <i class="fas fa-arrow-left"></i> Volver
+  </button>
+
+  <div class="content-container">
+    <div class="page-header">
+      <h1>Centro de Ayuda</h1>
+    </div>
+
+    <div class="split-layout">
+      <!-- Left Column: FAQ -->
+      <section class="faq-section">
+        <h2>Preguntas Frecuentes</h2>
+        <div class="faq-grid">
+          <div class="faq-card">
+            <h3>¿Cómo puedo realizar un pedido?</h3>
+            <p>
+              Selecciona los productos que deseas, agrégalos al carrito y sigue
+              los pasos en la página de compra. Podrás generar tu factura y
+              recibirla por email.
+            </p>
+          </div>
+
+          <div class="faq-card">
+            <h3>¿Cuáles son las opciones de envío?</h3>
+            <p>
+              Ofrecemos envío estándar, express y recogida en tienda.
+              Contáctanos para coordinar la mejor opción para ti.
+            </p>
+          </div>
+
+          <div class="faq-card">
+            <h3>¿Cómo puedo rastrear mi pedido?</h3>
+            <p>
+              Una vez enviado tu pedido, recibirás un correo electrónico
+              automático con el número de seguimiento en tiempo real.
+            </p>
+          </div>
+
+          <div class="faq-card">
+            <h3>¿Puedo devolver un producto?</h3>
+            <p>
+              Sí, aceptamos devoluciones dentro de los primeros 30 días, siempre
+              que el producto cumpla con nuestra política de devoluciones.
+            </p>
+          </div>
+        </div>
+      </section>
+
+      <!-- Right Column: Contact Form -->
+      <section class="contact-section">
+        <h2>Contáctanos</h2>
+        <div class="form-card">
+          <p class="form-desc">
+            ¿No encuentras lo que buscas? Envíanos un mensaje.
+          </p>
+          <form (ngSubmit)="sendEmail()" class="contact-form">
+            <div class="form-group">
+              <label for="name">Nombre</label>
+              <input
+                type="text"
+                id="name"
+                [(ngModel)]="contactName"
+                name="name"
+                placeholder="Tu nombre"
+                required
+              />
+            </div>
+
+            <div class="form-group">
+              <label for="subject">Asunto</label>
+              <input
+                type="text"
+                id="subject"
+                [(ngModel)]="contactSubject"
+                name="subject"
+                placeholder="Asunto de la consulta"
+                required
+              />
+            </div>
+
+            <div class="form-group">
+              <label for="message">Mensaje</label>
+              <textarea
+                id="message"
+                [(ngModel)]="contactMessage"
+                name="message"
+                rows="5"
+                placeholder="Escribe tu consulta aquí..."
+                required
+              ></textarea>
+            </div>
+
+            <button type="submit" class="submit-btn">
+              <i class="fas fa-paper-plane"></i> Enviar Consulta
+            </button>
+          </form>
+        </div>
+      </section>
+    </div>
   </div>
-
-  <section>
-    <h2>Preguntas Frecuentes</h2>
-    <div class="faq-grid">
-      <div class="faq-card">
-        <h3>¿Cómo puedo realizar un pedido?</h3>
-        <p>
-          Selecciona los productos que deseas, agrégalos al carrito y sigue los
-          pasos en la página de compra. Podrás generar tu factura y recibirla
-          por email.
-        </p>
-      </div>
-
-      <div class="faq-card">
-        <h3>¿Cuáles son las opciones de envío?</h3>
-        <p>
-          Ofrecemos envío estándar, express y recogida en tienda. Contáctanos
-          para coordinar la mejor opción para ti.
-        </p>
-      </div>
-
-      <div class="faq-card">
-        <h3>¿Cómo puedo rastrear mi pedido?</h3>
-        <p>
-          Una vez enviado tu pedido, recibirás un correo electrónico automático
-          con el número de seguimiento en tiempo real.
-        </p>
-      </div>
-
-      <div class="faq-card">
-        <h3>¿Puedo devolver un producto?</h3>
-        <p>
-          Sí, aceptamos devoluciones dentro de los primeros 30 días, siempre que
-          el producto cumpla con nuestra política de devoluciones.
-        </p>
-      </div>
-    </div>
-  </section>
-
-  <section>
-    <h2>Recursos y Soporte</h2>
-    <div class="links-section">
-      <a
-        href="https://github.com/jcaldani/DSW-2024-Hardware-Haven/blob/main/Documentation/Hardware%20Haven.pdf"
-        target="_blank"
-        class="action-link"
-      >
-        <i class="fas fa-file-alt"></i> Documentación Oficial
-      </a>
-
-      <a href="mailto:ignacio.rodriguez.sistemas@gmail.com" class="action-link">
-        <i class="fas fa-envelope"></i> Contactar Soporte
-      </a>
-
-      <a
-        href="https://github.com/Xraidth/HardwareHaven"
-        target="_blank"
-        class="action-link"
-      >
-        <i class="fab fa-github"></i> Repositorio GitHub
-      </a>
-    </div>
-  </section>
 </div>

@@ -4,9 +4,9 @@
 :host {
   display: block;
   min-height: 100vh;
-  background: linear-gradient(135deg, #0f172a 0%, #1e1b4b 100%);
+  background: var(--bg-gradient);
   font-family: 'Montserrat', sans-serif;
-  color: #e2e8f0;
+  color: var(--text-color);
 }
 
 /* Navbar */
@@ -14,9 +14,9 @@ header {
   position: sticky;
   top: 0;
   z-index: 1000;
-  backdrop-filter: blur(12px);
+  backdrop-filter: var(--glass-blur);
   background: rgba(15, 23, 42, 0.8);
-  border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+  border-bottom: 1px solid var(--glass-border);
 }
 
 .navbar {
@@ -36,9 +36,9 @@ header {
 }
 
 .form-control {
-  background: rgba(255, 255, 255, 0.05);
-  border: 1px solid rgba(255, 255, 255, 0.1);
-  color: #fff;
+  background: var(--glass-bg);
+  border: 1px solid var(--glass-border);
+  color: var(--text-color);
   border-radius: 8px;
   padding: 0.5rem 1rem;
   transition: all 0.3s ease;
@@ -46,17 +46,17 @@ header {
 
 .form-control:focus {
   background: rgba(255, 255, 255, 0.1);
-  border-color: #60a5fa;
-  box-shadow: 0 0 0 2px rgba(96, 165, 250, 0.2);
+  border-color: var(--primary-color);
+  box-shadow: var(--glass-shadow);
   outline: none;
 }
 
 .form-control::placeholder {
-  color: rgba(255, 255, 255, 0.6);
+  color: var(--text-muted);
 }
 
 .btn-login {
-  background: linear-gradient(to right, #3b82f6, #8b5cf6);
+  background: var(--primary-gradient);
   color: white;
   border: none;
   padding: 0.5rem 1.5rem;
@@ -68,13 +68,13 @@ header {
 
 .btn-login:hover {
   transform: translateY(-1px);
-  box-shadow: 0 4px 12px rgba(59, 130, 246, 0.3);
+  box-shadow: 0 4px 12px rgba(99, 102, 241, 0.4);
 }
 
 .link-button {
   background: none;
   border: none;
-  color: #94a3b8;
+  color: var(--text-muted);
   font-size: 0.875rem;
   cursor: pointer;
   transition: color 0.3s;
@@ -83,7 +83,7 @@ header {
 }
 
 .link-button:hover {
-  color: #60a5fa;
+  color: var(--accent-color);
   text-decoration: underline;
 }
 
@@ -97,7 +97,7 @@ header {
   justify-content: center;
 }
 
-.carousel-item {
+#heroCarousel .carousel-item {
   height: 80vh;
 }
 
@@ -109,22 +109,27 @@ header {
 }
 
 .hero-content {
-  position: absolute;
-  z-index: 2;
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  z-index: 2000;
   text-align: center;
   padding: 2rem;
-  background: rgba(15, 23, 42, 0.6);
-  backdrop-filter: blur(8px);
+  background: rgba(15, 23, 42, 0.95);
+  backdrop-filter: blur(10px);
   border-radius: 16px;
-  border: 1px solid rgba(255, 255, 255, 0.1);
-  max-width: 600px;
+  border: 1px solid var(--glass-border);
+  max-width: 90%;
+  width: 600px;
+  box-shadow: 0 0 50px rgba(0, 0, 0, 0.5);
 }
 
 .hero-content h1 {
   font-size: 3rem;
   font-weight: 700;
   margin-bottom: 1rem;
-  background: linear-gradient(to right, #60a5fa, #a78bfa);
+  background: var(--text-gradient);
   -webkit-background-clip: text;
   background-clip: text;
   color: transparent;
@@ -132,7 +137,7 @@ header {
 
 .hero-content p {
   font-size: 1.2rem;
-  color: #e2e8f0;
+  color: var(--text-color);
   margin-bottom: 2rem;
 }
 
@@ -157,8 +162,8 @@ footer {
   background: #0f172a;
   padding: 2rem;
   text-align: center;
-  border-top: 1px solid rgba(255, 255, 255, 0.1);
-  color: #94a3b8;
+  border-top: 1px solid var(--glass-border);
+  color: var(--text-muted);
 }
 
 /* Responsive */
@@ -184,4 +189,10 @@ footer {
   .hero-content h1 {
     font-size: 2rem;
   }
+}
+
+/* Dropdown visual fixes */
+select option {
+  color: black;
+  background: white;
 }

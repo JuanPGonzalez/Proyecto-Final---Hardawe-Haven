@@ -2,24 +2,10 @@
 :host {
   display: block;
   font-family: 'Inter', 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
-  --primary-color: #6366f1;
-  /* Indigo 500 */
-  --primary-gradient: linear-gradient(135deg, #6366f1 0%, #8b5cf6 100%);
-  --glass-bg: rgba(17, 25, 40, 0.75);
-  /* Darker glass */
-  --glass-border: rgba(255, 255, 255, 0.125);
-  --glass-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.37);
-  --text-color: #f3f4f6;
-  /* Gray 100 */
-  --text-light: #9ca3af;
-  /* Gray 400 */
+  /* Use global variables where possible, but define specific chat vars if needed */
   --bot-msg-bg: rgba(255, 255, 255, 0.1);
-  --user-msg-bg: #6366f1;
+  --user-msg-bg: var(--primary-color);
   --user-msg-text: #ffffff;
-  --bg-gradient-start: #0f172a;
-  /* Slate 900 */
-  --bg-gradient-end: #1e1b4b;
-  /* Indigo 950 */
 }
 
 .chat-wrapper {
@@ -29,7 +15,7 @@
   display: flex;
   justify-content: center;
   align-items: center;
-  background: linear-gradient(135deg, var(--bg-gradient-start) 0%, var(--bg-gradient-end) 100%);
+  background: var(--bg-gradient);
   overflow: hidden;
 }
 
@@ -40,8 +26,8 @@
   left: 20px;
   padding: 10px 20px;
   background: rgba(255, 255, 255, 0.1);
-  backdrop-filter: blur(10px);
-  -webkit-backdrop-filter: blur(10px);
+  backdrop-filter: var(--glass-blur);
+  -webkit-backdrop-filter: var(--glass-blur);
   border: 1px solid var(--glass-border);
   border-radius: 12px;
   color: var(--text-color);
@@ -132,13 +118,13 @@
 
 .status-text {
   font-size: 0.75rem;
-  color: var(--text-light);
+  color: var(--text-muted);
 }
 
 .close-btn {
   background: transparent;
   border: none;
-  color: var(--text-light);
+  color: var(--text-muted);
   cursor: pointer;
   padding: 8px;
   border-radius: 50%;
@@ -258,7 +244,7 @@
 .typing-dots span {
   width: 6px;
   height: 6px;
-  background: var(--text-light);
+  background: var(--text-muted);
   border-radius: 50%;
   animation: bounce 1.4s infinite ease-in-out both;
 }
@@ -306,7 +292,7 @@
 }
 
 .input-group input::placeholder {
-  color: var(--text-light);
+  color: var(--text-muted);
 }
 
 .send-btn {

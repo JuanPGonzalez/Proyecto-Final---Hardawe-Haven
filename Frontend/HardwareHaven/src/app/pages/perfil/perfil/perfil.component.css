@@ -1,160 +1,82 @@
-@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@400&display=swap');
-.font-Montserrat{
-    font-family: 'Montserrat', sans-serif;
-}
-
-.font-Montserrat {
-    font-family: 'Montserrat', sans-serif;
-}
-
-
+/* perfil.component.css */
 header {
-    background-color: #01060F;
+  position: sticky;
+  top: 0;
+  z-index: 1000;
+  backdrop-filter: var(--glass-blur);
+  background: rgba(15, 23, 42, 0.8);
+  border-bottom: 1px solid var(--glass-border);
 }
 
-.bg-body-tertiary {
-    background-color: transparent !important;
+.title_home {
+  height: 40px;
+  width: auto;
+  filter: drop-shadow(0 0 8px rgba(96, 165, 250, 0.5));
 }
 
-
-
-  .title_home{
-    width: 200px;
+.title-perfil {
+  font-weight: 700;
+  background: var(--text-gradient);
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+  width: fit-content;
+  margin: 0 auto;
 }
-
-.carrito-cant {
-    background-color: rgb(2, 6, 66);
-    width: 26px;
-    height: 26px;
-    border-radius: 50%;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    color: white;
-}
-
 
 .custom-contenedor {
-    background-color: rgb(4, 0, 24);
-    width: 800px;
-    height: auto;
-    color: white;
-    border-radius: 10px;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
-    padding: 20px;
-    margin: 20px auto;
+  background: var(--glass-bg);
+  backdrop-filter: var(--glass-blur);
+  border: 1px solid var(--glass-border);
+  width: 100%;
+  max-width: 600px;
+  color: var(--text-color);
+  border-radius: 16px;
+  box-shadow: var(--glass-shadow);
+  padding: 2.5rem;
+  margin: 0 auto;
+  position: relative;
 }
-main{
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-}
-
-.title-perfil{
-    color: #bbb9b9;
-  }
-
-
 
 .profile-item {
-    margin-bottom: 15px;
-    font-size: 20px;
+  margin-bottom: 2rem;
+  text-align: center;
 }
+
 .profile-item label {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    font-weight: bold;
-    margin-bottom: 5px;
-
+  display: block;
+  font-size: 0.9rem;
+  color: var(--text-muted);
+  margin-bottom: 0.5rem;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  font-weight: 600;
 }
+
 .profile-item span {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-
-}
-.profile-item input.custom-password-pf {
-
-    width: calc(100% - 42px);
-    padding: 5px;
-    border: 1px solid #ccc;
-    border-radius: 4px;
-    color: black;
-
-}
-.toggle-password {
-    width: 30px;
-    padding: 5px;
-    border: none;
-    background-color: transparent;
-    cursor: pointer;
-}
-.custom-password-pf {
-    text-align: center;
+  display: block;
+  font-size: 1.25rem;
+  font-weight: 500;
+  color: var(--text-color);
 }
 
-.fixed-button {
-  position: absolute;
-  top: 5%;
-  left: 5%;
-  z-index: 1;
+.text-danger {
+  color: #ef4444 !important;
+  cursor: pointer;
+  transition: all 0.2s;
+  padding: 0.5rem 1rem;
+  border-radius: 8px;
+  border: 1px solid transparent;
 }
-.custom-contenedor {
-    position: relative;
+
+.text-danger:hover {
+  background: rgba(239, 68, 68, 0.1);
+  border-color: rgba(239, 68, 68, 0.2);
 }
 
-
-
-
-
-
-@media (max-width: 768px){
-  .custom-menu{
-    flex-direction: column;
-    width: 100%;
-    margin-right: 0;
-    gap:5px;
-  }
-
-  .navbar-collapse {
-    display: flex !important;  /* Asegura que el contenido se mantenga visible */
-    flex-direction: column-reverse !important; /* Alinea los elementos horizontalmente */
-    justify-content: center !important;
-  }
-  .navbar-toggler {
-    display: none !important;
-  }
-
-  .container-fluid {
-    display: flex;
-    justify-content: center;
-  }
-
-  header{
-    width: 100%;
-
-  }
-
+@media (max-width: 768px) {
   .custom-contenedor {
-    background-color: rgb(4, 0, 24);
-    width: 80%;
-    height: auto;
-    color: white;
-    border-radius: 10px;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
-    padding: 20px;
-    margin: 20px auto;
+    width: 90%;
+    padding: 1.5rem;
+  }
 }
-
-}
-
-
-
-
-@media (max-width: 768px){
-.fixed-button {
-  position: relative;
-
-}}

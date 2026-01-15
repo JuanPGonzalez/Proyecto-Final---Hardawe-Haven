@@ -22,16 +22,16 @@ export class User extends BaseEntity {
     @Property({nullable:false})
     tipoUsuario!: string;
 
-    @Property({nullable:false})
+    @Property({nullable:false, defaultRaw: 'CURRENT_TIMESTAMP'})
     fechaReg!: Date;
 
-    @Property({nullable:false})
+    @Property({nullable:false, default: 'Indefinido'})
     sexo!: string;
 
-    @Property({nullable:false})
+    @Property({nullable:false, defaultRaw: 'CURRENT_TIMESTAMP'})
     fechaNac!: Date;
 
-    @Property({nullable:false})
+    @Property({nullable:false, default: 'Desconocida'})
     direccion!: string;
 
     @OneToMany(() => Compra, c => c.user, { cascade: [Cascade.ALL] })

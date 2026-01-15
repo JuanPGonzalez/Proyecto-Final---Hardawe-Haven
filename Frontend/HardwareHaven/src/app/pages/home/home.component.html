@@ -91,10 +91,144 @@
         >
       </div>
     </section>
+
+    <!-- Product Showcase Section -->
+    <section class="container-fluid py-4">
+      <div class="row">
+        <!-- Sidebar Filters (Left) -->
+        <aside class="col-lg-3 mb-4 mb-lg-0">
+          <div class="glass-card p-4">
+            <h4 class="mb-3 text-white">Filtros</h4>
+
+            <div class="mb-3">
+              <label class="form-label text-muted small">Categorías</label>
+              <select
+                class="form-select form-control-dark"
+                (change)="onSortChangeMenu($event)"
+              >
+                <option value="Or" selected>Todas las Categorías</option>
+                <option
+                  *ngFor="let categoria of categorias"
+                  [value]="categoria.descripcion"
+                >
+                  {{ categoria.descripcion }}
+                </option>
+              </select>
+            </div>
+
+            <div class="mb-3">
+              <label class="form-label text-muted small">Orden</label>
+              <select
+                class="form-select form-control-dark"
+                (change)="onSortChangeOrden($event)"
+              >
+                <option value="Or" selected>Relevancia</option>
+                <option value="az">Nombre (A-Z)</option>
+                <option value="za">Nombre (Z-A)</option>
+                <option value="highPrice">Mayor Precio</option>
+                <option value="lowPrice">Menor Precio</option>
+              </select>
+            </div>
+          </div>
+        </aside>
+
+        <!-- Main Content (Right) -->
+        <div class="col-lg-9">
+          <!-- Featured Carousel -->
+          <div class="mb-5" *ngIf="products.length > 0">
+            <h3
+              class="mb-4 ps-3 border-start border-4 border-primary text-white"
+            >
+              Destacados
+            </h3>
+            <div
+              id="productsCarouselHome"
+              class="carousel slide"
+              data-bs-ride="carousel"
+            >
+              <div class="carousel-inner">
+                <div class="carousel-item active">
+                  <div class="row g-4">
+                    <div
+                      class="col-12 col-sm-6 col-md-4 col-lg-3"
+                      *ngFor="let product of products.slice(0, 4)"
+                    >
+                      <app-card
+                        [product]="product"
+                        [showActions]="false"
+                      ></app-card>
+                    </div>
+                  </div>
+                </div>
+                <div class="carousel-item" *ngIf="products.length > 4">
+                  <div class="row g-4">
+                    <div
+                      class="col-12 col-sm-6 col-md-4 col-lg-3"
+                      *ngFor="let product of products.slice(4, 8)"
+                    >
+                      <app-card
+                        [product]="product"
+                        [showActions]="false"
+                      ></app-card>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <button
+                class="carousel-control-prev"
+                type="button"
+                data-bs-target="#productsCarouselHome"
+                data-bs-slide="prev"
+                style="width: 5%"
+              >
+                <span
+                  class="carousel-control-prev-icon"
+                  aria-hidden="true"
+                ></span>
+              </button>
+              <button
+                class="carousel-control-next"
+                type="button"
+                data-bs-target="#productsCarouselHome"
+                data-bs-slide="next"
+                style="width: 5%"
+              >
+                <span
+                  class="carousel-control-next-icon"
+                  aria-hidden="true"
+                ></span>
+              </button>
+            </div>
+          </div>
+
+          <!-- All Products Grid -->
+          <div>
+            <h3
+              class="mb-4 ps-3 border-start border-4 border-primary text-white"
+            >
+              Catálogo Completo
+            </h3>
+            <div *ngIf="products.length > 0; else noProducts" class="row g-4">
+              <div
+                class="col-12 col-sm-6 col-md-4 col-lg-3"
+                *ngFor="let product of products"
+              >
+                <app-card [product]="product" [showActions]="false"></app-card>
+              </div>
+            </div>
+            <ng-template #noProducts>
+              <div class="text-center py-5">
+                <h4 class="text-white">No se encontraron productos</h4>
+              </div>
+            </ng-template>
+          </div>
+        </div>
+      </div>
+    </section>
   </main>
 
   <footer>
-    <p>Derechos reservados &copy; 2024 Hardware Haven</p>
+    <p>Derechos reservados &copy; 2025 Hardware Haven</p>
   </footer>
 
   <div class="error-overlay" *ngIf="errorServer">

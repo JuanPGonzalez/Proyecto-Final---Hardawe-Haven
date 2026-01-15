@@ -41,19 +41,19 @@ __decorate([
     __metadata("design:type", String)
 ], User.prototype, "tipoUsuario", void 0);
 __decorate([
-    Property({ nullable: false }),
+    Property({ nullable: false, defaultRaw: 'CURRENT_TIMESTAMP' }),
     __metadata("design:type", Date)
 ], User.prototype, "fechaReg", void 0);
 __decorate([
-    Property({ nullable: false }),
+    Property({ nullable: false, default: 'Indefinido' }),
     __metadata("design:type", String)
 ], User.prototype, "sexo", void 0);
 __decorate([
-    Property({ nullable: false }),
+    Property({ nullable: false, defaultRaw: 'CURRENT_TIMESTAMP' }),
     __metadata("design:type", Date)
 ], User.prototype, "fechaNac", void 0);
 __decorate([
-    Property({ nullable: false }),
+    Property({ nullable: false, default: 'Desconocida' }),
     __metadata("design:type", String)
 ], User.prototype, "direccion", void 0);
 __decorate([

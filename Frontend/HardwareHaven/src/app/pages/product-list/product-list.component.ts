@@ -95,7 +95,9 @@ export class ProductListComponent implements OnInit {
   }
 
   onProductSelected(productCard: any) {
-    this.carrito.push(productCard);
+    if (!this.carrito.some(p => p.id === productCard.id)) {
+      this.carrito.push(productCard);
+    }
   }
 
   onProductUnSelected(productCard: any) {

@@ -1,103 +1,78 @@
-@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@400&display=swap');
-.font-Montserrat{
-    font-family: 'Montserrat', sans-serif;
-}
-
-.title-product{
-  color: #bbb9b9;
-}
-.font-Montserrat {
-    font-family: 'Montserrat', sans-serif;
-}
-
-
+/* compra.component.css */
 header {
-    background-color: #01060F;
+  position: sticky;
+  top: 0;
+  z-index: 1000;
+  backdrop-filter: var(--glass-blur);
+  background: rgba(15, 23, 42, 0.8);
+  border-bottom: 1px solid var(--glass-border);
 }
 
-.bg-body-tertiary {
-    background-color: transparent !important;
+.title_home {
+  height: 40px;
+  width: auto;
+  filter: drop-shadow(0 0 8px rgba(96, 165, 250, 0.5));
 }
 
+.title-product {
+  font-weight: 700;
+  background: var(--text-gradient);
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+  width: fit-content;
+  margin: 0 auto;
+}
 
+.custom-main {
+  min-height: 90vh;
+  padding-bottom: 2rem;
+}
 
-  .title_home{
-    width: 200px;
+.carrito-flex {
+  display: flex;
+  justify-content: center;
+  align-items: flex-start;
+  gap: 2rem;
+  padding: 1rem;
+}
+
+.btn-custom-compra {
+  padding: 0.8rem 2rem;
+  font-weight: 600;
+  border-radius: 25px;
+  background: var(--primary-gradient);
+  border: none;
+  transition: all 0.3s ease;
+}
+
+.btn-custom-compra:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 4px 12px rgba(99, 102, 241, 0.4);
 }
 
 .carrito-cant {
-    background-color: rgb(2, 6, 66);
-    width: 26px;
-    height: 26px;
-    border-radius: 50%;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    color: white;
-}
-
-.btn-custom-compra{
-    position: relative;
-    left: 10px;
-    top: 0px;
-}
-
-.custom-botom-banner{
-    width: 800px;
-    display: flex;
-    justify-content: end;
-    align-items: center;
-}
-
-.carrito-flex{
+  background: var(--primary-color);
+  width: 24px;
+  height: 24px;
+  border-radius: 50%;
   display: flex;
   justify-content: center;
   align-items: center;
+  font-size: 0.8rem;
+  font-weight: bold;
 }
 
-
-@media (max-width: 768px){
-  .custom-menu{
-    flex-direction: column;
-    width: 100%;
-    margin-right: 0;
-    gap:5px;
-  }
-
-  .navbar-collapse {
-    display: flex !important;  /* Asegura que el contenido se mantenga visible */
-    flex-direction: column-reverse !important; /* Alinea los elementos horizontalmente */
-    justify-content: center !important;
-  }
-  .navbar-toggler {
-    display: none !important;
-  }
-
-  .container-fluid {
-    display: flex;
-    justify-content: center;
-  }
-
-  header{
-    width: 100%;
-
-  }
-
+@media (max-width: 768px) {
   .carrito-flex {
-    display:block;
+    flex-direction: column;
+    align-items: stretch;
+    /* Change from center to stretch for full width */
+    gap: 1.5rem;
+    padding: 0.5rem;
   }
-
-  .btn-custom-compra{
-    position: relative;
-    left: 0px;
-    top: 0px;
 }
 
-.custom-botom-banner{
-  width: 100%;
-  display: flex;
-  justify-content: center;
-
-}
-
+.text-muted {
+  color: white !important;
 }

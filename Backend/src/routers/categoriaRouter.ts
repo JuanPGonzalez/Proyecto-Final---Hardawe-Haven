@@ -19,7 +19,7 @@ const categoriaRouter = Router();
 
 
 //middlewares
-categoriaRouter.get('/getAll',userJWTDTO, categoriaGetAllController)
+categoriaRouter.get('/getAll', categoriaGetAllController)
 categoriaRouter.get('/getOne/:id', userJWTDTOAdmin,categoriaGetOneController)
 categoriaRouter.post('/insert',userJWTDTOAdmin, sanitizeCategoriaInput, categoriaDTO, categoriaInsertController);
 categoriaRouter.delete('/deleteOne/:id',userJWTDTOAdmin, categoriaDeleteOneController);

@@ -5,8 +5,8 @@ from dotenv import load_dotenv
 import os
 import re
 import TextGuide as tg
-import os
 import platform
+import db_connection
 
 # Limpiar consola al iniciar
 def clear_console():
@@ -44,9 +44,12 @@ def chat():
     
     --- INFORMACIÓN DE SOPORTE ---
     {guide_content}
+    --- INVENTARIO DISPONIBLE ---
+    {db_connection.get_available_components()}
     --- FIN INFORMACIÓN ---
     
     Si la respuesta no se encuentra en la información proporcionada, di amablemente que no tienes esa información y sugiere contactar a un humano.
+    Puedes usar la información del inventario para responder preguntas sobre qué componentes hay.
     Sé conciso, amable y profesional."""
 
     try:

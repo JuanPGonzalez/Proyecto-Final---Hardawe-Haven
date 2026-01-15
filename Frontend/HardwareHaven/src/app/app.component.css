@@ -27,11 +27,13 @@
 }
 
 .chat-floating-button {
-  right: 80px;
+  left: auto;
+  right: 20px;
 }
 
 .ask-floating-button {
-  right: 20px;
+  left: auto;
+  right: 80px;
 }
 
 /* Media Queries para pantallas pequeñas */
@@ -44,10 +46,12 @@
   }
 
   .chat-floating-button {
-    right: 70px;
+    left: auto;
+    right: 15px;
   }
 
   .ask-floating-button {
-    right: 15px;
+    left: auto;
+    right: 70px;
   }
 }

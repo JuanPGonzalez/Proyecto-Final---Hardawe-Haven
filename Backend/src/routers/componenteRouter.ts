@@ -17,7 +17,7 @@ const compRouter = Router();
 
 
 //middlewares
-compRouter.get('/getAll', userJWTDTO, compGetAllController)
+compRouter.get('/getAll', compGetAllController)
 compRouter.get('/getOne/:id', userJWTDTO, compGetOneController)
 compRouter.post('/insert',  userJWTDTOAdmin, sanitizeComponenteInput, componenteDTO, compInsertController);
 compRouter.patch('/updateDescription/:id',  userJWTDTOAdmin, sanitizeComponenteInput, componenteDTO, compUpdateDescriptionController);

@@ -1,127 +1,159 @@
-<div class="bg-black">
+<div>
   <header>
-    <nav class="navbar navbar-expand-lg bg-body-tertiary">
+    <nav class="navbar navbar-expand-lg">
       <div class="container-fluid">
-        <a class="navbar-brand font-Montserrat text-light" href="#">
-          <img src="assets/images/title_home.png" class="img-fluid title_home" alt="...">
+        <a class="navbar-brand" href="productList">
+          <img
+            src="assets/images/title_home.png"
+            class="img-fluid title_home"
+            alt="Hardware Haven"
+          />
         </a>
-        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+        <button
+          class="navbar-toggler"
+          type="button"
+          data-bs-toggle="collapse"
+          data-bs-target="#navbarSupportedContent"
+        >
           <span class="navbar-toggler-icon"></span>
         </button>
         <div class="collapse navbar-collapse" id="navbarSupportedContent">
-          <div class="d-flex justify-content-center w-100">
-            <div class="w-50">
-              <form class="d-flex me-auto" role="search" (submit)="onSearch($event)">
-                <input class="form-control me-2" type="search" placeholder="Buscar" aria-label="Search" [(ngModel)]="auxsearchQuery" name="auxsearchQuery">
-                <button class="btn btn-outline-light" type="submit">Buscar</button>
+          <div class="d-flex justify-content-center w-100 my-2 my-lg-0">
+            <div class="w-100 w-lg-50" style="max-width: 600px">
+              <form
+                class="d-flex w-100"
+                role="search"
+                (submit)="onSearch($event)"
+              >
+                <input
+                  class="form-control form-control-dark me-2"
+                  type="search"
+                  placeholder="Buscar en inventario..."
+                  aria-label="Search"
+                  [(ngModel)]="auxsearchQuery"
+                  name="auxsearchQuery"
+                />
+                <button class="btn btn-primary-gradient" type="submit">
+                  <i class="bi bi-search"></i>
+                </button>
               </form>
             </div>
           </div>
-          <div class="">
+          <div class="d-flex align-items-center">
             <app-user-nav [usuario]="usuario"></app-user-nav>
           </div>
         </div>
       </div>
     </nav>
   </header>
-  <main>
-    <h1 class="text-center title-inventario mb-4 mt-3">Inventario</h1>
 
-    <button class="btn btn-primary d-flex justify-content-evenly align-items-center mb-4" (click)="gotodashboard()">
-      <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
-           stroke-linecap="round" stroke-linejoin="round" style="vertical-align: middle; margin-right: 6px;">
-        <rect x="3" y="10" width="4" height="11"></rect>
-        <rect x="10" y="6" width="4" height="15"></rect>
-        <rect x="17" y="2" width="4" height="19"></rect>
-      </svg>
-      Estadísticas
-    </button>
+  <main class="container-fluid py-4">
+    <h1 class="text-center title-inventario mb-4">Gestión de Inventario</h1>
+
+    <div class="d-flex justify-content-center mb-4">
+      <button
+        class="btn btn-outline-light d-flex align-items-center gap-2"
+        (click)="gotodashboard()"
+      >
+        <i class="bi bi-bar-chart-fill"></i> Ver Estadísticas
+      </button>
+    </div>
 
     <div class="mov-mobile">
-    <div class="button-container overflow-auto">
-      <div class="button-list">
-        <button class="button-item" (click)="loadItems('Usuario')" [ngClass]="{'selected': nowType === 'Usuario'}">
-          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
-               stroke-linecap="round" stroke-linejoin="round" style="vertical-align: middle; margin-right: 6px;">
-            <path d="M20 21v-2a4 4 0 0 0-3-3.87"/>
-            <path d="M4 21v-2a4 4 0 0 1 3-3.87"/>
-            <circle cx="12" cy="7" r="4"/>
-          </svg>
-          Usuarios
-        </button>
+      <div class="button-container overflow-auto">
+        <div class="button-list">
+          <button
+            class="button-item"
+            (click)="loadItems('Usuario')"
+            [ngClass]="{ selected: nowType === 'Usuario' }"
+          >
+            <i class="bi bi-people-fill"></i> Usuarios
+          </button>
 
-        <button class="button-item" (click)="loadItems('Compra')" [ngClass]="{'selected': nowType === 'Compra'}">
-          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
-               stroke-linecap="round" stroke-linejoin="round" style="vertical-align: middle; margin-right: 6px;">
-            <path d="M6 6h15l-1.5 9h-13.5z"/>
-            <circle cx="9" cy="20" r="1"/>
-            <circle cx="18" cy="20" r="1"/>
-            <path d="M6 6l-1-2H2"/>
-          </svg>
-          Compras
-        </button>
+          <button
+            class="button-item"
+            (click)="loadItems('Compra')"
+            [ngClass]="{ selected: nowType === 'Compra' }"
+          >
+            <i class="bi bi-cart-fill"></i> Compras
+          </button>
 
-        <button class="button-item" (click)="loadItems('LineaCompra')" [ngClass]="{'selected': nowType === 'LineaCompra'}">
-          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
-               stroke-linecap="round" stroke-linejoin="round" style="vertical-align: middle; margin-right: 6px;">
-            <path d="M3 6h18M3 12h18M3 18h18"/>
-          </svg>
-          Líneas de Compra
-        </button>
+          <button
+            class="button-item"
+            (click)="loadItems('LineaCompra')"
+            [ngClass]="{ selected: nowType === 'LineaCompra' }"
+          >
+            <i class="bi bi-list-check"></i> Líneas Compra
+          </button>
 
-        <button class="button-item" (click)="loadItems('Componente')" [ngClass]="{'selected': nowType === 'Componente'}">
-          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
-               stroke-linecap="round" stroke-linejoin="round" style="vertical-align: middle; margin-right: 6px;">
-            <rect x="3" y="3" width="7" height="7"/>
-            <rect x="14" y="3" width="7" height="7"/>
-            <rect x="14" y="14" width="7" height="7"/>
-            <rect x="3" y="14" width="7" height="7"/>
-          </svg>
-          Componentes
-        </button>
+          <button
+            class="button-item"
+            (click)="loadItems('Componente')"
+            [ngClass]="{ selected: nowType === 'Componente' }"
+          >
+            <i class="bi bi-cpu-fill"></i> Componentes
+          </button>
 
-        <button class="button-item" (click)="loadItems('Precio')" [ngClass]="{'selected': nowType === 'Precio'}">
-          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
-               stroke-linecap="round" stroke-linejoin="round" style="vertical-align: middle; margin-right: 6px;">
-            <path d="M12 1v22"/>
-            <path d="M17 5H9a4 4 0 0 0 0 8h6a4 4 0 0 1 0 8H6"/>
-          </svg>
-          Precios
-        </button>
+          <button
+            class="button-item"
+            (click)="loadItems('Precio')"
+            [ngClass]="{ selected: nowType === 'Precio' }"
+          >
+            <i class="bi bi-currency-dollar"></i> Precios
+          </button>
 
-        <button class="button-item" (click)="loadItems('Categoria')" [ngClass]="{'selected': nowType === 'Categoria'}">
-          <svg width="20" height="20" viewBox="0 0 24 24" fill="none"
-               stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"
-               style="vertical-align: middle; margin-right: 6px;">
-            <path d="M21 16V8a2 2 0 0 0-1-1.73L13 2.27a2 2 0 0 0-2 0L4 6.27A2 2 0 0 0 3 8v8a2 2 0 0 0 1 1.73l7 4a2 2 0 0 0 2 0l7-4a2 2 0 0 0 1-1.73z"/>
-            <polyline points="3.27 6.96 12 12.01 20.73 6.96"/>
-            <line x1="12" y1="22.08" x2="12" y2="12"/>
-          </svg>
-          Categorías
-        </button>
+          <button
+            class="button-item"
+            (click)="loadItems('Categoria')"
+            [ngClass]="{ selected: nowType === 'Categoria' }"
+          >
+            <i class="bi bi-tags-fill"></i> Categorías
+          </button>
+        </div>
+      </div>
 
+      <div class="float-button">
+        <app-plus-button
+          [nowType]="nowType"
+          (changeEntityEvent)="getplusbuttonChange($event)"
+        ></app-plus-button>
+      </div>
+
+      <div class="glass-card p-3">
+        <ng-container [ngSwitch]="nowType">
+          <app-user
+            *ngSwitchCase="'Usuario'"
+            [searchQuery]="searchQuery"
+          ></app-user>
+          <app-price
+            *ngSwitchCase="'Precio'"
+            [searchQuery]="searchQuery"
+          ></app-price>
+          <app-purchase-line
+            *ngSwitchCase="'LineaCompra'"
+            [searchQuery]="searchQuery"
+          ></app-purchase-line>
+          <app-purchase
+            *ngSwitchCase="'Compra'"
+            [searchQuery]="searchQuery"
+          ></app-purchase>
+          <app-component
+            *ngSwitchCase="'Componente'"
+            [searchQuery]="searchQuery"
+          ></app-component>
+          <app-category
+            *ngSwitchCase="'Categoria'"
+            [searchQuery]="searchQuery"
+          ></app-category>
+          <div *ngSwitchCase="'Cargando'" class="text-center py-5">
+            <div class="spinner-border text-primary" role="status"></div>
+            <p class="mt-2">{{ carga }}</p>
+          </div>
+          <p *ngSwitchDefault class="text-center">
+            Por favor, selecciona un tipo válido.
+          </p>
+        </ng-container>
       </div>
     </div>
-
-
-    <div class="float-button">
-      <app-plus-button [nowType] = "nowType" (changeEntityEvent)="getplusbuttonChange($event)"></app-plus-button>
-    </div>
-
-
-    <ng-container [ngSwitch]="nowType">
-      <app-user *ngSwitchCase="'Usuario'" [searchQuery]="searchQuery"></app-user>
-      <app-price *ngSwitchCase="'Precio'" [searchQuery]="searchQuery"></app-price>
-      <app-purchase-line *ngSwitchCase="'LineaCompra'" [searchQuery]="searchQuery"></app-purchase-line>
-      <app-purchase *ngSwitchCase="'Compra'" [searchQuery]="searchQuery"></app-purchase>
-      <app-component *ngSwitchCase="'Componente'" [searchQuery]="searchQuery"></app-component>
-      <app-category *ngSwitchCase="'Categoria'" [searchQuery]="searchQuery"></app-category>
-      <div  *ngSwitchCase="'Cargando'">
-        <p>{{carga}}</p>
-      </div>
-      <p *ngSwitchDefault>Por favor, selecciona un tipo válido.</p>
-    </ng-container>
-  </div>
-
   </main>
 </div>

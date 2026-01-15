@@ -1,38 +1,90 @@
 .carrito {
-    background-color: rgb(4, 0, 24);
-    width: 800px;
-    height: auto;
-    color: white;
-    border-radius: 10px;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
-    padding: 20px;
-    margin: 20px auto;
-}
-.custom-main{
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
+  background: var(--glass-bg);
+  backdrop-filter: var(--glass-blur);
+  border: 1px solid var(--glass-border);
+  width: 100%;
+  max-width: 900px;
+  color: var(--text-color);
+  border-radius: 16px;
+  box-shadow: var(--glass-shadow);
+  padding: 2rem;
+  margin: 0 auto;
 }
 
-@media (max-width: 768px){
+.columnas-carrito {
+  margin-bottom: 1rem;
+  display: block;
+}
 
+.columnas-carrito ul {
+  padding: 0;
+  margin-bottom: 0.5rem;
+  border-bottom: 1px solid var(--glass-border);
+  padding-bottom: 0.5rem;
+  color: var(--primary-color);
+  text-transform: uppercase;
+  font-size: 0.85rem;
+  letter-spacing: 0.05em;
+  display: grid;
+  grid-template-columns: 2fr 2fr 1fr 1fr 1fr;
+  gap: 1rem;
+}
+
+.quantity-selector button {
+  background: transparent;
+  border: none;
+  color: var(--text-color);
+  font-size: 1.2rem;
+  cursor: pointer;
+  padding: 0 0.5rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.btn-delete {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: white !important;
+}
+
+.btn-delete svg,
+.btn-delete i {
+  fill: currentColor;
+  width: 1.2rem;
+  height: 1.2rem;
+}
+
+.total-section {
+  font-size: 1.25rem;
+  color: var(--text-color);
+  background: rgba(255, 255, 255, 0.05);
+  padding: 1rem;
+  border-radius: 12px;
+  width: fit-content;
+  margin-left: auto;
+}
+
+.total-amount {
+  background: var(--text-gradient);
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+  font-weight: 700;
+}
+
+@media (max-width: 768px) {
   .carrito {
+    padding: 1rem;
+  }
 
-    width: 100% !important;
-    height: auto;
-    margin: 20px auto;
+  .columnas-carrito {
+    display: none;
+  }
 
-}
-.custom-main{
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-}
-
-.columnas-carrito{
-  display:none;
-}
-
+  .total-section {
+    width: 100%;
+    text-align: center;
+  }
 }
