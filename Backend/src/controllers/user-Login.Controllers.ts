@@ -2,7 +2,7 @@ import { Request, Response } from 'express';
 import { UserRepository } from "../repository/userRepository.js";
 //import { compare } from "bcrypt"; //Para encriptar la clave en la base de datos
 import { SignJWT } from 'jose';
-import { User } from '../model/user.entity.js';
+import { User } from '../Model/user.entity.js';
 import { jwtConstructor } from '../shared/db/jwt.js';
 
 const userRepo = new UserRepository();

@@ -1,0 +1,5 @@
+{
+  "stack": "ValidationError: Trying to persist not discovered entity of type Categoria. Entity with this name was discovered, but not the prototype you are passing to the ORM. If using EntitySchema, be sure to point to the implementation via `class`.\n    at ValidationError.notDiscoveredEntity (C:\\Users\\valen\\AriProyectos\\PF\\Proyecto-Final---Hardawe-Haven\\Backend\\node_modules\\@mikro-orm\\core\\errors.js:55:16)\n    at SqlEntityManager.persist (C:\\Users\\valen\\AriProyectos\\PF\\Proyecto-Final---Hardawe-Haven\\Backend\\node_modules\\@mikro-orm\\core\\EntityManager.js:1308:48)\n    at runTest (file:///C:/Users/valen/AriProyectos/PF/Proyecto-Final---Hardawe-Haven/Backend/dist/pricing/testPricing.js:23:12)\n    at process.processTicksAndRejections (node:internal/process/task_queues:95:5)",
+  "message": "Trying to persist not discovered entity of type Categoria. Entity with this name was discovered, but not the prototype you are passing to the ORM. If using EntitySchema, be sure to point to the implementation via `class`.",
+  "name": "ValidationError"
+}
