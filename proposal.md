@@ -1,8 +1,10 @@
 # Propuesta TP DSW
 
 ## Grupo
-### Integrantes
+### Integrantes 
 * 45767 - Rodriguez, Ignacio
+* 47943 - González, Juan Pablo
+* 47943 - Caro, Ariana 
 
 ### Repositorios
 * [Fullstack app](https://github.com/Xraidth/HardwareHaven.git)
@@ -40,7 +42,6 @@ Regularidad:
 |:-|:-|
 |Listados |1. Listado de compras realizadas por usuario.|
 |CUU/Epic|1. Cancelación de la compra.|
-
 
 
 
