@@ -7,12 +7,12 @@ import { SqlHighlighter } from '@mikro-orm/sql-highlighter';
 import '../config/env.js';
 
 // Entities
-import { Componente } from '../Model/componente.entity.js';
-import { Categoria } from '../Model/categoria.entity.js';
-import { Precio } from '../Model/precio.entity.js';
-import { User } from '../Model/user.entity.js';
-import { Compra } from '../Model/compra.entity.js';
-import { LineaCompra } from '../Model/lineaCompra.entity.js';
+import { Componente } from '../model/componente.entity.js';
+import { Categoria } from '../model/categoria.entity.js';
+import { Precio } from '../model/precio.entity.js';
+import { User } from '../model/user.entity.js';
+import { Compra } from '../model/compra.entity.js';
+import { LineaCompra } from '../model/lineaCompra.entity.js';
 
 import { DynamicPricingService } from './dynamicPricing.js';
 

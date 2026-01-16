@@ -1,10 +1,10 @@
-import { Categoria } from '../Model/categoria.entity.js';
-import { orm } from '../shared/db/orm.js';
+import { Categoria } from "../model/categoria.entity.js";
+import { orm } from "../shared/db/orm.js";
 const em = orm.em;
 export class CategoriaRepository {
     async findAll() {
         try {
-            const categorias = await em.find(Categoria, {}, { populate: ['componentes'] });
+            const categorias = await em.find(Categoria, {}, { populate: ["componentes"] });
             return categorias;
         }
         catch (error) {
@@ -13,7 +13,7 @@ export class CategoriaRepository {
     }
     async findOne(item) {
         try {
-            return await em.findOneOrFail(Categoria, { id: item.id }, { populate: ['componentes'] });
+            return await em.findOneOrFail(Categoria, { id: item.id }, { populate: ["componentes"] });
         }
         catch (error) {
             return undefined;
@@ -32,7 +32,7 @@ export class CategoriaRepository {
     async update(item) {
         try {
             if (!item.id) {
-                console.error('ERROR');
+                console.error("ERROR");
                 return undefined;
             }
             const categoriaToUpdate = await this.findOne({ id: item.id });
@@ -42,7 +42,7 @@ export class CategoriaRepository {
                 return categoriaToUpdate;
             }
             else {
-                console.error('Categoria not found');
+                console.error("Categoria not found");
                 return undefined;
             }
         }
@@ -59,7 +59,7 @@ export class CategoriaRepository {
                 return categoria;
             }
             else {
-                console.error('Categoria not found');
+                console.error("Categoria not found");
                 return undefined;
             }
         }
@@ -70,7 +70,7 @@ export class CategoriaRepository {
     async updateDescripcion(item, newDescripcion) {
         try {
             if (!item.id) {
-                console.error('ERROR');
+                console.error("ERROR");
                 return undefined;
             }
             const categoriaToUpdate = await this.findOne({ id: item.id });
@@ -80,7 +80,7 @@ export class CategoriaRepository {
                 return categoriaToUpdate;
             }
             else {
-                console.error('Categoria not found');
+                console.error("Categoria not found");
                 return undefined;
             }
         }
@@ -90,7 +90,7 @@ export class CategoriaRepository {
     }
     async findByDescription(item) {
         try {
-            const categoria = await em.findOne(Categoria, { descripcion: item.descripcion }, { populate: ['componentes'] });
+            const categoria = await em.findOne(Categoria, { descripcion: item.descripcion }, { populate: ["componentes"] });
             return categoria || undefined;
         }
         catch (error) {

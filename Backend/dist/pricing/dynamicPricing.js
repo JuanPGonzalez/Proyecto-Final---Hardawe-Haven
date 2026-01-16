@@ -1,6 +1,6 @@
-import { Componente } from '../Model/componente.entity.js';
-import { LineaCompra } from '../Model/lineaCompra.entity.js';
-import { Precio } from '../Model/precio.entity.js';
+import { Componente } from '../model/componente.entity.js';
+import { LineaCompra } from '../model/lineaCompra.entity.js';
+import { Precio } from '../model/precio.entity.js';
 export class DynamicPricingService {
     /**
      * Analyzes sales from the last 30 minutes and adjusts prices.

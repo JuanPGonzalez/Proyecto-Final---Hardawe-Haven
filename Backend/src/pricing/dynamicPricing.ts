@@ -1,6 +1,6 @@
-import { Componente } from '../Model/componente.entity.js';
-import { LineaCompra } from '../Model/lineaCompra.entity.js';
-import { Precio } from '../Model/precio.entity.js';
+import { Componente } from '../model/componente.entity.js';
+import { LineaCompra } from '../model/lineaCompra.entity.js';
+import { Precio } from '../model/precio.entity.js';
 import { EntityManager } from '@mikro-orm/core';
 
 export class DynamicPricingService {
