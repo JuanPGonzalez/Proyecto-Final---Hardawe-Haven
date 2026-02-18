@@ -982,5 +982,196 @@ showUserNameUpdate(usuario: any): Promise<{ newUserName: string, password: strin
 
 
 
+ InsertSuministro(): Promise<{cantidad: number, idComponente: number, idUsuario:number} | undefined> {
+    return Swal.fire({
+      title: "Crea un Suministro",
+      html: `
+       <input id="swal-input-cantidadSuministro" class="swal2-input" type="number" min="1" placeholder="Cantidad">
+       <input id="swal-input-idComponenteSuministro" class="swal2-input" type="number" min="1" placeholder="ID Componente">
+       <input id="swal-input-idUsuarioSuministro" class="swal2-input" type="number" min="1" placeholder="ID Usuario">
+
+      `,
+      focusConfirm: false,
+      showCancelButton: true,
+      confirmButtonText: "Insertar",
+      cancelButtonText: "Cancelar",
+      preConfirm: () => {
+        const cantidad = (document.getElementById('swal-input-cantidadSuministro') as HTMLInputElement).value;
+        const idComponente = (document.getElementById('swal-input-idComponenteSuministro') as HTMLInputElement).value;
+        const idUsuario = (document.getElementById('swal-input-idUsuarioSuministro') as HTMLInputElement).value;
+
+        if (!cantidad || !idComponente || !idUsuario) {
+          Swal.showValidationMessage('Por favor, completa todos los campos');
+          return false;
+        }
+        else if(!cantidad){
+          Swal.showValidationMessage('Por favor, ingresa una cantidad válida');
+          return false;
+        }
+        else if(!idComponente){
+          Swal.showValidationMessage('Por favor, ingresa un ID de componente válido');
+          return false;
+        }
+        else if(!idUsuario){
+          Swal.showValidationMessage('Por favor, ingresa un ID de usuario válido');
+          return false;
+        }
+         else {
+          return {
+            cantidad: parseInt(cantidad),
+            idComponente: parseInt(idComponente),
+            idUsuario: parseInt(idUsuario)
+          };
+        }
+      }
+    }).then((result) => {
+      if (result.isConfirmed) {
+        this.alertWithSuccess('¡Suministro creado!',"Listo")
+        return result.value;
+      } else {
+        return undefined;
+      }
+    });
+  }
+updateSuministro(suministro: any): Promise<{
+  cantidad: number;
+  idComponente: number;
+  idUsuario: number;
+  fechaEntrega: Date | null;
+} | undefined> {
+
+  return Swal.fire({
+    title: "Modificar suministro",
+    html: `
+     <div style="display: flex; flex-direction: column; gap: 15px;">
+
+  <div style="display:flex; flex-direction:column; gap:5px;">
+    <label for="swal-input-cantidadSuministro">Cantidad</label>
+    <input id="swal-input-cantidadSuministro"
+           class="swal2-input"
+           type="number"
+           min="1"
+           placeholder="Cantidad"
+           value="${suministro.cantidad ?? ''}">
+  </div>
+
+  <div style="display:flex; flex-direction:column; gap:5px;">
+    <label for="swal-input-idComponenteSuministro">Componente</label>
+    <input id="swal-input-idComponenteSuministro"
+           class="swal2-input"
+           type="number"
+           min="1"
+           placeholder="ID Componente"
+           value="${suministro.componente?.id ?? suministro.idComponente ?? ''}">
+  </div>
+
+  <div style="display:flex; flex-direction:column; gap:5px;">
+    <label for="swal-input-idUsuarioSuministro">Usuario</label>
+    <input id="swal-input-idUsuarioSuministro"
+           class="swal2-input"
+           type="number"
+           min="1"
+           placeholder="ID Usuario"
+           value="${suministro.usuario?.id ?? suministro.idUsuario ?? ''}">
+  </div>
+
+  <div style="display:flex; align-items:center; gap:8px;">
+    <input type="checkbox"
+           id="swal-check-fechaEntrega"
+           ${suministro.fechaEntrega ? 'checked' : ''}>
+    <label for="swal-check-fechaEntrega">Con fecha de entrega</label>
+  </div>
+
+  <div style="display:flex; flex-direction:column; gap:5px;">
+    <label for="swal-input-fechaEntrega">Fecha de entrega</label>
+    <input id="swal-input-fechaEntrega"
+           class="swal2-input"
+           type="date"
+           value="${suministro.fechaEntrega ? suministro.fechaEntrega.split('T')[0] : ''}"
+           ${suministro.fechaEntrega ? '' : 'disabled'}>
+  </div>
+
+</div>
+
+    `,
+    focusConfirm: false,
+    showCancelButton: true,
+    confirmButtonText: "Actualizar",
+    cancelButtonText: "Cancelar",
+
+    didOpen: () => {
+      const popup = Swal.getPopup()!;
+      const checkbox = popup.querySelector('#swal-check-fechaEntrega') as HTMLInputElement;
+      const inputFecha = popup.querySelector('#swal-input-fechaEntrega') as HTMLInputElement;
+
+      checkbox.addEventListener('change', () => {
+        inputFecha.disabled = !checkbox.checked;
+        if (!checkbox.checked) {
+          inputFecha.value = '';
+        }
+      });
+    },
+
+    preConfirm: () => {
+      const popup = Swal.getPopup()!;
+
+      const cantidad = Number(
+        (popup.querySelector('#swal-input-cantidadSuministro') as HTMLInputElement).value
+      );
+
+      const idComponente = Number(
+        (popup.querySelector('#swal-input-idComponenteSuministro') as HTMLInputElement).value
+      );
+
+      const idUsuario = Number(
+        (popup.querySelector('#swal-input-idUsuarioSuministro') as HTMLInputElement).value
+      );
+
+      const checkbox = popup.querySelector('#swal-check-fechaEntrega') as HTMLInputElement;
+      const fechaValue =
+        (popup.querySelector('#swal-input-fechaEntrega') as HTMLInputElement).value;
+
+      if (!cantidad || cantidad <= 0) {
+        Swal.showValidationMessage('La cantidad debe ser mayor a 0');
+        return false;
+      }
+
+      if (!idComponente || idComponente <= 0) {
+        Swal.showValidationMessage('ID de componente inválido');
+        return false;
+      }
+
+      if (!idUsuario || idUsuario <= 0) {
+        Swal.showValidationMessage('ID de usuario inválido');
+        return false;
+      }
+
+      return {
+        cantidad,
+        idComponente,
+        idUsuario,
+        fechaEntrega: checkbox.checked && fechaValue
+          ? new Date(fechaValue)
+          : null
+      };
+    }
+
+  }).then((result) => {
+    if (result.isConfirmed) {
+      this.alertWithSuccess('¡Suministro actualizado!', 'Listo');
+      return result.value;
+    }
+    return undefined;
+  });
+}
+
+
+
+
+
+
+
+
+
 
 }

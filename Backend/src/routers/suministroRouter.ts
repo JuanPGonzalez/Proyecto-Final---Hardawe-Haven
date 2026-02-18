@@ -9,7 +9,7 @@ import sumiGetAllController from "../controllers/suministro-GetAll.Controllers.j
 import sumiGetOneController from "../controllers/suministro-GetOne.Controllers.js";
 import { sanitizeSuministroInput } from "../security/suministro-sanitize.dto.js";
 import { suministroDTO } from "../dto/suministroDTO.js";
-import sumiInsertController from "../controllers/suminister-Insert.Controllers.js";
+import sumiInsertController from "../controllers/suministro-Insert.Controllers.js";
 import sumiUpdateController from "../controllers/suministro-Update.Controllers.js";
 import sumiDeleteOneController from "../controllers/suministro-DeleteOne.Controllers.js";
 import sumiGetByUserController from "../controllers/suministro-GetByUser.Controllers.js";

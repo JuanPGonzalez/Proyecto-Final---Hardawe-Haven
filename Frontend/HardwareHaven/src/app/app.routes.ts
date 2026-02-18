@@ -15,6 +15,7 @@ import { CancelPurchaseComponent } from './pages/cancel-purchase/cancel-purchase
 import { DashboardComponent } from './pages/dashboard/dashboard/dashboard.component.js';
 import { ChatBotComponent } from './pages/chat-bot/chat-bot.component.js';
 import { adminGuard } from './guards/role.admin.guard.js';
+import { SuministrosPageComponent } from './pages/suministros/suministros.component.js';
 
 
 export const routes: Routes = [
@@ -26,6 +27,7 @@ export const routes: Routes = [
   { path: 'inventory', component: InventoryComponent, canActivate: [authGuard, adminGuard]},
   { path: 'cancelPurchases', component: CancelPurchaseComponent, canActivate: [authGuard] },
   { path: 'dashboard', component: DashboardComponent},
+  { path: 'suministers', component: SuministrosPageComponent},
   { path: 'chatbot', component: ChatBotComponent},
   { path: 'help', component: HelpComponent},{
     path: 'no-access', component: NoAccessComponentComponent},
