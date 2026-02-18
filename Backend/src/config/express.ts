@@ -10,6 +10,7 @@ import compraRouter from "../routers/compraRouter.js";
 import compRouter from "../routers/componenteRouter.js";
 import cors from 'cors';
 import dashboardRouter from "../routers/dashboardRouter.js";
+import sumiRouter from "../routers/suministroRouter.js";
 
 const HarwareHavenexpressApp = express();
 
@@ -34,7 +35,7 @@ HarwareHavenexpressApp.use('/api/lineaCompra', lineaCompraRouter);
 HarwareHavenexpressApp.use('/api/precio', precioRouter);
 HarwareHavenexpressApp.use('/api/categoria', categoriaRouter);
 HarwareHavenexpressApp.use('/api/componente', compRouter);
-
+HarwareHavenexpressApp.use('/api/suministro', sumiRouter);
 //Dashboard-----------------------------------------------
 HarwareHavenexpressApp.use('/dashBoard', dashboardRouter);
 
