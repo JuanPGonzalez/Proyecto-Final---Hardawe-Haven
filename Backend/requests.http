@@ -2,7 +2,7 @@
 //------------------Usuario-------------------------------
 ###GetAll 
 GET http://localhost:3000/api/user/getAll
-Authorization: token eyJhbGciOiJIUzI1NiIsInR5cGUiOiJKV1QifQ.eyJpZCI6MTMsInRpcG9Vc3VhcmlvIjoiQWRtaW5pc3RyYWRvciIsImlhdCI6MTcyODY2NjMxMywiZXhwIjoxNzI5MjcxMTEzfQ.uxSCLFP-6xrBo8r12yfGWAucxoIKnPixFsx1Idqho5E
+Authorization: token eyJhbGciOiJIUzI1NiIsInR5cGUiOiJKV1QifQ.eyJ1c2VyIjp7ImlkIjoxODksIm5hbWUiOiJBZG1pbmlzdHJhZG9yIiwiZW1haWwiOiJhZG1pbkBnbWFpbC5jb20iLCJ0aXBvVXN1YXJpbyI6IkFkbWluaXN0cmFkb3IifSwiaWF0IjoxNzY5OTA4NTk4LCJleHAiOjE3NzA1MTMzOTh9.0tuuTsp9BJJX__OLx550rNYxi5UICk9FjWn4cjk738Y
 
 
 ###GetAll 
@@ -248,6 +248,47 @@ Content-Type: application/json
 "subTotal":"200",
 "componenteId":"6"
 }
+
+//------------------Suministro-------------------------------
+
+###GetAll 
+GET http://localhost:3000/api/suministro/getAll
+
+###GetOne
+GET http://localhost:3000/api/suministro/getOne/1
+Authorization: token eyJhbGciOiJIUzI1NiIsInR5cGUiOiJKV1QifQ.eyJ1c2VyIjp7ImlkIjoxODksIm5hbWUiOiJBZG1pbmlzdHJhZG9yIiwiZW1haWwiOiJhZG1pbkBnbWFpbC5jb20iLCJ0aXBvVXN1YXJpbyI6IkFkbWluaXN0cmFkb3IifSwiaWF0IjoxNzY5OTA4MTIyLCJleHAiOjE3NzA1MTI5MjJ9.I_1YEvtmEIgeMRY_FWCbSG3a5Q7PNv72uk0CA1AfBgg
+###Post 
+POST  http://localhost:3000/api/suministro/insert
+Authorization: token eyJhbGciOiJIUzI1NiIsInR5cGUiOiJKV1QifQ.eyJ1c2VyIjp7ImlkIjoxODksIm5hbWUiOiJBZG1pbmlzdHJhZG9yIiwiZW1haWwiOiJhZG1pbkBnbWFpbC5jb20iLCJ0aXBvVXN1YXJpbyI6IkFkbWluaXN0cmFkb3IifSwiaWF0IjoxNzY5OTA4MTIyLCJleHAiOjE3NzA1MTI5MjJ9.I_1YEvtmEIgeMRY_FWCbSG3a5Q7PNv72uk0CA1AfBgg
+Content-Type: application/json
+
+{
+"cantidad":2, 
+"idComponente":1,
+"idUsuario":189,
+"fechaEntrega":"20260131"
+}
+###Delete
+DELETE  http://localhost:3000/api/suministro/deleteOne/2
+Authorization: token eyJhbGciOiJIUzI1NiIsInR5cGUiOiJKV1QifQ.eyJ1c2VyIjp7ImlkIjoxODksIm5hbWUiOiJBZG1pbmlzdHJhZG9yIiwiZW1haWwiOiJhZG1pbkBnbWFpbC5jb20iLCJ0aXBvVXN1YXJpbyI6IkFkbWluaXN0cmFkb3IifSwiaWF0IjoxNzY5OTA4MTIyLCJleHAiOjE3NzA1MTI5MjJ9.I_1YEvtmEIgeMRY_FWCbSG3a5Q7PNv72uk0CA1AfBgg
+
+###Put
+PUT   http://localhost:3000/api/suministro/update/1
+Authorization: token eyJhbGciOiJIUzI1NiIsInR5cGUiOiJKV1QifQ.eyJ1c2VyIjp7ImlkIjoxODksIm5hbWUiOiJBZG1pbmlzdHJhZG9yIiwiZW1haWwiOiJhZG1pbkBnbWFpbC5jb20iLCJ0aXBvVXN1YXJpbyI6IkFkbWluaXN0cmFkb3IifSwiaWF0IjoxNzY5OTA4MTIyLCJleHAiOjE3NzA1MTI5MjJ9.I_1YEvtmEIgeMRY_FWCbSG3a5Q7PNv72uk0CA1AfBgg
+Content-Type: application/json
+
+{
+"newCantidad":200, 
+"idComponente":2,
+"idUsuario":189,
+"newFechaEntrega":"20240502"
+}
+
+###Get
+GET http://localhost:3000/api/suministro/getByUser/189
+Authorization: token eyJhbGciOiJIUzI1NiIsInR5cGUiOiJKV1QifQ.eyJ1c2VyIjp7ImlkIjoxODksIm5hbWUiOiJBZG1pbmlzdHJhZG9yIiwiZW1haWwiOiJhZG1pbkBnbWFpbC5jb20iLCJ0aXBvVXN1YXJpbyI6IkFkbWluaXN0cmFkb3IifSwiaWF0IjoxNzY5OTA4MTIyLCJleHAiOjE3NzA1MTI5MjJ9.I_1YEvtmEIgeMRY_FWCbSG3a5Q7PNv72uk0CA1AfBgg
+
+
 //------------------DashBoard-------------------------------
 ###Get
 GET   http://localhost:3000/dashBoard/getAll

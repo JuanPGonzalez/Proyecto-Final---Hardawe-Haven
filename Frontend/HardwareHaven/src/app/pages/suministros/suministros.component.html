@@ -1,0 +1,63 @@
+<div>
+  <header>
+    <nav class="navbar navbar-expand-lg">
+      <div class="container-fluid">
+        <a class="navbar-brand" href="productList">
+          <img
+            src="assets/images/title_home.png"
+            class="img-fluid title_home"
+            alt="Hardware Haven"
+          />
+        </a>
+        <button
+          class="navbar-toggler"
+          type="button"
+          data-bs-toggle="collapse"
+          data-bs-target="#navbarSupportedContent"
+        >
+          <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarSupportedContent">
+          <div class="d-flex justify-content-center w-100 my-2 my-lg-0">
+            <div class="w-100 w-lg-50" style="max-width: 600px">
+              <form
+                class="d-flex w-100"
+                role="search"
+                (submit)="onSearch($event)"
+              >
+                <input
+                  class="form-control form-control-dark me-2"
+                  type="search"
+                  placeholder="Buscar en inventario..."
+                  aria-label="Search"
+                  [(ngModel)]="auxsearchQuery"
+                  name="auxsearchQuery"
+                />
+                <button class="btn btn-primary-gradient" type="submit">
+                  <i class="bi bi-search"></i>
+                </button>
+              </form>
+            </div>
+          </div>
+          <div class="d-flex align-items-center">
+            <app-user-nav [usuario]="usuario"></app-user-nav>
+          </div>
+        </div>
+      </div>
+    </nav>
+  </header>
+
+  <main class="container-fluid py-4">
+    <h1 class="text-center title-inventario mb-4">Gestión de Suministros</h1>
+    <div>
+        <app-suministro [searchQuery]="searchQuery"></app-suministro>
+
+    </div>
+      <div class="float-button">
+        <app-plus-button
+        [nowType]="'suministro'"
+          (changeEntityEvent)="getplusbuttonChange($event)"
+        ></app-plus-button>
+      </div>
+  </main>
+</div>

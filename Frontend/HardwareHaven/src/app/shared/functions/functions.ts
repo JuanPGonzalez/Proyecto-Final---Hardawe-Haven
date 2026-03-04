@@ -14,6 +14,7 @@ export function specialFilter(name: string, dato: any): string {
     if (name.includes("lineasCompras")) return Array.isArray(dato) ? (dato.length > 0 ? "Posee lineas" : "Vacia") : "-";
     if (name === "compra") return dato.id.toString();
     if (name === "user") return dato.name;
+    if (name === "usuario") return dato.name;
     if (name.includes("compras")) return Array.isArray(dato) ? (dato.length > 0 ? "Realizo compras" : "No compro") : "-";
     return dato;
   }

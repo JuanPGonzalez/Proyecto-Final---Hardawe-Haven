@@ -1,0 +1,94 @@
+/* inventario.component.css */
+header {
+  position: sticky;
+  top: 0;
+  z-index: 1000;
+  backdrop-filter: var(--glass-blur);
+  background: rgba(15, 23, 42, 0.8);
+  border-bottom: 1px solid var(--glass-border);
+}
+
+.title_home {
+  height: 40px;
+  width: auto;
+  filter: drop-shadow(0 0 8px rgba(96, 165, 250, 0.5));
+}
+
+.title-inventario {
+  font-weight: 700;
+  background: var(--text-gradient);
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+  width: fit-content;
+  margin: 0 auto;
+}
+
+.button-container {
+  margin-bottom: 2rem;
+  padding: 1rem 0;
+}
+
+.button-list {
+  display: flex;
+  gap: 1rem;
+  justify-content: center;
+  flex-wrap: wrap;
+}
+
+.button-item {
+  background: rgba(255, 255, 255, 0.05);
+  backdrop-filter: blur(5px);
+  color: var(--text-color);
+  padding: 0.8rem 1.5rem;
+  border: 1px solid var(--glass-border);
+  border-radius: 12px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  font-weight: 500;
+}
+
+.button-item:hover {
+  background: rgba(255, 255, 255, 0.1);
+  transform: translateY(-2px);
+  border-color: var(--primary-color);
+}
+
+.button-item.selected {
+  background: var(--primary-gradient);
+  border-color: transparent;
+  color: white;
+  box-shadow: 0 4px 12px rgba(99, 102, 241, 0.3);
+}
+
+.float-button {
+  position: fixed;
+  bottom: 2rem;
+  right: 2rem;
+  z-index: 100;
+}
+
+/* Move table styles to global if needed, removing from here as main doesn't have a table */
+
+@media (max-width: 768px) {
+  .button-list {
+    justify-content: flex-start;
+    flex-wrap: nowrap;
+    overflow-x: auto;
+    padding-bottom: 1rem;
+    padding-left: 1rem;
+  }
+
+  .button-item {
+    white-space: nowrap;
+  }
+
+  .float-button {
+    bottom: 5rem;
+    /* Space for bottom navigation if any, or adjust */
+    right: 1rem;
+  }
+}
