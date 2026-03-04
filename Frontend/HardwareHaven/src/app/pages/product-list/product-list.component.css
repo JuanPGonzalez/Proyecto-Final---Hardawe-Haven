@@ -11,17 +11,13 @@
 
 .title-product {
   font-weight: 700;
-  background: var(--text-gradient);
-  -webkit-background-clip: text;
-  background-clip: text;
-  color: transparent;
+  color: var(--text-color);
   width: fit-content;
   margin: 0 auto;
 }
 
 header {
-  background-color: rgba(1, 6, 15, 0.8);
-  backdrop-filter: var(--glass-blur);
+  background-color: #ffffff;
   border-bottom: 1px solid var(--glass-border);
   position: sticky;
   top: 0;
@@ -34,7 +30,6 @@ header {
 
 .title_home {
   width: 200px;
-  filter: drop-shadow(0 0 8px rgba(96, 165, 250, 0.5));
 }
 
 .carrito-cant {
@@ -52,17 +47,15 @@ header {
 
 /* Sidebar Styles */
 .glass-card {
-  background: var(--glass-bg);
-  backdrop-filter: var(--glass-blur);
+  background: var(--card-bg);
   border: 1px solid var(--glass-border);
-  border-radius: 16px;
+  border-radius: 8px;
   box-shadow: var(--glass-shadow);
 }
 
-/* Fix dropdown option color */
 select option {
-  color: black;
-  background: white;
+  color: #333333;
+  background: #ffffff;
 }
 
 .custom-menu-fixed {
@@ -70,24 +63,19 @@ select option {
   align-items: center;
   justify-content: space-between;
   top: 100px;
-  /* Position below header */
   right: 20px;
   display: flex;
   width: 400px;
-  /* Increased to fit trash button */
-  background: var(--glass-bg);
-  backdrop-filter: var(--glass-blur);
+  background: #ffffff;
   padding: 10px 20px;
-  border-radius: 50px;
+  border-radius: 25px;
   border: 1px solid var(--glass-border);
   box-shadow: var(--glass-shadow);
   z-index: 900;
-  /* Lower z-index than navbar/modals */
-  transition: all 0.3s ease;
+  transition: all 0.2s ease;
   gap: 10px;
 }
 
-/* Disabled State */
 .custom-menu-fixed.disabled {
   opacity: 0.6;
   pointer-events: none;
@@ -99,7 +87,7 @@ select option {
   height: 45px;
   border-radius: 50%;
   border: none;
-  background: linear-gradient(135deg, #ef4444 0%, #dc2626 100%);
+  background: #ef4444;
   color: white;
   display: flex;
   align-items: center;
@@ -107,7 +95,6 @@ select option {
   font-size: 1.2rem;
   cursor: pointer;
   transition: all 0.2s ease;
-  box-shadow: 0 4px 10px rgba(220, 38, 38, 0.3);
 }
 
 .trash-icon {
@@ -115,13 +102,12 @@ select option {
   height: 24px;
   object-fit: contain;
   filter: brightness(0) invert(1);
-  /* Forces the image to be white */
 }
 
 .floating-button-trash:hover {
   transform: translateY(-2px);
-  background: linear-gradient(135deg, #dc2626 0%, #b91c1c 100%);
-  box-shadow: 0 6px 15px rgba(220, 38, 38, 0.4);
+  background: #dc2626;
+  box-shadow: 0 4px 10px rgba(220, 38, 38, 0.2);
 }
 
 .floating-button-purchase {
@@ -130,31 +116,29 @@ select option {
   padding: 0 20px;
   border: none;
   border-radius: 25px;
-  background: var(--primary-gradient);
+  background: var(--primary-color);
   color: white;
   font-size: 16px;
-  font-weight: 600;
-  font-family: 'Inter', sans-serif;
+  font-weight: 500;
   display: flex;
   align-items: center;
   justify-content: center;
-  box-shadow: 0 4px 12px rgba(99, 102, 241, 0.3);
-  transition: all 0.2s ease-in-out;
+  transition: all 0.2s ease;
   cursor: pointer;
 }
 
 .floating-button-purchase:hover {
   transform: translateY(-2px);
-  box-shadow: 0 6px 16px rgba(99, 102, 241, 0.5);
+  box-shadow: 0 4px 12px rgba(52, 131, 250, 0.3);
+  background: var(--primary-hover);
 }
 
 .floating-button-purchase:active {
   transform: translateY(1px);
-  box-shadow: 0 2px 4px rgba(99, 102, 241, 0.2);
 }
 
 .floating-button-purchase:disabled {
-  background: #cbd5e1;
+  background: #cccccc;
   cursor: not-allowed;
   box-shadow: none;
   transform: none;
@@ -185,13 +169,10 @@ select option {
   transform: scale(1.1);
 }
 
-/* Removed floating-button-trash styles */
-
 @media (max-width: 768px) {
   .navbar-collapse {
-    background: var(--glass-bg);
-    backdrop-filter: var(--glass-blur);
-    border-radius: 0 0 16px 16px;
+    background: #ffffff;
+    border-radius: 0 0 8px 8px;
     border: 1px solid var(--glass-border);
     border-top: none;
     padding: 1rem;
@@ -202,7 +183,7 @@ select option {
     position: sticky;
     width: 100%;
     z-index: 1000;
-    background: rgba(1, 6, 15, 0.95);
+    background: #ffffff;
   }
 
   .custom-menu-fixed {
@@ -222,16 +203,11 @@ select option {
 }
 
 .text-muted {
-  color: white !important;
+  color: var(--text-muted) !important;
 }
 
-/* Fix for carousel card hover clipping */
 #productsCarousel .carousel-inner {
   padding: 20px 5px;
-  /* Adds space for the card to move up without being cut off */
-  margin: -20px -5px;
-  /* Counteracts the padding layout shift if necessary, but careful */
-  /* Actually, simpler is just padding, let's stick to padding and width correction if needed */
   width: calc(100% + 10px);
   margin-left: -5px;
 }

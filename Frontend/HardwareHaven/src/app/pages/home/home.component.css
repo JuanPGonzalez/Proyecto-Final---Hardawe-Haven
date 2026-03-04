@@ -4,8 +4,8 @@
 :host {
   display: block;
   min-height: 100vh;
-  background: var(--bg-gradient);
-  font-family: 'Montserrat', sans-serif;
+  background: var(--bg-gradient-start);
+  font-family: 'Inter', sans-serif;
   color: var(--text-color);
 }
 
@@ -14,8 +14,7 @@ header {
   position: sticky;
   top: 0;
   z-index: 1000;
-  backdrop-filter: var(--glass-blur);
-  background: rgba(15, 23, 42, 0.8);
+  background: #ffffff;
   border-bottom: 1px solid var(--glass-border);
 }
 
@@ -26,7 +25,6 @@ header {
 .title_home {
   height: 40px;
   width: auto;
-  filter: drop-shadow(0 0 8px rgba(96, 165, 250, 0.5));
 }
 
 .form-login {
@@ -36,18 +34,18 @@ header {
 }
 
 .form-control {
-  background: var(--glass-bg);
-  border: 1px solid var(--glass-border);
+  background: #ffffff;
+  border: 1px solid #cccccc;
   color: var(--text-color);
-  border-radius: 8px;
+  border-radius: 6px;
   padding: 0.5rem 1rem;
-  transition: all 0.3s ease;
+  transition: all 0.2s ease;
 }
 
 .form-control:focus {
-  background: rgba(255, 255, 255, 0.1);
+  background: #ffffff;
   border-color: var(--primary-color);
-  box-shadow: var(--glass-shadow);
+  box-shadow: 0 0 0 2px rgba(52, 131, 250, 0.2);
   outline: none;
 }
 
@@ -56,19 +54,19 @@ header {
 }
 
 .btn-login {
-  background: var(--primary-gradient);
+  background: var(--primary-color);
   color: white;
   border: none;
   padding: 0.5rem 1.5rem;
-  border-radius: 8px;
-  font-weight: 600;
+  border-radius: 6px;
+  font-weight: 500;
   cursor: pointer;
-  transition: all 0.3s ease;
+  transition: all 0.2s ease;
 }
 
 .btn-login:hover {
   transform: translateY(-1px);
-  box-shadow: 0 4px 12px rgba(99, 102, 241, 0.4);
+  background: var(--primary-hover);
 }
 
 .link-button {
@@ -77,13 +75,13 @@ header {
   color: var(--text-muted);
   font-size: 0.875rem;
   cursor: pointer;
-  transition: color 0.3s;
+  transition: color 0.2s;
   padding: 0;
   text-decoration: none;
 }
 
 .link-button:hover {
-  color: var(--accent-color);
+  color: var(--primary-color);
   text-decoration: underline;
 }
 
@@ -105,7 +103,7 @@ header {
   object-fit: cover;
   height: 100%;
   width: 100%;
-  filter: brightness(0.6);
+  filter: brightness(0.9);
 }
 
 .hero-content {
@@ -116,50 +114,47 @@ header {
   z-index: 2000;
   text-align: center;
   padding: 2rem;
-  background: rgba(15, 23, 42, 0.95);
-  backdrop-filter: blur(10px);
-  border-radius: 16px;
+  background: rgba(255, 255, 255, 0.95);
+  border-radius: 12px;
   border: 1px solid var(--glass-border);
   max-width: 90%;
   width: 600px;
-  box-shadow: 0 0 50px rgba(0, 0, 0, 0.5);
+  box-shadow: 0 8px 30px rgba(0, 0, 0, 0.1);
 }
 
 .hero-content h1 {
   font-size: 3rem;
   font-weight: 700;
   margin-bottom: 1rem;
-  background: var(--text-gradient);
-  -webkit-background-clip: text;
-  background-clip: text;
-  color: transparent;
+  color: #333333;
 }
 
 .hero-content p {
   font-size: 1.2rem;
-  color: var(--text-color);
+  color: #666666;
   margin-bottom: 2rem;
 }
 
 .cta-button {
   display: inline-block;
-  background: #fff;
-  color: #0f172a;
+  background: var(--primary-color);
+  color: #ffffff;
   padding: 1rem 2rem;
-  border-radius: 50px;
-  font-weight: 700;
+  border-radius: 6px;
+  font-weight: 600;
   text-decoration: none;
-  transition: all 0.3s ease;
+  transition: all 0.2s ease;
 }
 
 .cta-button:hover {
-  transform: scale(1.05);
-  box-shadow: 0 0 20px rgba(255, 255, 255, 0.3);
+  transform: scale(1.02);
+  background: var(--primary-hover);
+  color: #ffffff;
 }
 
 /* Footer */
 footer {
-  background: #0f172a;
+  background: #ffffff;
   padding: 2rem;
   text-align: center;
   border-top: 1px solid var(--glass-border);
@@ -193,6 +188,6 @@ footer {
 
 /* Dropdown visual fixes */
 select option {
-  color: black;
+  color: var(--text-color);
   background: white;
 }

@@ -5,25 +5,24 @@
   width: 50px;
   height: 50px;
   border-radius: 50%;
-  border: 1px solid rgba(255, 255, 255, 0.1);
-  background: rgba(15, 23, 42, 0.8);
-  backdrop-filter: blur(8px);
-  color: #60a5fa;
+  border: 1px solid var(--glass-border);
+  background: #ffffff;
+  color: var(--primary-color);
   font-size: 24px;
   display: flex;
   align-items: center;
   justify-content: center;
-  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
   cursor: pointer;
-  transition: all 0.3s ease;
+  transition: all 0.3s ease-in-out;
 }
 
 .floating-button:hover {
   transform: translateY(-2px);
-  background: rgba(30, 41, 59, 0.9);
-  color: #fff;
-  box-shadow: 0 6px 16px rgba(96, 165, 250, 0.3);
-  border-color: rgba(96, 165, 250, 0.3);
+  background: var(--primary-color);
+  color: #ffffff;
+  box-shadow: 0 6px 16px rgba(0, 0, 0, 0.2);
+  border-color: var(--primary-color);
 }
 
 .chat-floating-button {

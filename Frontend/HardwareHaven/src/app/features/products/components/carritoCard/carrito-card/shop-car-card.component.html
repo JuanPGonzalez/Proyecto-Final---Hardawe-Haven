@@ -5,7 +5,7 @@
       class="col-md-2 truncate card-mov-titulo text-center"
       title="{{ product.name }}"
     >
-      <span class="d-md-none fw-bold me-2 text-white">Producto:</span>
+      <span class="d-md-none fw-bold me-2">Producto:</span>
       {{ product.name }}
     </li>
     <li
@@ -16,20 +16,14 @@
     </li>
 
     <li class="col-md-2 text-center precio-mov">
-      <span class="d-md-none fw-bold me-2 text-white">Precio:</span>
+      <span class="d-md-none fw-bold me-2">Precio:</span>
       ${{ calculateLineCarrito(product.precios) }}
     </li>
 
     <li class="col-md-2 d-flex justify-content-center amount-mobile">
-      <span class="d-md-none fw-bold me-2 align-self-center text-white"
-        >Cantidad:</span
-      >
+      <span class="d-md-none fw-bold me-2 align-self-center">Cantidad:</span>
       <div class="quantity-selector">
-        <button
-          type="button"
-          class="btn text-white"
-          (click)="decrementQuantity()"
-        >
+        <button type="button" class="btn" (click)="decrementQuantity()">
           <i class="bi bi-dash"></i>
         </button>
         <input
@@ -40,11 +34,7 @@
           max="100"
           readonly
         />
-        <button
-          type="button"
-          class="btn text-white"
-          (click)="incrementQuantity()"
-        >
+        <button type="button" class="btn" (click)="incrementQuantity()">
           <i class="bi bi-plus"></i>
         </button>
       </div>
@@ -52,7 +42,7 @@
 
     <li class="col-md-2 d-flex justify-content-center">
       <button
-        class="btn btn-x text-white"
+        class="btn btn-x"
         (click)="removeProduct()"
         title="Eliminar del carrito"
       >

@@ -4,20 +4,21 @@
   align-items: center;
   justify-content: center;
   padding: 8px 16px;
-  background: rgba(255, 255, 255, 0.1);
-  backdrop-filter: blur(8px);
+  background: #ffffff;
   border: 1px solid var(--glass-border);
   border-radius: 40px;
   color: var(--text-color);
   font-weight: 500;
   cursor: pointer;
-  transition: all 0.3s ease;
+  transition: all 0.2s ease;
   min-width: 140px;
+  box-shadow: 0 1px 2px rgba(0, 0, 0, 0.05);
 }
 
 .user-nav:hover {
-  background: rgba(255, 255, 255, 0.2);
+  background: #fdfdfd;
   transform: translateY(-1px);
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
 }
 
 .dropdown {
@@ -30,18 +31,16 @@
   top: 110%;
   right: 0;
   left: auto;
-  /* Align to right if needed, or default left */
-  background: var(--glass-bg);
-  backdrop-filter: var(--glass-blur);
-  border: 1px solid var(--glass-border);
-  border-radius: 12px;
-  box-shadow: var(--glass-shadow);
+  background: #ffffff;
+  border: 1px solid #e0e0e0;
+  border-radius: 8px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
   display: none;
   z-index: 1000;
   min-width: 200px;
   padding: 0.5rem;
   overflow: hidden;
-  animation: slideDown 0.3s ease-out;
+  animation: slideDown 0.2s ease-out;
 }
 
 .dropdown-menu.show {
@@ -53,13 +52,13 @@
   color: var(--text-color);
   text-decoration: none;
   display: block;
-  border-radius: 8px;
+  border-radius: 6px;
   transition: background-color 0.2s;
 }
 
 .dropdown-item:hover {
-  background-color: rgba(255, 255, 255, 0.1);
-  color: #fff;
+  background-color: #f5f5f5;
+  color: var(--primary-color);
 }
 
 @keyframes slideDown {
@@ -82,10 +81,10 @@
     left: 0;
     right: 0;
     width: 100%;
-    border-radius: 20px 20px 0 0;
-    background: #1e1b4b;
-    /* Solid color for better contrast on mobile bottom sheet style */
-    border-top: 1px solid var(--glass-border);
+    border-radius: 12px 12px 0 0;
+    background: #ffffff;
+    border-top: 1px solid #e0e0e0;
+    box-shadow: 0 -4px 12px rgba(0, 0, 0, 0.1);
   }
 
   .user-nav {

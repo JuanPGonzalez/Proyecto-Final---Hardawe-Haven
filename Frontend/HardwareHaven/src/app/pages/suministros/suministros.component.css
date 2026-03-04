@@ -1,25 +1,20 @@
-/* inventario.component.css */
+/* suministros.component.css */
 header {
   position: sticky;
   top: 0;
   z-index: 1000;
-  backdrop-filter: var(--glass-blur);
-  background: rgba(15, 23, 42, 0.8);
+  background: #ffffff;
   border-bottom: 1px solid var(--glass-border);
 }
 
 .title_home {
   height: 40px;
   width: auto;
-  filter: drop-shadow(0 0 8px rgba(96, 165, 250, 0.5));
 }
 
 .title-inventario {
-  font-weight: 700;
-  background: var(--text-gradient);
-  -webkit-background-clip: text;
-  background-clip: text;
-  color: transparent;
+  font-weight: 600;
+  color: var(--text-color);
   width: fit-content;
   margin: 0 auto;
 }
@@ -37,14 +32,13 @@ header {
 }
 
 .button-item {
-  background: rgba(255, 255, 255, 0.05);
-  backdrop-filter: blur(5px);
-  color: var(--text-color);
+  background: #ffffff;
+  color: var(--primary-color);
   padding: 0.8rem 1.5rem;
-  border: 1px solid var(--glass-border);
-  border-radius: 12px;
+  border: 1px solid var(--primary-color);
+  border-radius: 6px;
   cursor: pointer;
-  transition: all 0.3s ease;
+  transition: all 0.2s ease;
   display: flex;
   align-items: center;
   gap: 0.5rem;
@@ -52,16 +46,14 @@ header {
 }
 
 .button-item:hover {
-  background: rgba(255, 255, 255, 0.1);
+  background: rgba(52, 131, 250, 0.05);
   transform: translateY(-2px);
-  border-color: var(--primary-color);
 }
 
 .button-item.selected {
-  background: var(--primary-gradient);
+  background: var(--primary-color);
   border-color: transparent;
   color: white;
-  box-shadow: 0 4px 12px rgba(99, 102, 241, 0.3);
 }
 
 .float-button {
@@ -71,7 +63,6 @@ header {
   z-index: 100;
 }
 
-/* Move table styles to global if needed, removing from here as main doesn't have a table */
 
 @media (max-width: 768px) {
   .button-list {
@@ -88,7 +79,6 @@ header {
 
   .float-button {
     bottom: 5rem;
-    /* Space for bottom navigation if any, or adjust */
     right: 1rem;
   }
 }

@@ -1,12 +1,10 @@
-/* summary-purchase.component.css */
 .custom-container {
-    background: var(--glass-bg);
-    backdrop-filter: var(--glass-blur);
+    background: var(--card-bg);
     border: 1px solid var(--glass-border);
     width: 100%;
     max-width: 900px;
     color: var(--text-color);
-    border-radius: 16px;
+    border-radius: 8px;
     box-shadow: var(--glass-shadow);
     padding: 2rem;
     margin: 0 auto;
@@ -25,18 +23,19 @@
 }
 
 .custom-table th {
-    background: rgba(255, 255, 255, 0.05);
+    background: #f5f5f5;
     padding: 1rem;
     font-weight: 600;
     text-transform: uppercase;
     font-size: 0.85rem;
-    border-bottom: 2px solid var(--glass-border);
+    border-bottom: 2px solid #e0e0e0;
     white-space: nowrap;
+    color: #666666;
 }
 
 .custom-table td {
     padding: 1rem;
-    border-bottom: 1px solid var(--glass-border);
+    border-bottom: 1px solid #eeeeee;
 }
 
 .custom-table tr:last-child td {
@@ -44,7 +43,7 @@
 }
 
 .custom-table tr:hover td {
-    background: rgba(255, 255, 255, 0.02);
+    background: #f9f9f9;
 }
 
 .highlight-message {
@@ -63,14 +62,17 @@
 }
 
 .btn-primary {
-    background: var(--primary-gradient);
+    background: var(--primary-color);
+    color: white;
     border: none;
     padding: 0.5rem 2rem;
-    border-radius: 25px;
-    transition: all 0.3s ease;
+    border-radius: 6px;
+    font-weight: 500;
+    transition: all 0.2s ease;
 }
 
 .btn-primary:hover {
     transform: translateY(-2px);
-    box-shadow: 0 4px 12px rgba(99, 102, 241, 0.4);
+    background: var(--primary-hover);
+    box-shadow: 0 4px 12px rgba(52, 131, 250, 0.2);
 }

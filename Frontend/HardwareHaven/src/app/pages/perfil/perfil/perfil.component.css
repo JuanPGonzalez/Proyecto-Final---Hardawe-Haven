@@ -3,35 +3,29 @@ header {
   position: sticky;
   top: 0;
   z-index: 1000;
-  backdrop-filter: var(--glass-blur);
-  background: rgba(15, 23, 42, 0.8);
+  background: #ffffff;
   border-bottom: 1px solid var(--glass-border);
 }
 
 .title_home {
   height: 40px;
   width: auto;
-  filter: drop-shadow(0 0 8px rgba(96, 165, 250, 0.5));
 }
 
 .title-perfil {
-  font-weight: 700;
-  background: var(--text-gradient);
-  -webkit-background-clip: text;
-  background-clip: text;
-  color: transparent;
+  font-weight: 600;
+  color: var(--text-color);
   width: fit-content;
   margin: 0 auto;
 }
 
 .custom-contenedor {
-  background: var(--glass-bg);
-  backdrop-filter: var(--glass-blur);
+  background: var(--card-bg);
   border: 1px solid var(--glass-border);
   width: 100%;
   max-width: 600px;
   color: var(--text-color);
-  border-radius: 16px;
+  border-radius: 8px;
   box-shadow: var(--glass-shadow);
   padding: 2.5rem;
   margin: 0 auto;
@@ -65,13 +59,13 @@ header {
   cursor: pointer;
   transition: all 0.2s;
   padding: 0.5rem 1rem;
-  border-radius: 8px;
+  border-radius: 6px;
   border: 1px solid transparent;
 }
 
 .text-danger:hover {
-  background: rgba(239, 68, 68, 0.1);
-  border-color: rgba(239, 68, 68, 0.2);
+  background: rgba(239, 68, 68, 0.05);
+  border-color: rgba(239, 68, 68, 0.1);
 }
 
 @media (max-width: 768px) {

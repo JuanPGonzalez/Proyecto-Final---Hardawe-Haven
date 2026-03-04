@@ -3,39 +3,31 @@
 @import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700&family=Inter:wght@400;500;600&display=swap');
 
 :root {
-  /* Colors */
-  --primary-color: #6366f1;
-  /* Indigo 500 */
-  --primary-hover: #4f46e5;
-  --secondary-color: #8b5cf6;
-  /* Violet 500 */
+  /* MercadoLibre Colors */
+  --primary-color: #3483fa;
+  --primary-hover: #2968c8;
+  --secondary-color: #00a650;
   --accent-color: #06b6d4;
-  /* Cyan 500 */
 
-  --bg-gradient-start: #0f172a;
-  /* Slate 900 */
-  --bg-gradient-end: #1e1b4b;
-  /* Indigo 950 */
+  --bg-gradient-start: #ebebeb;
+  --bg-gradient-end: #ebebeb;
 
-  --text-color: #f3f4f6;
-  /* Gray 100 */
-  --text-muted: #9ca3af;
-  /* Gray 400 */
+  --text-color: #333333;
+  --text-muted: #999999;
 
-  /* Glassmorphism */
-  --glass-bg: rgba(30, 41, 59, 0.7);
-  /* Slate 800 with opacity */
-  --glass-border: rgba(255, 255, 255, 0.1);
-  --glass-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.37);
-  --glass-blur: blur(12px);
+  --card-bg: #ffffff;
+  --glass-bg: #ffffff;
+  --glass-border: rgba(0, 0, 0, 0.08);
+  --glass-shadow: 0 1px 2px 0 rgba(0, 0, 0, 0.12);
+  --glass-blur: none;
 
   /* Gradients */
-  --primary-gradient: linear-gradient(135deg, var(--primary-color), var(--secondary-color));
-  --text-gradient: linear-gradient(to right, #60a5fa, #a78bfa);
+  --primary-gradient: linear-gradient(135deg, var(--primary-color), var(--primary-hover));
+  --text-gradient: #333333;
 }
 
 body {
-  background: linear-gradient(135deg, var(--bg-gradient-start) 0%, var(--bg-gradient-end) 100%);
+  background: var(--bg-gradient-start);
   color: var(--text-color);
   font-family: 'Inter', sans-serif;
   min-height: 100vh;
@@ -48,7 +40,8 @@ h3,
 h4,
 h5,
 h6 {
-  font-family: 'Montserrat', sans-serif;
+  font-family: 'Inter', sans-serif;
+  color: #333333;
 }
 
 /* Scrollbar */
@@ -57,16 +50,16 @@ h6 {
 }
 
 ::-webkit-scrollbar-track {
-  background: var(--bg-gradient-start);
+  background: #f5f5f5;
 }
 
 ::-webkit-scrollbar-thumb {
-  background: rgba(255, 255, 255, 0.2);
+  background: #cccccc;
   border-radius: 4px;
 }
 
 ::-webkit-scrollbar-thumb:hover {
-  background: rgba(255, 255, 255, 0.3);
+  background: #999999;
 }
 
 /* Toastify Customization */
@@ -75,25 +68,26 @@ h6 {
   width: 100%;
   height: 80px;
   text-align: center;
-  color: white;
+  color: #333333;
   display: flex;
   justify-content: center;
   align-items: center;
   z-index: 1000;
   font-size: 2rem;
+  background: white;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
 }
 
 .swal2-container {
-  background-color: rgba(0, 0, 0, 0.856) !important;
+  background-color: rgba(0, 0, 0, 0.5) !important;
 }
 
 div:where(.swal2-container) div:where(.swal2-popup) {
-  background: var(--bg-gradient-end) !important;
+  background: #ffffff !important;
   color: var(--text-color) !important;
-  border: 1px solid var(--glass-border);
-  backdrop-filter: var(--glass-blur);
-  /* Note: backdrop-filter might not work if bg is opaque, but let's try */
-  box-shadow: var(--glass-shadow);
+  border: none;
+  border-radius: 8px;
+  box-shadow: 0 4px 16px rgba(0, 0, 0, 0.1);
 }
 
 div:where(.swal2-container) .swal2-title,
@@ -104,59 +98,57 @@ div:where(.swal2-container) .swal2-html-container {
 div:where(.swal2-container) input:where(.swal2-input),
 div:where(.swal2-container) .form-control,
 div:where(.swal2-container) .form-select {
-  background: rgba(255, 255, 255, 0.05) !important;
+  background: #ffffff !important;
   color: var(--text-color) !important;
-  border: 1px solid var(--glass-border) !important;
+  border: 1px solid #cccccc !important;
 }
 
 div:where(.swal2-container) input:where(.swal2-input):focus,
 div:where(.swal2-container) .form-control:focus,
 div:where(.swal2-container) .form-select:focus {
-  box-shadow: 0 0 0 0.25rem rgba(99, 102, 241, 0.25) !important;
+  box-shadow: 0 0 0 0.25rem rgba(52, 131, 250, 0.25) !important;
   border-color: var(--primary-color) !important;
 }
 
 /* Custom Utilities */
 .glass-card {
-  background: var(--glass-bg);
-  backdrop-filter: var(--glass-blur);
-  -webkit-backdrop-filter: var(--glass-blur);
+  background: var(--card-bg);
   border: 1px solid var(--glass-border);
   box-shadow: var(--glass-shadow);
-  border-radius: 16px;
+  border-radius: 8px;
+  transition: box-shadow 0.2s ease-in-out;
 }
 
 .text-gradient {
-  background: var(--text-gradient);
-  -webkit-background-clip: text;
-  background-clip: text;
-  color: transparent;
+  color: var(--text-color);
 }
 
 .btn-primary-gradient {
-  background: var(--primary-gradient);
+  background: var(--primary-color);
   color: white;
   border: none;
-  transition: all 0.3s ease;
+  border-radius: 6px;
+  font-weight: 500;
+  transition: background-color 0.2s ease;
 }
 
 .btn-primary-gradient:hover {
-  transform: translateY(-1px);
-  box-shadow: 0 4px 12px rgba(99, 102, 241, 0.3);
+  background-color: var(--primary-hover);
   color: white;
 }
 
 .form-control-dark {
-  background: rgba(255, 255, 255, 0.05);
-  border: 1px solid rgba(255, 255, 255, 0.1);
+  background: #ffffff;
+  border: 1px solid #cccccc;
   color: var(--text-color);
+  border-radius: 6px;
 }
 
 .form-control-dark:focus {
-  background: rgba(255, 255, 255, 0.1);
+  background: #ffffff;
   border-color: var(--primary-color);
   color: var(--text-color);
-  box-shadow: 0 0 0 0.25rem rgba(99, 102, 241, 0.25);
+  box-shadow: 0 0 0 0.25rem rgba(52, 131, 250, 0.25);
 }
 
 .form-control-dark::placeholder {
@@ -165,12 +157,11 @@ div:where(.swal2-container) .form-select:focus {
 
 /* Inventory Tables */
 .custom-contenedor {
-  background: var(--glass-bg);
-  backdrop-filter: var(--glass-blur);
+  background: var(--card-bg);
   border: 1px solid var(--glass-border);
   width: 100%;
   color: var(--text-color);
-  border-radius: 16px;
+  border-radius: 8px;
   box-shadow: var(--glass-shadow);
   padding: 1.5rem;
   margin: 1rem auto;
@@ -186,7 +177,7 @@ div:where(.swal2-container) .form-select:focus {
 }
 
 .styled-table thead tr {
-  background: rgba(255, 255, 255, 0.05);
+  background: #f5f5f5;
 }
 
 .styled-table th {
@@ -194,13 +185,14 @@ div:where(.swal2-container) .form-select:focus {
   font-weight: 600;
   text-transform: uppercase;
   font-size: 0.85rem;
-  border-bottom: 2px solid var(--glass-border);
+  border-bottom: 2px solid #e0e0e0;
   white-space: nowrap;
+  color: #666666;
 }
 
 .styled-table td {
   padding: 1rem;
-  border-bottom: 1px solid var(--glass-border);
+  border-bottom: 1px solid #eeeeee;
   vertical-align: middle;
 }
 
@@ -209,18 +201,24 @@ div:where(.swal2-container) .form-select:focus {
 }
 
 .styled-table tbody tr:hover {
-  background: rgba(255, 255, 255, 0.05);
+  background: #f9f9f9;
 }
 
 /* Common inventory buttons */
 .btn-light {
-  background: rgba(255, 255, 255, 0.1);
-  color: var(--text-color);
-  border: 1px solid var(--glass-border);
+  background: #ffffff;
+  color: var(--primary-color);
+  border: 1px solid var(--primary-color);
+  font-weight: 500;
   transition: all 0.2s;
+  border-radius: 6px;
 }
 
 .btn-light:hover {
-  background: rgba(255, 255, 255, 0.2);
-  color: white;
+  background: rgba(52, 131, 250, 0.1);
+  color: var(--primary-color);
+}
+
+.title_home {
+  filter: brightness(0) opacity(0.8) !important;
 }

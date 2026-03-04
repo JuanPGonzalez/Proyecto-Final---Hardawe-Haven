@@ -1,11 +1,10 @@
 .carrito {
-  background: var(--glass-bg);
-  backdrop-filter: var(--glass-blur);
+  background: var(--card-bg);
   border: 1px solid var(--glass-border);
   width: 100%;
   max-width: 900px;
   color: var(--text-color);
-  border-radius: 16px;
+  border-radius: 8px;
   box-shadow: var(--glass-shadow);
   padding: 2rem;
   margin: 0 auto;
@@ -19,12 +18,12 @@
 .columnas-carrito ul {
   padding: 0;
   margin-bottom: 0.5rem;
-  border-bottom: 1px solid var(--glass-border);
+  border-bottom: 2px solid #e0e0e0;
   padding-bottom: 0.5rem;
-  color: var(--primary-color);
+  color: #666666;
   text-transform: uppercase;
   font-size: 0.85rem;
-  letter-spacing: 0.05em;
+  font-weight: 600;
   display: grid;
   grid-template-columns: 2fr 2fr 1fr 1fr 1fr;
   gap: 1rem;
@@ -33,7 +32,7 @@
 .quantity-selector button {
   background: transparent;
   border: none;
-  color: var(--text-color);
+  color: var(--primary-color);
   font-size: 1.2rem;
   cursor: pointer;
   padding: 0 0.5rem;
@@ -46,7 +45,7 @@
   display: flex;
   align-items: center;
   justify-content: center;
-  color: white !important;
+  color: #ef4444 !important;
 }
 
 .btn-delete svg,
@@ -59,19 +58,16 @@
 .total-section {
   font-size: 1.25rem;
   color: var(--text-color);
-  background: rgba(255, 255, 255, 0.05);
+  background: #f5f5f5;
   padding: 1rem;
-  border-radius: 12px;
+  border-radius: 8px;
   width: fit-content;
   margin-left: auto;
 }
 
 .total-amount {
-  background: var(--text-gradient);
-  -webkit-background-clip: text;
-  background-clip: text;
-  color: transparent;
-  font-weight: 700;
+  color: #333333;
+  font-weight: 600;
 }
 
 @media (max-width: 768px) {

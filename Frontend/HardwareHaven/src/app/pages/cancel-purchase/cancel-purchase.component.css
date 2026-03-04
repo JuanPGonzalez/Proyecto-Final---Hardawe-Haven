@@ -3,36 +3,29 @@ header {
   position: sticky;
   top: 0;
   z-index: 1000;
-  backdrop-filter: var(--glass-blur);
-  background: rgba(15, 23, 42, 0.8);
+  background: #ffffff;
   border-bottom: 1px solid var(--glass-border);
 }
 
 .title_home {
   height: 40px;
   width: auto;
-  filter: drop-shadow(0 0 8px rgba(96, 165, 250, 0.5));
 }
 
 .title-inventario {
-  font-weight: 700;
-  background: var(--text-gradient);
-  -webkit-background-clip: text;
-  background-clip: text;
-  color: transparent;
+  font-weight: 600;
+  color: var(--text-color);
   width: fit-content;
   margin: 0 auto;
 }
 
 .mov-mobile {
-  background: var(--glass-bg);
-  backdrop-filter: var(--glass-blur);
+  background: var(--card-bg);
   border: 1px solid var(--glass-border);
   width: 100%;
   max-width: 1200px;
-  /* Wider for table */
   color: var(--text-color);
-  border-radius: 16px;
+  border-radius: 8px;
   box-shadow: var(--glass-shadow);
   padding: 1.5rem;
   margin: 1rem auto;
@@ -43,6 +36,5 @@ header {
     width: 95%;
     padding: 1rem;
     overflow-x: hidden;
-    /* Manage overflow in child table container */
   }
 }

@@ -43,9 +43,7 @@
                 type="checkbox"
                 id="recordarContraseña"
               />
-              <label
-                class="form-check-label small text-light"
-                for="recordarContraseña"
+              <label class="form-check-label small" for="recordarContraseña"
                 >Recordar</label
               >
             </div>
@@ -98,7 +96,7 @@
         <!-- Sidebar Filters (Left) -->
         <aside class="col-lg-3 mb-4 mb-lg-0">
           <div class="glass-card p-4">
-            <h4 class="mb-3 text-white">Filtros</h4>
+            <h4 class="mb-3">Filtros</h4>
 
             <div class="mb-3">
               <label class="form-label text-muted small">Categorías</label>
@@ -136,9 +134,7 @@
         <div class="col-lg-9">
           <!-- Featured Carousel -->
           <div class="mb-5" *ngIf="products.length > 0">
-            <h3
-              class="mb-4 ps-3 border-start border-4 border-primary text-white"
-            >
+            <h3 class="mb-4 ps-3 border-start border-4 border-primary">
               Destacados
             </h3>
             <div
@@ -203,9 +199,7 @@
 
           <!-- All Products Grid -->
           <div>
-            <h3
-              class="mb-4 ps-3 border-start border-4 border-primary text-white"
-            >
+            <h3 class="mb-4 ps-3 border-start border-4 border-primary">
               Catálogo Completo
             </h3>
             <div *ngIf="products.length > 0; else noProducts" class="row g-4">
@@ -218,7 +212,7 @@
             </div>
             <ng-template #noProducts>
               <div class="text-center py-5">
-                <h4 class="text-white">No se encontraron productos</h4>
+                <h4>No se encontraron productos</h4>
               </div>
             </ng-template>
           </div>

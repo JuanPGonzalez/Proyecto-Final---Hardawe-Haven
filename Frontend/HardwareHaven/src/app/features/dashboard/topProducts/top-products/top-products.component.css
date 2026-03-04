@@ -1,54 +1,61 @@
-.top-products-board{
-
-    margin: 7px;
-    width: 98% ;
-    height: 390px;
-    border: 1px solid rgb(189, 188, 188);
-    border-radius: 10px;
-    color: black;
-    position: relative;
-
+.top-products-board {
+  margin: 7px;
+  width: 98%;
+  height: 390px;
+  border: 1px solid var(--glass-border);
+  border-radius: 8px;
+  background: var(--card-bg);
+  box-shadow: var(--glass-shadow);
+  color: var(--text-color);
+  position: relative;
 }
 
-.title-barchart{
-  color: black;
-  font-weight: 700;
+.title-barchart {
+  color: var(--text-color);
+  font-weight: 600;
   font-size: 24px;
 }
 
-
 .table-custom-container {
   margin: 20px;
-  overflow-x: auto; /* Permite desplazamiento horizontal */
-  overflow-y: auto; /* Permite desplazamiento vertical si es necesario */
-  max-height: 400px; /* Ajusta la altura máxima antes de que aparezca el scroll vertical */
-  padding: 10px; /* Espaciado opcional alrededor */
+  overflow-x: auto;
+  overflow-y: auto;
+  max-height: 400px;
+  padding: 10px;
 }
 
 table {
-
   width: 100%;
   border-collapse: collapse;
 }
-th, td {
+
+th,
+td {
   padding: 10px;
   text-align: left;
 }
+
 th {
-  color: gray;
+  color: #666666;
   font-size: 14px;
-  background-color: #f4f4f4;
+  background-color: #f5f5f5;
+  border-bottom: 2px solid #e0e0e0;
 }
+
 tr {
-  border-bottom: 1px solid #bbb;
+  border-bottom: 1px solid #eeeeee;
+}
+
+tr:hover {
+  background-color: #f9f9f9;
 }
 
 .up {
-  color: green;
-  font-weight: bold;
+  color: var(--secondary-color);
+  font-weight: 600;
 }
 
 .down {
-  color: red;
-  font-weight: bold;
+  color: #d32f2f;
+  font-weight: 600;
 }
