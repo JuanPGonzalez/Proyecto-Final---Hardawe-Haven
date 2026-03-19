@@ -1,17 +1,26 @@
 /* Global Styles */
 @import "bootstrap/dist/css/bootstrap.min.css";
-@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700&family=Inter:wght@400;500;600&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700;800&family=Inter:wght@300;400;500;600;700&display=swap');
 
 :root {
+<<<<<<< Updated upstream
   /* Colors */
   --primary-color: #6366f1;
   /* Indigo 500 */
   --primary-hover: #4f46e5;
   --secondary-color: #8b5cf6;
   /* Violet 500 */
+=======
+  /* MercadoLibre Colors (Modernized) */
+  --primary-color: #3483fa;
+  --primary-hover: #2968c8;
+  --secondary-color: #00a650;
+  --secondary-hover: #008a42;
+>>>>>>> Stashed changes
   --accent-color: #06b6d4;
   /* Cyan 500 */
 
+<<<<<<< Updated upstream
   --bg-gradient-start: #0f172a;
   /* Slate 900 */
   --bg-gradient-end: #1e1b4b;
@@ -36,10 +45,54 @@
 
 body {
   background: linear-gradient(135deg, var(--bg-gradient-start) 0%, var(--bg-gradient-end) 100%);
+=======
+  /* Animated Mesh Gradient Background */
+  --bg-gradient-1: #f3f4f6;
+  --bg-gradient-2: #e5e7eb;
+  --bg-gradient-3: #dbeafe;
+
+  --text-color: #1f2937;
+  --text-muted: #6b7280;
+
+  /* True Glassmorphism */
+  --card-bg: rgba(255, 255, 255, 0.75);
+  --glass-bg: rgba(255, 255, 255, 0.65);
+  --glass-border: rgba(255, 255, 255, 0.5);
+  --glass-shadow: 0 8px 32px 0 rgba(31, 38, 135, 0.07);
+  --glass-blur: blur(16px);
+
+  /* Additional variables for subtle borders */
+  --border-light: rgba(0, 0, 0, 0.05);
+
+  /* Gradients */
+  --primary-gradient: linear-gradient(135deg, var(--primary-color), var(--primary-hover));
+}
+
+@keyframes gradientBg {
+  0% {
+    background-position: 0% 50%;
+  }
+
+  50% {
+    background-position: 100% 50%;
+  }
+
+  100% {
+    background-position: 0% 50%;
+  }
+}
+
+body {
+  background: linear-gradient(-45deg, var(--bg-gradient-1), var(--bg-gradient-2), var(--bg-gradient-3), #ffffff);
+  background-size: 400% 400%;
+  animation: gradientBg 15s ease infinite;
+>>>>>>> Stashed changes
   color: var(--text-color);
-  font-family: 'Inter', sans-serif;
+  font-family: 'Inter', -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
   min-height: 100vh;
   margin: 0;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
 }
 
 h1,
@@ -49,6 +102,12 @@ h4,
 h5,
 h6 {
   font-family: 'Montserrat', sans-serif;
+<<<<<<< Updated upstream
+=======
+  font-weight: 700;
+  letter-spacing: -0.02em;
+  color: #111827;
+>>>>>>> Stashed changes
 }
 
 /* Scrollbar */
@@ -57,16 +116,28 @@ h6 {
 }
 
 ::-webkit-scrollbar-track {
+<<<<<<< Updated upstream
   background: var(--bg-gradient-start);
 }
 
 ::-webkit-scrollbar-thumb {
   background: rgba(255, 255, 255, 0.2);
+=======
+  background: transparent;
+}
+
+::-webkit-scrollbar-thumb {
+  background: rgba(0, 0, 0, 0.2);
+>>>>>>> Stashed changes
   border-radius: 4px;
 }
 
 ::-webkit-scrollbar-thumb:hover {
+<<<<<<< Updated upstream
   background: rgba(255, 255, 255, 0.3);
+=======
+  background: rgba(0, 0, 0, 0.3);
+>>>>>>> Stashed changes
 }
 
 /* Toastify Customization */
@@ -118,17 +189,38 @@ div:where(.swal2-container) .form-select:focus {
 
 /* Custom Utilities */
 .glass-card {
+<<<<<<< Updated upstream
   background: var(--glass-bg);
+=======
+  background: var(--card-bg);
+>>>>>>> Stashed changes
   backdrop-filter: var(--glass-blur);
   -webkit-backdrop-filter: var(--glass-blur);
   border: 1px solid var(--glass-border);
   box-shadow: var(--glass-shadow);
+<<<<<<< Updated upstream
   border-radius: 16px;
 }
 
 .text-gradient {
   background: var(--text-gradient);
   -webkit-background-clip: text;
+=======
+  border-radius: 12px;
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.glass-card:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 12px 40px 0 rgba(31, 38, 135, 0.1);
+  border-color: rgba(255, 255, 255, 0.7);
+}
+
+.text-gradient {
+  background: var(--primary-gradient);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+>>>>>>> Stashed changes
   background-clip: text;
   color: transparent;
 }
@@ -137,26 +229,58 @@ div:where(.swal2-container) .form-select:focus {
   background: var(--primary-gradient);
   color: white;
   border: none;
+<<<<<<< Updated upstream
   transition: all 0.3s ease;
 }
 
 .btn-primary-gradient:hover {
   transform: translateY(-1px);
   box-shadow: 0 4px 12px rgba(99, 102, 241, 0.3);
+=======
+  border-radius: 8px;
+  font-weight: 600;
+  padding: 0.75rem 1.5rem;
+  box-shadow: 0 4px 15px rgba(52, 131, 250, 0.3);
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.btn-primary-gradient:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 8px 25px rgba(52, 131, 250, 0.4);
+>>>>>>> Stashed changes
   color: white;
+  background: linear-gradient(135deg, var(--primary-hover), var(--primary-color));
+}
+
+.btn-primary-gradient:active {
+  transform: translateY(0);
 }
 
 .form-control-dark {
+<<<<<<< Updated upstream
   background: rgba(255, 255, 255, 0.05);
   border: 1px solid rgba(255, 255, 255, 0.1);
   color: var(--text-color);
+=======
+  background: rgba(255, 255, 255, 0.8);
+  border: 1px solid var(--border-light);
+  color: var(--text-color);
+  border-radius: 8px;
+  transition: all 0.3s ease;
+  backdrop-filter: blur(4px);
+>>>>>>> Stashed changes
 }
 
 .form-control-dark:focus {
   background: rgba(255, 255, 255, 0.1);
   border-color: var(--primary-color);
   color: var(--text-color);
+<<<<<<< Updated upstream
   box-shadow: 0 0 0 0.25rem rgba(99, 102, 241, 0.25);
+=======
+  box-shadow: 0 0 0 4px rgba(52, 131, 250, 0.15);
+  transform: translateY(-1px);
+>>>>>>> Stashed changes
 }
 
 .form-control-dark::placeholder {

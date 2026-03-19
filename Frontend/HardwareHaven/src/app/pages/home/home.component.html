@@ -1,6 +1,7 @@
 <div>
-  <header>
-    <nav class="navbar navbar-expand-lg">
+  <!-- Floating Glass Navbar -->
+  <header class="floating-header">
+    <nav class="navbar navbar-expand-lg glass-card px-4 py-2">
       <div class="container-fluid">
         <a class="navbar-brand" href="#">
           <img
@@ -10,9 +11,11 @@
           />
         </a>
 
-        <div class="d-flex flex-column flex-sm-row form-login">
+        <div
+          class="d-flex flex-column flex-sm-row form-login align-items-center gap-3"
+        >
           <input
-            class="form-control"
+            class="form-control form-control-dark"
             type="text"
             placeholder="Usuario"
             [(ngModel)]="username"
@@ -20,7 +23,7 @@
             tabindex="1"
           />
           <input
-            class="form-control"
+            class="form-control form-control-dark"
             type="password"
             placeholder="Contraseña"
             [(ngModel)]="password"
@@ -28,15 +31,15 @@
             tabindex="2"
           />
 
-          <button class="btn-login" (click)="login()" tabindex="3">
+          <button class="btn-primary-gradient" (click)="login()" tabindex="3">
             Ingresar
           </button>
 
-          <div class="d-flex flex-column align-items-start">
-            <button class="link-button" (click)="registerUser()">
+          <div class="d-flex flex-column align-items-start ms-2">
+            <button class="link-button fw-medium" (click)="registerUser()">
               Registrarse
             </button>
-            <div class="form-check">
+            <div class="form-check mt-1">
               <input
                 [(ngModel)]="rememberKey"
                 class="form-check-input"
@@ -44,7 +47,11 @@
                 id="recordarContraseña"
               />
               <label
+<<<<<<< Updated upstream
                 class="form-check-label small text-light"
+=======
+                class="form-check-label small text-muted"
+>>>>>>> Stashed changes
                 for="recordarContraseña"
                 >Recordar</label
               >
@@ -78,16 +85,16 @@
         </div>
       </div>
 
-      <div class="hero-content" *ngIf="showWelcomeMessage">
-        <h1>Bienvenido a Hardware Haven</h1>
-        <p>
+      <div class="hero-content glass-card" *ngIf="showWelcomeMessage">
+        <h1 class="text-gradient">Hardware Haven</h1>
+        <p class="text-secondary fw-medium">
           Tu destino definitivo para el mejor hardware y periféricos gaming.
         </p>
         <a
           href="javascript:void(0)"
-          class="cta-button"
+          class="btn-primary-gradient d-inline-block mt-3"
           (click)="hideWelcomeMessage()"
-          >Comenzar Ahora</a
+          >Explorar Catálogo</a
         >
       </div>
     </section>
