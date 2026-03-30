@@ -8,6 +8,7 @@ import precioRouter from "../routers/precioRouter.js";
 import lineaCompraRouter from "../routers/lineCompraRouter.js";
 import compraRouter from "../routers/compraRouter.js";
 import compRouter from "../routers/componenteRouter.js";
+import aiRouter from "../routers/aiRouter.js";
 import cors from 'cors';
 
 const HarwareHavenexpressApp = express();
@@ -31,6 +32,7 @@ HarwareHavenexpressApp.use('/api/lineaCompra', lineaCompraRouter);
 HarwareHavenexpressApp.use('/api/precio', precioRouter);
 HarwareHavenexpressApp.use('/api/categoria', categoriaRouter);
 HarwareHavenexpressApp.use('/api/componente', compRouter);
+HarwareHavenexpressApp.use('/api/ai', aiRouter);
 
 //Routers del Servidor-------------------------------
 HarwareHavenexpressApp.get('/health', (req, res) => { res.status(200).json({ status: 'OK' });});

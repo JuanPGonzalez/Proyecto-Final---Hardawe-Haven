@@ -4,14 +4,8 @@
 :host {
   display: block;
   min-height: 100vh;
-<<<<<<< Updated upstream
-  background: var(--bg-gradient);
-  font-family: 'Montserrat', sans-serif;
-=======
-  /* Background relies on global styles now */
   font-family: 'Inter', sans-serif;
->>>>>>> Stashed changes
-  color: var(--text-color);
+  color: var(--text-main);
 }
 
 /* Floating Navbar */
@@ -19,79 +13,28 @@
   position: sticky;
   top: 1rem;
   z-index: 1000;
-<<<<<<< Updated upstream
-  backdrop-filter: var(--glass-blur);
-  background: rgba(15, 23, 42, 0.8);
-  border-bottom: 1px solid var(--glass-border);
-=======
   padding: 0 1rem;
   margin-bottom: -5rem;
-  /* Let hero show underneath */
->>>>>>> Stashed changes
 }
 
 .navbar.glass-card {
-  /* Override global radius for navbar specifically */
   border-radius: 16px;
 }
 
 .title_home {
   height: 48px;
   width: auto;
-<<<<<<< Updated upstream
-  filter: drop-shadow(0 0 8px rgba(96, 165, 250, 0.5));
-=======
   transition: transform 0.3s ease;
 }
 
 .title_home:hover {
   transform: scale(1.05);
->>>>>>> Stashed changes
 }
 
 .form-login {
   display: flex;
   align-items: center;
-<<<<<<< Updated upstream
   gap: 1rem;
-}
-
-.form-control {
-  background: var(--glass-bg);
-  border: 1px solid var(--glass-border);
-  color: var(--text-color);
-  border-radius: 8px;
-  padding: 0.5rem 1rem;
-  transition: all 0.3s ease;
-}
-
-.form-control:focus {
-  background: rgba(255, 255, 255, 0.1);
-  border-color: var(--primary-color);
-  box-shadow: var(--glass-shadow);
-  outline: none;
-}
-
-.form-control::placeholder {
-  color: var(--text-muted);
-}
-
-.btn-login {
-  background: var(--primary-gradient);
-  color: white;
-  border: none;
-  padding: 0.5rem 1.5rem;
-  border-radius: 8px;
-  font-weight: 600;
-  cursor: pointer;
-  transition: all 0.3s ease;
-}
-
-.btn-login:hover {
-  transform: translateY(-1px);
-  box-shadow: 0 4px 12px rgba(99, 102, 241, 0.4);
-=======
->>>>>>> Stashed changes
 }
 
 .link-button {
@@ -100,21 +43,13 @@
   color: var(--primary-color);
   font-size: 0.875rem;
   cursor: pointer;
-<<<<<<< Updated upstream
-  transition: color 0.3s;
-=======
   transition: all 0.2s;
->>>>>>> Stashed changes
   padding: 0;
   text-decoration: none;
 }
 
 .link-button:hover {
-<<<<<<< Updated upstream
-  color: var(--accent-color);
-=======
   color: var(--primary-hover);
->>>>>>> Stashed changes
   text-decoration: underline;
 }
 
@@ -128,7 +63,6 @@
   justify-content: center;
 }
 
-/* Carousel images need to cover the entire background smoothly */
 #heroCarousel {
   position: absolute;
   top: 0;
@@ -146,83 +80,37 @@
   object-fit: cover;
   height: 100%;
   width: 100%;
-<<<<<<< Updated upstream
-  filter: brightness(0.6);
-=======
   filter: brightness(0.65) saturate(1.2);
-  /* Darken slightly for contrast, boost color */
->>>>>>> Stashed changes
 }
 
 .hero-content {
   position: relative;
   z-index: 10;
   text-align: center;
-<<<<<<< Updated upstream
-  padding: 2rem;
-  background: rgba(15, 23, 42, 0.95);
-  backdrop-filter: blur(10px);
-  border-radius: 16px;
-  border: 1px solid var(--glass-border);
-  max-width: 90%;
-  width: 600px;
-  box-shadow: 0 0 50px rgba(0, 0, 0, 0.5);
-=======
   padding: 3rem;
   max-width: 90%;
   width: 650px;
-  /* Rest of glass card properties handled by .glass-card class in HTML */
->>>>>>> Stashed changes
 }
 
 .hero-content h1 {
   font-size: 3.5rem;
   font-weight: 800;
   margin-bottom: 1rem;
-<<<<<<< Updated upstream
-  background: var(--text-gradient);
-  -webkit-background-clip: text;
-  background-clip: text;
-  color: transparent;
-}
-
-.hero-content p {
-  font-size: 1.2rem;
-  color: var(--text-color);
-  margin-bottom: 2rem;
-}
-
-.cta-button {
-  display: inline-block;
-  background: #fff;
-  color: #0f172a;
-  padding: 1rem 2rem;
-  border-radius: 50px;
-  font-weight: 700;
-  text-decoration: none;
-  transition: all 0.3s ease;
-}
-
-.cta-button:hover {
-  transform: scale(1.05);
-  box-shadow: 0 0 20px rgba(255, 255, 255, 0.3);
-}
-
-=======
+  color: white !important;
 }
 
 .hero-content p {
   font-size: 1.25rem;
   margin-bottom: 2rem;
+  color: rgba(255, 255, 255, 0.9) !important;
 }
 
->>>>>>> Stashed changes
 /* Footer */
 footer {
-  background: #0f172a;
+  background: transparent;
   padding: 2rem;
   text-align: center;
-  border-top: 1px solid var(--glass-border);
+  border-top: 1px solid var(--border-light);
   color: var(--text-muted);
 }
 
@@ -238,20 +126,11 @@ footer {
     margin-top: 1rem;
   }
 
-  .form-control {
-    width: 100%;
-  }
-
-  .btn-login {
-    width: 100%;
-  }
-
   .hero-content h1 {
     font-size: 2rem;
   }
 }
 
-/* Dropdown visual fixes */
 select option {
   color: black;
   background: white;

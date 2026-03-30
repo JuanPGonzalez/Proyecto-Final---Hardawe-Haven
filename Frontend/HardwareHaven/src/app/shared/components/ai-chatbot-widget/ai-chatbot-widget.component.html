@@ -1,0 +1,17 @@
+<div class="chatbot-container" [class.open]="isOpen()">
+  <div class="chatbot-header" (click)="toggleChat()">
+    <span>Hardware Heaven AI</span>
+    <button (click)="$event.stopPropagation(); toggleChat()">{{ isOpen() ? '❌' : '💬' }}</button>
+  </div>
+  <div class="chatbot-body" *ngIf="isOpen()">
+    <div class="messages">
+      <div *ngFor="let msg of messages()" [ngClass]="msg.sender">
+        {{ msg.text }}
+      </div>
+    </div>
+    <div class="chatbot-input">
+      <input type="text" [(ngModel)]="userInput" (keyup.enter)="sendMessage()" placeholder="Escribe aquí..."/>
+      <button (click)="sendMessage()">Enviar</button>
+    </div>
+  </div>
+</div>

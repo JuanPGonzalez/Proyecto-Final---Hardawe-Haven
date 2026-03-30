@@ -9,7 +9,7 @@
     "build": "tsc -p ./tsconfig.json",
     "start:dev": "tsc-watch --noClear -p ./tsconfig.json --onSuccess \"node ./dist/App.js\"",
     "start": "pnpm run build && node ./dist/App.js",
-    "start:host":"node ./dist/App.js"
+    "start:host": "node ./dist/App.js"
   },
   "keywords": [],
   "author": "",
@@ -19,6 +19,7 @@
     "@mikro-orm/mysql": "^6.2.0",
     "@mikro-orm/sql-highlighter": "1.0.1",
     "@sinclair/typebox": "^0.33.15",
+    "@types/mongoose": "^5.11.97",
     "@types/nodemailer": "^6.4.15",
     "@types/pdfkit": "^0.13.4",
     "ajv": "^8.17.1",
@@ -30,6 +31,7 @@
     "express": "^4.19.2",
     "jose": "^5.9.2",
     "jsonwebtoken": "^9.0.2",
+    "mongoose": "^9.3.1",
     "nodemailer": "^6.9.14",
     "pdfkit": "^0.15.0",
     "reflect-metadata": "0.2.2",

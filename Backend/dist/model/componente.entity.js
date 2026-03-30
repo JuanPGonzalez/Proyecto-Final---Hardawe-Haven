@@ -12,13 +12,15 @@ import { BaseEntity } from '../shared/db/baseEntity.entity.js';
 import { Categoria } from './categoria.entity.js';
 import { Precio } from './precio.entity.js';
 let Componente = class Componente extends BaseEntity {
-    constructor(name, description, categoria, imgURL) {
+    constructor(name, description, categoria, imgURL, precio_base = 0, stock = 0) {
         super();
         this.precios = new Collection(this);
         this.name = name;
         this.description = description;
         this.categoria = categoria;
         this.imgURL = imgURL;
+        this.precio_base = precio_base;
+        this.stock = stock;
     }
 };
 __decorate([
@@ -34,6 +36,14 @@ __decorate([
     __metadata("design:type", String)
 ], Componente.prototype, "imgURL", void 0);
 __decorate([
+    Property({ type: 'numeric', nullable: false, default: 0 }),
+    __metadata("design:type", Number)
+], Componente.prototype, "precio_base", void 0);
+__decorate([
+    Property({ type: 'integer', nullable: false, default: 0 }),
+    __metadata("design:type", Number)
+], Componente.prototype, "stock", void 0);
+__decorate([
     ManyToOne(() => Categoria, { nullable: false }),
     __metadata("design:type", Object)
 ], Componente.prototype, "categoria", void 0);
@@ -43,7 +53,7 @@ __decorate([
 ], Componente.prototype, "precios", void 0);
 Componente = __decorate([
     Entity(),
-    __metadata("design:paramtypes", [String, String, Object, String])
+    __metadata("design:paramtypes", [String, String, Object, String, Number, Number])
 ], Componente);
 export { Componente };
 //# sourceMappingURL=componente.entity.js.map

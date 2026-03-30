@@ -1,0 +1,26 @@
+<div class="dashboard-wrapper">
+  <h2>Administración de IA - Dashboard</h2>
+  <div class="kpis" *ngIf="stats()">
+    <div class="kpi-card">
+      <h4>Ingresos Proyectados</h4>
+      <p>${{ stats().kpis.ingresos }}</p>
+    </div>
+    <div class="kpi-card">
+      <h4>Tasa de Conversión</h4>
+      <p>{{ stats().kpis.conversion }}%</p>
+    </div>
+    <div class="kpi-card">
+      <h4>Tickets Escalados</h4>
+      <p>{{ stats().kpis.tickets_chatbot_escalados }}</p>
+    </div>
+  </div>
+
+  <div class="top-products" *ngIf="stats()">
+    <h3>Top Componentes Recomendados</h3>
+    <ul>
+      <li *ngFor="let prod of stats().top_productos">
+        {{ prod.nombre }} - {{ prod.ventas }} ventas
+      </li>
+    </ul>
+  </div>
+</div>

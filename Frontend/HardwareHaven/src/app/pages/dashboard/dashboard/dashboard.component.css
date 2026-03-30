@@ -1,7 +1,7 @@
 /* dashboard.component.css */
 .head-dashboard {
   height: 70px;
-  background: rgba(15, 23, 42, 0.95);
+  background: transparent;
   border-bottom: 1px solid var(--glass-border);
   position: sticky;
   top: 0;
@@ -45,7 +45,7 @@
 
 .sidebar {
   width: 250px;
-  background: rgba(15, 23, 42, 0.9);
+  background: transparent;
   border-right: 1px solid var(--glass-border);
   display: flex;
   flex-direction: column;

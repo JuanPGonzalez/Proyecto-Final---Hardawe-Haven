@@ -1,0 +1,10 @@
+<div class="carousel-container">
+  <h3>{{ tipo === 'recomendados' ? 'Recomendados para ti' : 'También compraron' }}</h3>
+  <div class="carousel-track">
+    <div class="product-card" *ngFor="let p of productos()">
+      <div class="product-placeholder">
+        Producto {{ p }}
+      </div>
+    </div>
+  </div>
+</div>
