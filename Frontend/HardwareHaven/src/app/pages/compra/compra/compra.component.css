@@ -73,3 +73,16 @@ header {
 .text-muted {
   color: var(--text-muted) !important;
 }
+
+.recomenations-custom-container{
+ background: var(--card-bg);
+  border: 1px solid var(--glass-border);
+  width: 20%;
+  max-width: 900px;
+  color: var(--text-color);
+  border-radius: 8px;
+  box-shadow: var(--glass-shadow);
+  padding: 2rem;
+  margin: 0 auto;
+  z-index: 100;
+}
